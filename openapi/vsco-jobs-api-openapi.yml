@@ -1,0 +1,1159 @@
+openapi: 3.0.0
+info:
+  title: VSCO Workspace Brands Jobs API
+  termsOfService: https://terms-of-service.vsco.page/
+  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  contact:
+    name: VSCO Workspace Support
+    url: https://help.workspace.vsco.co/
+    email: workspace-support@vsco.co
+  version: v2.0.0
+  x-logo:
+    url: https://workspace.vsco.co/static/Images/Public/Logo.Black.vsco.svg
+    altText: VSCO Workspace
+servers:
+- url: https://tave.io/v2
+  description: Legacy Táve API production environment
+- url: https://workspace.vsco.co/api/v2
+  description: Workspace API production environment
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Jobs
+paths:
+  /job:
+    get:
+      summary: List jobs of a studio
+      operationId: listResourceJob
+      x-entity: Job
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/includeClosed'
+      - $ref: '#/components/parameters/externalMappingId'
+      - name: sortBy
+        in: query
+        description: Sort items in the collection by the given property.
+        schema:
+          title: Sort objects by properties
+          type: string
+          anyOf:
+          - title: id
+            enum:
+            - id
+            - id asc
+            - id desc
+          - title: modified
+            enum:
+            - modified
+            - modified asc
+            - modified desc
+          - title: created
+            enum:
+            - created
+            - created asc
+            - created desc
+          - title: name
+            enum:
+            - name
+            - name asc
+            - name desc
+          - title: accountBalance
+            enum:
+            - accountBalance
+            - accountBalance asc
+            - accountBalance desc
+          - title: bookingDate
+            enum:
+            - bookingDate
+            - bookingDate asc
+            - bookingDate desc
+          - title: closed
+            enum:
+            - closed
+            - closed asc
+            - closed desc
+          - title: closedDate
+            enum:
+            - closedDate
+            - closedDate asc
+            - closedDate desc
+          - title: completedDate
+            enum:
+            - completedDate
+            - completedDate asc
+            - completedDate desc
+          - title: creditBalance
+            enum:
+            - creditBalance
+            - creditBalance asc
+            - creditBalance desc
+          - title: customNumber
+            enum:
+            - customNumber
+            - customNumber asc
+            - customNumber desc
+          - title: eventDate
+            enum:
+            - eventDate
+            - eventDate asc
+            - eventDate desc
+          - title: fulfillmentDate
+            enum:
+            - fulfillmentDate
+            - fulfillmentDate asc
+            - fulfillmentDate desc
+          - title: guestCount
+            enum:
+            - guestCount
+            - guestCount asc
+            - guestCount desc
+          - title: inquiryDate
+            enum:
+            - inquiryDate
+            - inquiryDate asc
+            - inquiryDate desc
+          - title: lastClientActivity
+            enum:
+            - lastClientActivity
+            - lastClientActivity asc
+            - lastClientActivity desc
+          - title: leadConfidence
+            enum:
+            - leadConfidence
+            - leadConfidence asc
+            - leadConfidence desc
+          - title: leadDecisionExpectedByDate
+            enum:
+            - leadDecisionExpectedByDate
+            - leadDecisionExpectedByDate asc
+            - leadDecisionExpectedByDate desc
+          - title: leadMaxBudget
+            enum:
+            - leadMaxBudget
+            - leadMaxBudget asc
+            - leadMaxBudget desc
+          - title: leadRating
+            enum:
+            - leadRating
+            - leadRating asc
+            - leadRating desc
+          - title: leadStatusChangedAt
+            enum:
+            - leadStatusChangedAt
+            - leadStatusChangedAt asc
+            - leadStatusChangedAt desc
+          - title: pinned
+            enum:
+            - pinned
+            - pinned asc
+            - pinned desc
+          - title: previousInteractionDate
+            enum:
+            - previousInteractionDate
+            - previousInteractionDate asc
+            - previousInteractionDate desc
+          - title: stage
+            enum:
+            - stage
+            - stage asc
+            - stage desc
+          - title: staleDate
+            enum:
+            - staleDate
+            - staleDate asc
+            - staleDate desc
+          - title: title
+            enum:
+            - title
+            - title asc
+            - title desc
+          - title: totalCost
+            enum:
+            - totalCost
+            - totalCost asc
+            - totalCost desc
+          - title: totalGratuity
+            enum:
+            - totalGratuity
+            - totalGratuity asc
+            - totalGratuity desc
+          - title: totalProfit
+            enum:
+            - totalProfit
+            - totalProfit asc
+            - totalProfit desc
+          - title: totalRevenue
+            enum:
+            - totalRevenue
+            - totalRevenue asc
+            - totalRevenue desc
+          - title: webLead
+            enum:
+            - webLead
+            - webLead asc
+            - webLead desc
+          default: id
+      responses:
+        '200':
+          description: Job list response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobCollection'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    post:
+      summary: Create a job.
+      operationId: createResourceJob
+      tags:
+      - Jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        '201':
+          description: Job creation response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /job/{id}:
+    get:
+      summary: Get a specific job
+      operationId: getResourceJob
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '200':
+          description: Fetch a specific Job entity.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    put:
+      summary: Update a specific job.
+      operationId: updateResourceJob
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        '200':
+          description: Job response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    delete:
+      summary: Delete a job.
+      operationId: deleteResourceJob
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '204':
+          $ref: '#/components/responses/deleteSuccess'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /job/{jobId}/quote:
+    post:
+      summary: Create a quote on a given job
+      operationId: createResourceJobQuote
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/jobIdInPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quote'
+      responses:
+        '201':
+          description: Quote creation response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+components:
+  schemas:
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    OrderItem:
+      title: Order Item
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        orderId:
+          $ref: '#/components/schemas/Id'
+        productId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          nullable: true
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        descriptionHtml:
+          type: string
+          maxLength: 16777215
+          nullable: true
+        baseConfiguration:
+          type: array
+          nullable: true
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        configuration:
+          type: array
+          nullable: true
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        basePricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        pricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        baseCostPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        costPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        units:
+          type: number
+          format: float
+        taxable:
+          type: boolean
+        discount:
+          type: boolean
+        discountKind:
+          type: string
+          enum:
+          - amount
+          - percent
+          default: amount
+        selectability:
+          type: string
+          enum:
+          - required
+          - suggested
+          - optional
+          default: required
+        selected:
+          type: boolean
+        children:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
+    CustomFieldValue:
+      title: Custom Field Value
+      type: object
+      required:
+      - fieldId
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        fieldId:
+          title: Entity Identifier
+          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+          type: string
+          format: ulid
+          example: 01h35ccwymj5ctckp8px1azhg6
+        value:
+          type: string
+          nullable: true
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type: string
+      format: date
+      nullable: true
+      example: '2020-04-10'
+    ProductConfiguration:
+      title: Product Configuration
+      type: object
+      required:
+      - name
+      - affectsPrice
+      - kind
+      - value
+      properties:
+        id:
+          allOf:
+          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
+          - $ref: '#/components/schemas/NullableId'
+        name:
+          type: string
+        affectsPrice:
+          type: boolean
+        kind:
+          type: string
+          enum:
+          - AddOn
+          - Option
+        value:
+          type: string
+        unitCost:
+          allOf:
+          - nullable: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        unitPrice:
+          allOf:
+          - nullable: true
+          - $ref: '#/components/schemas/MoneyAmount'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    PositiveMoneyAmount:
+      title: Positive numeric representing an amount in the studio's currency
+      type: integer
+      minimum: 0
+      maximum: 99999999999
+    Quote:
+      title: Quote
+      description: A job quote (pre-booking). POST creates the quote and its priced option invoices.
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        jobId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        kind:
+          type: string
+          enum:
+          - simple
+          - advanced
+          default: simple
+        name:
+          type: string
+          nullable: true
+        introduction:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum:
+          - open
+          - booked
+          - closed
+          readOnly: true
+        expiration:
+          type: object
+          nullable: true
+          properties:
+            date:
+              $ref: '#/components/schemas/NullableDate'
+            period:
+              type: integer
+              minimum: 0
+            periodType:
+              type: string
+              enum:
+              - days
+              - weeks
+              - months
+        recipients:
+          description: Required when the job has no client contacts.
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteRecipient'
+        options:
+          description: Priced line-item collections. Simple quotes must have exactly one option.
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteOption'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type: string
+      format: ulid
+      nullable: true
+      example: 01fqcr215r79p3h19crqbpzwzh
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    OrderConfiguration:
+      title: Order Configuration
+      type: object
+      properties:
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        preTaxDiscount:
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            fixedAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentageAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentage:
+              nullable: true
+              type: integer
+              minimum: 0
+              maximum: 100
+              multipleOf: 0.001
+        afterTaxDiscount:
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            fixedAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentageAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentage:
+              type: integer
+              minimum: 0
+              maximum: 100
+              multipleOf: 0.001
+        taxGroupId:
+          $ref: '#/components/schemas/NullableId'
+        tax1:
+          title: Tax Line
+          description: These values are computed when a taxGroupId is set on the order
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            taxRateId:
+              $ref: '#/components/schemas/NullableId'
+            isInclusive:
+              type: boolean
+              default: false
+            name:
+              type: string
+            rate:
+              type: number
+              minimum: 0
+              maximum: 1
+              multipleOf: 0.0001
+            amount:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+        tax2:
+          $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        tax3:
+          $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        taxCombined:
+          allOf:
+          - title: Combined Tax Line
+            description: This is a summary of all tax lines if the tax is configured to combine separate tax lines into a single line on orders and invoices
+          - $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        taxIsCompounding:
+          type: boolean
+          description: Rarely, certain taxes are compounded one after the other, aka "tax the tax"
+          readOnly: true
+          default: false
+        subtotal:
+          type: object
+          readOnly: true
+          properties:
+            amount:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+            taxable:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+            nonTaxable:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+        total:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/PositiveMoneyAmount'
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Job:
+      title: Job
+      description: https://help.workspace.vsco.co/en/articles/639878-leads-jobs-and-job-stages
+      type: object
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        accountBalance:
+          allOf:
+          - readOnly: true
+            description: The account balance for this job.
+          - $ref: '#/components/schemas/MoneyAmount'
+        bookingDate:
+          $ref: '#/components/schemas/NullableDate'
+        brandId:
+          $ref: '#/components/schemas/NullableId'
+        closed:
+          description: 'Whether or not the lead or job is closed. A closed reason might be
+
+            provided as well.'
+          type: boolean
+          example: false
+        closedReasonId:
+          $ref: '#/components/schemas/NullableId'
+        closedDate:
+          $ref: '#/components/schemas/NullableDate'
+        closedReasonName:
+          type: string
+          nullable: true
+          readOnly: true
+        completedDate:
+          $ref: '#/components/schemas/NullableDate'
+        contactFormId:
+          $ref: '#/components/schemas/NullableId'
+        creditBalance:
+          allOf:
+          - readOnly: true
+            description: The credit amount associated with this job.
+          - $ref: '#/components/schemas/MoneyAmount'
+        customFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        customNumber:
+          type: string
+          maxLength: 32
+          deprecated: true
+          readOnly: true
+          nullable: true
+        eventDate:
+          $ref: '#/components/schemas/NullableDate'
+        externalMappings:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        fulfillmentDate:
+          $ref: '#/components/schemas/NullableDate'
+        guestCount:
+          type: integer
+          minimum: 0
+          maximum: 99999999999
+          nullable: true
+        inquiryDate:
+          $ref: '#/components/schemas/NullableDate'
+        jobTypeId:
+          $ref: '#/components/schemas/NullableId'
+        jobTypeName:
+          type: string
+          nullable: true
+          readOnly: true
+        lastClientActivity:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        leadConfidence:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - null
+          nullable: true
+        leadDecisionExpectedByDate:
+          $ref: '#/components/schemas/NullableDate'
+        leadMaxBudget:
+          title: Numeric representing an amount in the studio's currency
+          type: integer
+          minimum: -99999999999
+          maximum: 99999999999
+          nullable: true
+        leadNotes:
+          type: string
+          maxLength: 1000000000
+          nullable: true
+        leadRating:
+          type: integer
+          minimum: 1
+          maximum: 5
+          nullable: true
+        leadSourceId:
+          $ref: '#/components/schemas/NullableId'
+        leadSourceName:
+          type: string
+          nullable: true
+          readOnly: true
+        leadStatusId:
+          $ref: '#/components/schemas/NullableId'
+        leadStatusName:
+          type: string
+          nullable: true
+          readOnly: true
+        leadStatusChangedAt:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        name:
+          description: Name of the job that will override the title.
+          type: string
+          nullable: true
+        nextInteractionDate:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDate'
+        nextInteractionItem:
+          type: string
+          format: uri
+          nullable: true
+          readOnly: true
+        pinned:
+          $ref: '#/components/schemas/Pinned'
+        primarySessionId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableId'
+        previousInteractionDate:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDate'
+        previousInteractionItem:
+          type: string
+          format: uri
+          nullable: true
+          readOnly: true
+        sample:
+          description: Whether or not the lead or job is a sample job.
+          type: boolean
+          example: false
+          readOnly: true
+        stage:
+          description: Specifies the stage that the job is in.
+          type: string
+          enum:
+          - lead
+          - booked
+          - fulfillment
+          - completed
+          example: booked
+        staleDate:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDate'
+        title:
+          description: Generated title of the job
+          type: string
+          readOnly: true
+          nullable: true
+        totalCost:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        totalProfit:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        totalRevenue:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        webLead:
+          description: Whether or not the lead or job came from a contact form.
+          type: boolean
+          default: false
+          example: false
+        workflowId:
+          $ref: '#/components/schemas/NullableId'
+        workflowName:
+          type: string
+          nullable: true
+          readOnly: true
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    QuoteRecipient:
+      title: Quote Recipient
+      type: object
+      properties:
+        contactId:
+          allOf:
+          - writeOnly: true
+          - $ref: '#/components/schemas/Id'
+        clientUrl:
+          type: string
+          format: uri
+          readOnly: true
+        lastSent:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        lastViewed:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+    Pinned:
+      title: Whether or not the entity is favorited.
+      type: boolean
+      default: false
+      nullable: true
+    QuoteOption:
+      title: Quote Option
+      type: object
+      properties:
+        id:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        name:
+          type: string
+          nullable: true
+      allOf:
+      - $ref: '#/components/schemas/OrderConfiguration'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
+      type: string
+      format: date-time
+      nullable: true
+      example: '2020-06-17T13:06:22+00:00'
+    JobCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - job-collection
+          items:
+            title: Job
+            type: array
+            items:
+              $ref: '#/components/schemas/Job'
+      - $ref: '#/components/schemas/List'
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    includeClosed:
+      name: includeClosed
+      in: query
+      description: Include jobs that have been closed
+      schema:
+        type: boolean
+        default: false
+        example: false
+    jobIdInPath:
+      name: jobId
+      in: path
+      schema:
+        $ref: '#/components/schemas/Id'
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+x-tagGroups:
+- name: Jobs & Contacts
+  tags:
+  - Jobs
+  - Job Contacts
+  - Job Worksheets
+  - Contacts
+  - Events
+  - Files
+  - Galleries
+  - Notes
+  - Orders
+  - Payment
+- name: Studio Settings
+  tags:
+  - Studio
+  - Brands
+  - Custom Fields
+  - Discounts
+  - Discount Types
+  - Event Types
+  - File Types
+  - Job Closed Reasons
+  - Job Roles
+  - Job Types
+  - Lead Sources
+  - Lead Statuses
+  - Payment Methods
+  - Products
+  - Product Types
+  - Profit Centers
+  - Tax Groups
+  - Tax Rates
+  - Timezones
+  - Users
+- name: API Resources
+  tags:
+  - Rest Hooks

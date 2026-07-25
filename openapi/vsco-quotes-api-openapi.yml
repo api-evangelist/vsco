@@ -1,0 +1,628 @@
+openapi: 3.0.0
+info:
+  title: VSCO Workspace Brands Quotes API
+  termsOfService: https://terms-of-service.vsco.page/
+  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  contact:
+    name: VSCO Workspace Support
+    url: https://help.workspace.vsco.co/
+    email: workspace-support@vsco.co
+  version: v2.0.0
+  x-logo:
+    url: https://workspace.vsco.co/static/Images/Public/Logo.Black.vsco.svg
+    altText: VSCO Workspace
+servers:
+- url: https://tave.io/v2
+  description: Legacy Táve API production environment
+- url: https://workspace.vsco.co/api/v2
+  description: Workspace API production environment
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Quotes
+paths:
+  /quote:
+    get:
+      summary: Get a list of quotes
+      operationId: listResourceQuote
+      x-entity: Proposal
+      tags:
+      - Quotes
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - name: sortBy
+        in: query
+        description: Sort items in the collection by the given property.
+        schema:
+          title: Sort objects by properties
+          type: string
+          anyOf:
+          - title: id
+            enum:
+            - id
+            - id asc
+            - id desc
+          - title: modified
+            enum:
+            - modified
+            - modified asc
+            - modified desc
+          - title: created
+            enum:
+            - created
+            - created asc
+            - created desc
+          - title: name
+            enum:
+            - name
+            - name asc
+            - name desc
+          default: id
+      responses:
+        '200':
+          description: Quote list response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteCollection'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /quote/{id}:
+    get:
+      summary: Get a specific Quote
+      operationId: getResourceQuote
+      tags:
+      - Quotes
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '200':
+          description: Successfully retrieve a Quote
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+components:
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    OrderItem:
+      title: Order Item
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        orderId:
+          $ref: '#/components/schemas/Id'
+        productId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          nullable: true
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        descriptionHtml:
+          type: string
+          maxLength: 16777215
+          nullable: true
+        baseConfiguration:
+          type: array
+          nullable: true
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        configuration:
+          type: array
+          nullable: true
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        basePricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        pricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        baseCostPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        costPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        units:
+          type: number
+          format: float
+        taxable:
+          type: boolean
+        discount:
+          type: boolean
+        discountKind:
+          type: string
+          enum:
+          - amount
+          - percent
+          default: amount
+        selectability:
+          type: string
+          enum:
+          - required
+          - suggested
+          - optional
+          default: required
+        selected:
+          type: boolean
+        children:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
+    QuoteCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - quote-collection
+          items:
+            title: Quotes
+            type: array
+            items:
+              $ref: '#/components/schemas/Quote'
+      - $ref: '#/components/schemas/List'
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type: string
+      format: date
+      nullable: true
+      example: '2020-04-10'
+    ProductConfiguration:
+      title: Product Configuration
+      type: object
+      required:
+      - name
+      - affectsPrice
+      - kind
+      - value
+      properties:
+        id:
+          allOf:
+          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
+          - $ref: '#/components/schemas/NullableId'
+        name:
+          type: string
+        affectsPrice:
+          type: boolean
+        kind:
+          type: string
+          enum:
+          - AddOn
+          - Option
+        value:
+          type: string
+        unitCost:
+          allOf:
+          - nullable: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        unitPrice:
+          allOf:
+          - nullable: true
+          - $ref: '#/components/schemas/MoneyAmount'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    PositiveMoneyAmount:
+      title: Positive numeric representing an amount in the studio's currency
+      type: integer
+      minimum: 0
+      maximum: 99999999999
+    Quote:
+      title: Quote
+      description: A job quote (pre-booking). POST creates the quote and its priced option invoices.
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        jobId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        kind:
+          type: string
+          enum:
+          - simple
+          - advanced
+          default: simple
+        name:
+          type: string
+          nullable: true
+        introduction:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum:
+          - open
+          - booked
+          - closed
+          readOnly: true
+        expiration:
+          type: object
+          nullable: true
+          properties:
+            date:
+              $ref: '#/components/schemas/NullableDate'
+            period:
+              type: integer
+              minimum: 0
+            periodType:
+              type: string
+              enum:
+              - days
+              - weeks
+              - months
+        recipients:
+          description: Required when the job has no client contacts.
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteRecipient'
+        options:
+          description: Priced line-item collections. Simple quotes must have exactly one option.
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteOption'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type: string
+      format: ulid
+      nullable: true
+      example: 01fqcr215r79p3h19crqbpzwzh
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    OrderConfiguration:
+      title: Order Configuration
+      type: object
+      properties:
+        lineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        preTaxDiscount:
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            fixedAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentageAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentage:
+              nullable: true
+              type: integer
+              minimum: 0
+              maximum: 100
+              multipleOf: 0.001
+        afterTaxDiscount:
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            fixedAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentageAmount:
+              allOf:
+              - nullable: true
+              - $ref: '#/components/schemas/PositiveMoneyAmount'
+            percentage:
+              type: integer
+              minimum: 0
+              maximum: 100
+              multipleOf: 0.001
+        taxGroupId:
+          $ref: '#/components/schemas/NullableId'
+        tax1:
+          title: Tax Line
+          description: These values are computed when a taxGroupId is set on the order
+          type: object
+          readOnly: true
+          nullable: true
+          properties:
+            taxRateId:
+              $ref: '#/components/schemas/NullableId'
+            isInclusive:
+              type: boolean
+              default: false
+            name:
+              type: string
+            rate:
+              type: number
+              minimum: 0
+              maximum: 1
+              multipleOf: 0.0001
+            amount:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+        tax2:
+          $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        tax3:
+          $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        taxCombined:
+          allOf:
+          - title: Combined Tax Line
+            description: This is a summary of all tax lines if the tax is configured to combine separate tax lines into a single line on orders and invoices
+          - $ref: '#/components/schemas/OrderConfiguration/properties/tax1'
+        taxIsCompounding:
+          type: boolean
+          description: Rarely, certain taxes are compounded one after the other, aka "tax the tax"
+          readOnly: true
+          default: false
+        subtotal:
+          type: object
+          readOnly: true
+          properties:
+            amount:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+            taxable:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+            nonTaxable:
+              $ref: '#/components/schemas/PositiveMoneyAmount'
+        total:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/PositiveMoneyAmount'
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    QuoteRecipient:
+      title: Quote Recipient
+      type: object
+      properties:
+        contactId:
+          allOf:
+          - writeOnly: true
+          - $ref: '#/components/schemas/Id'
+        clientUrl:
+          type: string
+          format: uri
+          readOnly: true
+        lastSent:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        lastViewed:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+    QuoteOption:
+      title: Quote Option
+      type: object
+      properties:
+        id:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        name:
+          type: string
+          nullable: true
+      allOf:
+      - $ref: '#/components/schemas/OrderConfiguration'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
+      type: string
+      format: date-time
+      nullable: true
+      example: '2020-06-17T13:06:22+00:00'
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+x-tagGroups:
+- name: Jobs & Contacts
+  tags:
+  - Jobs
+  - Job Contacts
+  - Job Worksheets
+  - Contacts
+  - Events
+  - Files
+  - Galleries
+  - Notes
+  - Orders
+  - Payment
+- name: Studio Settings
+  tags:
+  - Studio
+  - Brands
+  - Custom Fields
+  - Discounts
+  - Discount Types
+  - Event Types
+  - File Types
+  - Job Closed Reasons
+  - Job Roles
+  - Job Types
+  - Lead Sources
+  - Lead Statuses
+  - Payment Methods
+  - Products
+  - Product Types
+  - Profit Centers
+  - Tax Groups
+  - Tax Rates
+  - Timezones
+  - Users
+- name: API Resources
+  tags:
+  - Rest Hooks

@@ -1,0 +1,308 @@
+openapi: 3.0.0
+info:
+  title: VSCO Workspace Brands Tax Rates API
+  termsOfService: https://terms-of-service.vsco.page/
+  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  contact:
+    name: VSCO Workspace Support
+    url: https://help.workspace.vsco.co/
+    email: workspace-support@vsco.co
+  version: v2.0.0
+  x-logo:
+    url: https://workspace.vsco.co/static/Images/Public/Logo.Black.vsco.svg
+    altText: VSCO Workspace
+servers:
+- url: https://tave.io/v2
+  description: Legacy Táve API production environment
+- url: https://workspace.vsco.co/api/v2
+  description: Workspace API production environment
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Tax Rates
+paths:
+  /tax-rate:
+    get:
+      summary: Get a list of Tax Rates.
+      operationId: listResourceTaxRates
+      x-entity: Tax
+      parameters:
+      - name: sortBy
+        in: query
+        description: Sort items in the collection by the given property.
+        schema:
+          title: Sort objects by properties
+          type: string
+          anyOf:
+          - title: id
+            enum:
+            - id
+            - id asc
+            - id desc
+          - title: modified
+            enum:
+            - modified
+            - modified asc
+            - modified desc
+          - title: created
+            enum:
+            - created
+            - created asc
+            - created desc
+          - title: name
+            enum:
+            - name
+            - name asc
+            - name desc
+          default: id
+      tags:
+      - Tax Rates
+      responses:
+        '200':
+          description: Fetch a list of Tax Rates.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRate'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    post:
+      summary: Create a Tax Rate
+      operationId: createResourceTaxRate
+      tags:
+      - Tax Rates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxRate'
+      responses:
+        '201':
+          description: Tax Rate creation response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRate'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /tax-rate/{id}:
+    get:
+      summary: Get a specific Tax Rate
+      operationId: getResourceTaxRate
+      tags:
+      - Tax Rates
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '200':
+          description: Fetch a specific Tax Rate
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRate'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    put:
+      summary: Update a specific Tax Rate
+      operationId: updateResourceTaxRate
+      tags:
+      - Tax Rates
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxRate'
+      responses:
+        '200':
+          description: Tax Rate response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRate'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    delete:
+      summary: Delete a Tax Rate.
+      operationId: deleteResourceTaxRate
+      tags:
+      - Tax Rates
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '204':
+          $ref: '#/components/responses/deleteSuccess'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+components:
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+  schemas:
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    TaxRate:
+      title: Tax Rate
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type: string
+          maxLength: 32
+          nullable: true
+        rate:
+          type: number
+          format: float
+          description: The floating point number representing the tax rate percentage. Has 4 points of decimal precision.
+          minimum: -999.9999
+          maximum: 999.9999
+        inclusive:
+          type: boolean
+          default: false
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+x-tagGroups:
+- name: Jobs & Contacts
+  tags:
+  - Jobs
+  - Job Contacts
+  - Job Worksheets
+  - Contacts
+  - Events
+  - Files
+  - Galleries
+  - Notes
+  - Orders
+  - Payment
+- name: Studio Settings
+  tags:
+  - Studio
+  - Brands
+  - Custom Fields
+  - Discounts
+  - Discount Types
+  - Event Types
+  - File Types
+  - Job Closed Reasons
+  - Job Roles
+  - Job Types
+  - Lead Sources
+  - Lead Statuses
+  - Payment Methods
+  - Products
+  - Product Types
+  - Profit Centers
+  - Tax Groups
+  - Tax Rates
+  - Timezones
+  - Users
+- name: API Resources
+  tags:
+  - Rest Hooks

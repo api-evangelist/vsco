@@ -1,0 +1,1288 @@
+openapi: 3.0.0
+info:
+  title: VSCO Workspace Brands Contacts API
+  termsOfService: https://terms-of-service.vsco.page/
+  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  contact:
+    name: VSCO Workspace Support
+    url: https://help.workspace.vsco.co/
+    email: workspace-support@vsco.co
+  version: v2.0.0
+  x-logo:
+    url: https://workspace.vsco.co/static/Images/Public/Logo.Black.vsco.svg
+    altText: VSCO Workspace
+servers:
+- url: https://tave.io/v2
+  description: Legacy Táve API production environment
+- url: https://workspace.vsco.co/api/v2
+  description: Workspace API production environment
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Contacts
+paths:
+  /address-book:
+    get:
+      summary: List contacts of a studio
+      operationId: listResourceAddressBook
+      x-entity: Contact
+      tags:
+      - Contacts
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/includeHidden'
+      - $ref: '#/components/parameters/email'
+      - name: sortBy
+        in: query
+        description: Sort items in the collection by the given property.
+        schema:
+          title: Sort objects by properties
+          type: string
+          anyOf:
+          - title: id
+            enum:
+            - id
+            - id asc
+            - id desc
+          - title: modified
+            enum:
+            - modified
+            - modified asc
+            - modified desc
+          - title: created
+            enum:
+            - created
+            - created asc
+            - created desc
+          - title: name
+            enum:
+            - name
+            - name asc
+            - name desc
+          - title: kind
+            enum:
+            - kind
+            - kind asc
+            - kind desc
+          - title: accountBalance
+            enum:
+            - accountBalance
+            - accountBalance asc
+            - accountBalance desc
+          - title: anniversary
+            enum:
+            - anniversary
+            - anniversary asc
+            - anniversary desc
+          - title: anonymized
+            enum:
+            - anonymized
+            - anonymized asc
+            - anonymized desc
+          - title: bestDayToCall
+            enum:
+            - bestDayToCall
+            - bestDayToCall asc
+            - bestDayToCall desc
+          - title: bestTimeToCall
+            enum:
+            - bestTimeToCall
+            - bestTimeToCall asc
+            - bestTimeToCall desc
+          - title: cellPhone
+            enum:
+            - cellPhone
+            - cellPhone asc
+            - cellPhone desc
+          - title: companyName
+            enum:
+            - companyName
+            - companyName asc
+            - companyName desc
+          - title: contactPreference
+            enum:
+            - contactPreference
+            - contactPreference asc
+            - contactPreference desc
+          - title: creditBalance
+            enum:
+            - creditBalance
+            - creditBalance asc
+            - creditBalance desc
+          - title: email
+            enum:
+            - email
+            - email asc
+            - email desc
+          - title: fax
+            enum:
+            - fax
+            - fax asc
+            - fax desc
+          - title: firstName
+            enum:
+            - firstName
+            - firstName asc
+            - firstName desc
+          - title: gender
+            enum:
+            - gender
+            - gender asc
+            - gender desc
+          - title: homePhone
+            enum:
+            - homePhone
+            - homePhone asc
+            - homePhone desc
+          - title: jobTitle
+            enum:
+            - jobTitle
+            - jobTitle asc
+            - jobTitle desc
+          - title: lastName
+            enum:
+            - lastName
+            - lastName asc
+            - lastName desc
+          - title: maidenName
+            enum:
+            - maidenName
+            - maidenName asc
+            - maidenName desc
+          - title: previousClient
+            enum:
+            - previousClient
+            - previousClient asc
+            - previousClient desc
+          - title: privacyOptIn
+            enum:
+            - privacyOptIn
+            - privacyOptIn asc
+            - privacyOptIn desc
+          - title: requireStrictPrivacy
+            enum:
+            - requireStrictPrivacy
+            - requireStrictPrivacy asc
+            - requireStrictPrivacy desc
+          - title: salutation
+            enum:
+            - salutation
+            - salutation asc
+            - salutation desc
+          - title: schoolGradYear
+            enum:
+            - schoolGradYear
+            - schoolGradYear asc
+            - schoolGradYear desc
+          - title: schoolName
+            enum:
+            - schoolName
+            - schoolName asc
+            - schoolName desc
+          - title: sport
+            enum:
+            - sport
+            - sport asc
+            - sport desc
+          - title: teamName
+            enum:
+            - teamName
+            - teamName asc
+            - teamName desc
+          - title: teamPosition
+            enum:
+            - teamPosition
+            - teamPosition asc
+            - teamPosition desc
+          - title: workPhone
+            enum:
+            - workPhone
+            - workPhone asc
+            - workPhone desc
+          default: id
+      responses:
+        '200':
+          description: Address book list response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressBookCollection'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    post:
+      summary: Create an entry in the address book.
+      operationId: createResourceAddressBook
+      tags:
+      - Contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/Person'
+              - $ref: '#/components/schemas/Company'
+              - $ref: '#/components/schemas/Location'
+              discriminator:
+                propertyName: kind
+      responses:
+        '201':
+          description: Address book creation response.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/Person'
+                - $ref: '#/components/schemas/Company'
+                - $ref: '#/components/schemas/Location'
+                discriminator:
+                  propertyName: kind
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /address-book/{id}:
+    get:
+      summary: Fetch a specific Address Book entity.
+      operationId: getResourceAddressBook
+      tags:
+      - Contacts
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '200':
+          description: Address book list response.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/Person'
+                - $ref: '#/components/schemas/Company'
+                - $ref: '#/components/schemas/Location'
+                discriminator:
+                  propertyName: kind
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    put:
+      summary: Update a specific entry in the address book
+      operationId: updateResourceAddressBook
+      tags:
+      - Contacts
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/Person'
+              - $ref: '#/components/schemas/Company'
+              - $ref: '#/components/schemas/Location'
+              discriminator:
+                propertyName: kind
+      responses:
+        '200':
+          description: Address book list response.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/Person'
+                - $ref: '#/components/schemas/Company'
+                - $ref: '#/components/schemas/Location'
+                discriminator:
+                  propertyName: kind
+                  mapping:
+                    person: ../schemas/entities/Person.yaml
+                    company: ../schemas/entities/Company.yaml
+                    location: ../schemas/entities/Location.yaml
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    delete:
+      summary: Delete an entry in the address book.
+      operationId: deleteResourceAddressBook
+      tags:
+      - Contacts
+      parameters:
+      - $ref: '#/components/parameters/idInPath'
+      responses:
+        '204':
+          $ref: '#/components/responses/deleteSuccess'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+components:
+  schemas:
+    Note:
+      title: Note
+      description: Additional notes about a specific entity.
+      type: object
+      required:
+      - contentHtml
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        authorId:
+          $ref: '#/components/schemas/NullableId'
+        contactId:
+          $ref: '#/components/schemas/NullableId'
+        contentHtml:
+          type: string
+          minLength: 1
+          maxLength: 1000000000
+          nullable: true
+        date:
+          $ref: '#/components/schemas/NullableDate'
+        jobId:
+          $ref: '#/components/schemas/NullableId'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    CustomFieldValue:
+      title: Custom Field Value
+      type: object
+      required:
+      - fieldId
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        fieldId:
+          title: Entity Identifier
+          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+          type: string
+          format: ulid
+          example: 01h35ccwymj5ctckp8px1azhg6
+        value:
+          type: string
+          nullable: true
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type: string
+      format: date
+      nullable: true
+      example: '2020-04-10'
+    Event:
+      properties:
+        phoneNumber:
+          title: Representation of a phone number
+          type: object
+          nullable: true
+          properties:
+            id:
+              allOf:
+              - readOnly: true
+                description: The ID of the phone number, if any. This is a unique identifier for the phone number and is generated by the API. It is not the phone number itself.<br> <br> Most phone numbers will not have an ID, as they are usually stored in the database as an E.164 string. We are in the process of refactoring our database to normalize phone numbers to use this representation, and as such, some phone numbers may have an ID.
+              - $ref: '#/components/schemas/NullableId'
+            formatted:
+              description: While this ASCII value is writable, it will be parsed by `libphonenumber` and should thus be considered a lossy value. You can preview how we'll parse it using <a href="https://giggsey.com/libphonenumber/" target="_blank">their website</a>.<br> <br> If `countryCode` or `dialCode` are not provided, the Studio's default country will be assumed.<br> <br> If the value is not parseable, `formatted` will return the original value and `dialCode`, `e164`, `extension`, and `telUri` will all be `null`.<br> <br> If `e164` or `uriTel` are provided, `formatted` will be ignored and replaced with the studio's local formatting of the number.
+              type: string
+              example: (800) 560-8283 x123
+              pattern: ^[ -~]+$
+              maxLength: 24
+              nullable: true
+            e164:
+              description: An ASCII <a href="https://www.twilio.com/docs/glossary/what-e164" target="_balnk">E.164 representation</a> of the phone number.<br> <br> When writing to the API, you can provide an extension by appending `x` and the extension to the end of the phone. Future reads will move the extension to the `extension` and `telUri` properties, since it isn't strictly a part of the E.164 specification.<br> <br> <b>This is the prefered field for writing to phone fields in the API.</b><br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type: string
+              example: 18005608283
+              pattern: ^\+[1-9]\d{1,14}(x{1,6})?$
+              maxLength: 24
+              nullable: true
+            extension:
+              description: The number's extension, if any. If provided in a write operation, it will be included in future `e164` and `telUri` values as well.<br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type: number
+              format: integer
+              example: 123
+              minimum: 1
+              maximum: 999999
+              nullable: true
+            telUri:
+              description: A <a href="https://tools.ietf.org/html/rfc3966" target="_blank">RFC 3966</a> representation of the phone number. This and `e164` are the prefered formats for writing to phone fields in the API. This value will be parsed and only the number and extension will be applied.<br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type: string
+              example: tel:+1-800-560-8283;ext=123
+              format: rfc3966
+              nullable: true
+            dialCode:
+              type: number
+              format: integer
+              example: 1
+              minimum: 1
+              maximum: 999
+              nullable: true
+              readOnly: true
+            countryCode:
+              description: The country code of the phone number. This is a two-letter country code as defined by <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2</a>. Providing this in a write operation with user-provided `formatted` value may improve our ability to parse the number.<br> <br> If the property is not normalized (it has no `id` after save), then this will be `null` if the original `formatted` value was not parseable, even if `countryCode` was provided.
+              type: string
+              example: US
+              pattern: ^[a-z]{2}$
+              maxLength: 2
+              nullable: true
+    Company:
+      allOf:
+      - title: Company
+        description: A company entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - company
+          accountBalance:
+            allOf:
+            - readOnly: true
+              description: The account balance of this company.
+            - $ref: '#/components/schemas/MoneyAmount'
+          accountNumber:
+            type: string
+            maxLength: 50
+            nullable: true
+          brandId:
+            allOf:
+            - description: The default brand the company belongs to.
+            - $ref: '#/components/schemas/NullableId'
+          cellPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          creditBalance:
+            allOf:
+            - readOnly: true
+              description: The credit amount associated with this company.
+            - $ref: '#/components/schemas/MoneyAmount'
+          fax:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          mailingAddress:
+            $ref: '#/components/schemas/Address'
+          name:
+            type: string
+            description: Company name.
+            maxLength: 255
+          phone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          primaryContactFirstName:
+            type: string
+            maxLength: 48
+            nullable: true
+          primaryContactLastName:
+            type: string
+            maxLength: 48
+            nullable: true
+          startingCost:
+            allOf:
+            - description: The cost of this person in software used prior to VSCO Workspace.
+              nullable: true
+            - $ref: '#/components/schemas/MoneyAmount'
+          startingRevenue:
+            allOf:
+            - description: The revenue from this person in software used prior to VSCO Workspace.
+              nullable: true
+            - $ref: '#/components/schemas/MoneyAmount'
+          tollFree:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          vendorRoleId:
+            description: 'This is a vendor and defines the default job role does this
+
+              contact have when added to a job.'
+            type: string
+            format: ulid
+            nullable: true
+      - $ref: '#/components/schemas/Contact'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    Location:
+      allOf:
+      - title: Location
+        description: A Location entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - location
+          name:
+            type: string
+            description: Location name.
+            maxLength: 255
+          phone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          tollFree:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    Employee:
+      allOf:
+      - title: Employee
+        description: An employee entity
+        type: object
+        properties:
+          anniversary:
+            $ref: '#/components/schemas/NullableDate'
+          birthdate:
+            $ref: '#/components/schemas/NullableDate'
+          brandId:
+            allOf:
+            - description: The default brand the person belongs to.
+            - $ref: '#/components/schemas/NullableId'
+          cellPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          companyName:
+            type: string
+            maxLength: 128
+            nullable: true
+          contactPreference:
+            type: string
+            enum:
+            - email
+            - cell-phone
+            - home-phone
+            - work-phone
+            - null
+            nullable: true
+          displayAs:
+            type: string
+            maxLength: 64
+            nullable: true
+          fax:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          firstName:
+            type: string
+            maxLength: 48
+            nullable: true
+          gender:
+            type: string
+            enum:
+            - male
+            - female
+            - null
+            nullable: true
+          kind:
+            type: string
+            enum:
+            - employee
+          homePhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          jobTitle:
+            type: string
+            maxLength: 64
+            nullable: true
+          lastName:
+            type: string
+            maxLength: 48
+            nullable: true
+          maidenName:
+            type: string
+            maxLength: 48
+            nullable: true
+          mailingAddress:
+            $ref: '#/components/schemas/Address'
+          name:
+            type: string
+            description: This is used as the combination of firstName and lastName fields.
+            maxLength: 255
+            readOnly: true
+          salutation:
+            type: string
+            enum:
+            - mr
+            - miss
+            - mrs
+            - ms
+            - dr
+            - null
+            nullable: true
+          vendorRoleId:
+            description: 'This is a vendor and defines the default job role this
+
+              contact will have when added to a job.'
+            type: string
+            format: ulid
+            nullable: true
+          workPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type: string
+      format: ulid
+      nullable: true
+      example: 01fqcr215r79p3h19crqbpzwzh
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Person:
+      allOf:
+      - title: Person
+        description: A person entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - person
+          accountBalance:
+            allOf:
+            - readOnly: true
+              description: The account balance of this person.
+            - $ref: '#/components/schemas/MoneyAmount'
+          anniversary:
+            $ref: '#/components/schemas/NullableDate'
+          anonymized:
+            type: boolean
+            description: 'This person requested to be anonymized so personally identifiable
+
+              information has been anonymized.'
+            default: false
+            readOnly: true
+          bestDayToCall:
+            type: string
+            enum:
+            - weekdays
+            - weekends
+            - mondays
+            - tuesdays
+            - wednesdays
+            - thursdays
+            - fridays
+            - saturdays
+            - sundays
+            - null
+            nullable: true
+          bestTimeToCall:
+            type: string
+            enum:
+            - mornings
+            - afternoons
+            - evenings
+            - null
+            nullable: true
+          birthdate:
+            $ref: '#/components/schemas/NullableDate'
+          brandId:
+            allOf:
+            - description: The default brand the person belongs to.
+            - $ref: '#/components/schemas/NullableId'
+          cellPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          companyName:
+            type: string
+            maxLength: 128
+            nullable: true
+          contactPreference:
+            type: string
+            enum:
+            - email
+            - cell-phone
+            - home-phone
+            - work-phone
+            - null
+            nullable: true
+          creditBalance:
+            allOf:
+            - readOnly: true
+              description: The credit amount associated with this contact.
+            - $ref: '#/components/schemas/MoneyAmount'
+          email:
+            type: string
+            format: email
+            nullable: true
+          fax:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          firstName:
+            type: string
+            maxLength: 48
+            nullable: true
+          gender:
+            type: string
+            enum:
+            - male
+            - female
+            - null
+            nullable: true
+          homePhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          jobTitle:
+            type: string
+            maxLength: 64
+            nullable: true
+          lastName:
+            type: string
+            maxLength: 48
+            nullable: true
+          maidenName:
+            type: string
+            maxLength: 48
+            nullable: true
+          mailingAddress:
+            $ref: '#/components/schemas/Address'
+          name:
+            type: string
+            description: This is used as the combination of firstName and lastName fields.
+            maxLength: 255
+            readOnly: true
+          previousClient:
+            type: boolean
+            nullable: true
+          privacyOptIn:
+            type: boolean
+            description: Contact has Opted-In to Marketing and Processing
+            default: false
+            nullable: true
+          requireStrictPrivacy:
+            type: boolean
+            description: Require Strict Privacy (e.g. subject to Europe's GDPR)
+            default: false
+            nullable: true
+          salutation:
+            type: string
+            enum:
+            - mr
+            - miss
+            - mrs
+            - ms
+            - dr
+            - null
+            nullable: true
+          schoolGradYear:
+            type: integer
+            minimum: 1900
+            maximum: 2100
+            nullable: true
+          schoolName:
+            type: string
+            maxLength: 255
+            nullable: true
+          sport:
+            type: string
+            maxLength: 255
+            nullable: true
+          startingCost:
+            allOf:
+            - description: The cost of this person in software used prior to VSCO Workspace.
+              nullable: true
+            - $ref: '#/components/schemas/MoneyAmount'
+          startingRevenue:
+            allOf:
+            - description: The revenue from this person in software used prior to VSCO Workspace.
+              nullable: true
+            - $ref: '#/components/schemas/MoneyAmount'
+          teamName:
+            type: string
+            maxLength: 255
+            nullable: true
+          teamPosition:
+            type: string
+            maxLength: 255
+            nullable: true
+          vendorRoleId:
+            description: 'This is a vendor and defines the default job role does this
+
+              contact have when added to a job.'
+            type: string
+            format: ulid
+            nullable: true
+          workPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    Address:
+      description: Represents an address.
+      type: object
+      nullable: true
+      additionalProperties: false
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type: string
+          maxLength: 255
+          readOnly: true
+          nullable: true
+        streetAddress:
+          type: string
+          maxLength: 512
+          nullable: true
+        village:
+          type: string
+          maxLength: 255
+          nullable: true
+        city:
+          type: string
+          maxLength: 255
+          nullable: true
+        state:
+          type: string
+          maxLength: 255
+          nullable: true
+        postalCode:
+          type: string
+          maxLength: 255
+          nullable: true
+        country:
+          type: string
+          maxLength: 2
+          nullable: true
+        latitude:
+          type: number
+          readOnly: true
+          nullable: true
+        longitude:
+          type: number
+          readOnly: true
+          nullable: true
+        googlePlaceId:
+          type: string
+          maxLength: 255
+          readOnly: true
+          nullable: true
+        timezone:
+          type: string
+          readOnly: true
+          nullable: true
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    Pinned:
+      title: Whether or not the entity is favorited.
+      type: boolean
+      default: false
+      nullable: true
+    Contact:
+      title: Contact common fields
+      description: Contact common fields that all kinds share
+      type: object
+      required:
+      - kind
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        address:
+          $ref: '#/components/schemas/Address'
+        chatAccount1:
+          allOf:
+          - description: Chat Account 1
+          - $ref: '#/components/schemas/ChatAccount'
+        chatAccount2:
+          allOf:
+          - description: Chat Account 2
+          - $ref: '#/components/schemas/ChatAccount'
+        chatAccount3:
+          allOf:
+          - description: Chat Account 3
+          - $ref: '#/components/schemas/ChatAccount'
+        customFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        customNumber:
+          type: string
+          maxLength: 32
+          deprecated: true
+          readOnly: true
+          nullable: true
+        email:
+          type: string
+          format: email
+          maxLength: 255
+          nullable: true
+        externalMappings:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        facebookUsername:
+          type: string
+          pattern: ^[a-zA-Z\d\.]{5,50}$
+          nullable: true
+        kind:
+          type: string
+          enum:
+          - company
+          - employee
+          - location
+          - person
+        notes:
+          description: 'A list of notes attached to this contact. This will only be returned
+
+            in a get of a specific contact and not in the list response.'
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+          nullable: true
+        pinned:
+          $ref: '#/components/schemas/Pinned'
+        secondaryEmail:
+          type: string
+          format: email
+          maxLength: 64
+          nullable: true
+        totalCost:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        totalRevenue:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        twitterUsername:
+          type: string
+          pattern: ^[a-zA-Z\d.]{5,15}$
+          nullable: true
+        url:
+          type: string
+          format: uri
+          nullable: true
+    AddressBookCollection:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - properties:
+          type:
+            enum:
+            - addressbook-collection
+          items:
+            title: Address Book
+            type: array
+            items:
+              discriminator:
+                propertyName: kind
+                mapping:
+                  person: ../entities/Person.yaml
+                  company: ../entities/Company.yaml
+                  location: ../entities/Location.yaml
+                  employee: ../entities/Employee.yaml
+              anyOf:
+              - $ref: '#/components/schemas/Company'
+              - $ref: '#/components/schemas/Employee'
+              - $ref: '#/components/schemas/Location'
+              - $ref: '#/components/schemas/Person'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    ChatAccount:
+      type: object
+      nullable: true
+      properties:
+        service:
+          type: string
+          enum:
+          - etsy
+          - flickr
+          - google
+          - instagram
+          - linkedin
+          - pinterest
+          - skype
+          - tumbler
+          - aim
+          - mobileme
+          - msn
+          - yahoo
+          default: null
+          nullable: true
+          description: 'The social service. The following values might appear in responses,
+
+            but are not able to be created: AIM, MobileMe, MSN, Yahoo'
+        identity:
+          type: string
+          maxLength: 255
+          nullable: true
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    email:
+      name: email
+      in: query
+      description: 'Filter objects by email. When this is specified, a rank will be calculated
+
+        so that it can be used to sort the results in highest rank first.'
+      schema:
+        type: string
+        default: null
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+x-tagGroups:
+- name: Jobs & Contacts
+  tags:
+  - Jobs
+  - Job Contacts
+  - Job Worksheets
+  - Contacts
+  - Events
+  - Files
+  - Galleries
+  - Notes
+  - Orders
+  - Payment
+- name: Studio Settings
+  tags:
+  - Studio
+  - Brands
+  - Custom Fields
+  - Discounts
+  - Discount Types
+  - Event Types
+  - File Types
+  - Job Closed Reasons
+  - Job Roles
+  - Job Types
+  - Lead Sources
+  - Lead Statuses
+  - Payment Methods
+  - Products
+  - Product Types
+  - Profit Centers
+  - Tax Groups
+  - Tax Rates
+  - Timezones
+  - Users
+- name: API Resources
+  tags:
+  - Rest Hooks

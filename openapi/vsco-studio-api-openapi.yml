@@ -1,0 +1,459 @@
+openapi: 3.0.0
+info:
+  title: VSCO Workspace Brands Studio API
+  termsOfService: https://terms-of-service.vsco.page/
+  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  contact:
+    name: VSCO Workspace Support
+    url: https://help.workspace.vsco.co/
+    email: workspace-support@vsco.co
+  version: v2.0.0
+  x-logo:
+    url: https://workspace.vsco.co/static/Images/Public/Logo.Black.vsco.svg
+    altText: VSCO Workspace
+servers:
+- url: https://tave.io/v2
+  description: Legacy Táve API production environment
+- url: https://workspace.vsco.co/api/v2
+  description: Workspace API production environment
+security:
+- ApiKeyAuth: []
+- BearerAuth: []
+tags:
+- name: Studio
+paths:
+  /studio/me:
+    get:
+      summary: Get info about my studio
+      operationId: getResourceMyStudio
+      tags:
+      - Studio
+      responses:
+        '200':
+          description: Fetch specific info about my studio.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Studio'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+    put:
+      summary: Update my studio settings.
+      operationId: updateResourceMyStudio
+      tags:
+      - Studio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Studio'
+      responses:
+        '200':
+          description: Updated studio.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Studio'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+  /studio/me/readonly-mode:
+    put:
+      summary: Set studio to readonly mode.
+      operationId: updateStudioReadonlyMode
+      tags:
+      - Studio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudioReadonlyMode'
+      responses:
+        '200':
+          description: Successfully updated studio's readonly mode
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Studio'
+        '400':
+          $ref: '#/components/responses/validationError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+components:
+  schemas:
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
+      type: string
+      format: date-time
+      nullable: true
+      example: '2020-06-17T13:06:22+00:00'
+    StudioReadonlyMode:
+      title: Studio Readonly Mode
+      type: object
+      required:
+      - enabled
+      properties:
+        enabled:
+          type: boolean
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type: string
+      format: ulid
+      nullable: true
+      example: 01fqcr215r79p3h19crqbpzwzh
+    LicensePlan:
+      title: License Plan
+      type: object
+      properties:
+        codeName:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        limits:
+          type: object
+          properties:
+            brands:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            contactForms:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            contracts:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            customDomains:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            quotes:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            questionnaires:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            storage:
+              $ref: '#/components/schemas/LicensePlanLimit'
+            users:
+              $ref: '#/components/schemas/LicensePlanLimit'
+    Studio:
+      title: Studio
+      type: object
+      required:
+      - name
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        cacheVersion:
+          type: integer
+          minimum: 0
+          maximum: 99999999999
+        currencyCode:
+          type: string
+          nullable: true
+          minLength: 3
+          maxLength: 3
+          default: USD
+        dateFormat:
+          type: string
+          nullable: true
+          enum:
+          - n/j/Y
+          - j/n/Y
+          - Y-m-d
+          default: n/j/Y
+        decimalSeparator:
+          type: string
+          nullable: true
+          enum:
+          - ','
+          - .
+          default: .
+        defaultBrandId:
+          $ref: '#/components/schemas/NullableId'
+        defaultBrandAlias:
+          type: string
+          nullable: true
+          readOnly: true
+        email:
+          type: string
+          nullable: true
+          format: email
+        externalMappings:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        plan:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/LicensePlan'
+        temperature:
+          type: string
+          enum:
+          - Celsius
+          - Fahrenheit
+        thousandsSeparator:
+          type: string
+          nullable: true
+          enum:
+          - ','
+          - .
+          default: ','
+        timeFormat:
+          type: string
+          nullable: true
+          enum:
+          - g:ia
+          - H:i
+          default: g:ia
+        timezoneId:
+          $ref: '#/components/schemas/NullableId'
+        weekStartsOn:
+          type: string
+          nullable: true
+          enum:
+          - Sunday
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          - Saturday
+          default: Sunday
+        readonlyEnabled:
+          type: boolean
+          readOnly: true
+        readonlyEnabledAt:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        primaryIndustrySlug:
+          type: string
+          nullable: true
+          readOnly: true
+        primaryIndustryName:
+          type: string
+          nullable: true
+          readOnly: true
+        firstUserContactId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableId'
+        firstName:
+          type: string
+          nullable: true
+          maxLength: 48
+        lastName:
+          type: string
+          nullable: true
+          maxLength: 48
+        appliedDefaults:
+          type: object
+          nullable: true
+          readOnly: true
+          additionalProperties: true
+    LicensePlanLimit:
+      type: integer
+      minimum: -1
+      maximum: 99999999999
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+    BearerAuth:
+      type: http
+      scheme: bearer
+x-tagGroups:
+- name: Jobs & Contacts
+  tags:
+  - Jobs
+  - Job Contacts
+  - Job Worksheets
+  - Contacts
+  - Events
+  - Files
+  - Galleries
+  - Notes
+  - Orders
+  - Payment
+- name: Studio Settings
+  tags:
+  - Studio
+  - Brands
+  - Custom Fields
+  - Discounts
+  - Discount Types
+  - Event Types
+  - File Types
+  - Job Closed Reasons
+  - Job Roles
+  - Job Types
+  - Lead Sources
+  - Lead Statuses
+  - Payment Methods
+  - Products
+  - Product Types
+  - Profit Centers
+  - Tax Groups
+  - Tax Rates
+  - Timezones
+  - Users
+- name: API Resources
+  tags:
+  - Rest Hooks
