@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the VSCO Workspace API
+  version: 1.0.0
+x-generated: '2026-07-21'
+x-method: generated
+extends: openapi/workspace-openapi-original.json
+actions:
+  - target: $.info
+    description: Attach API Evangelist provenance and catalog identity.
+    update:
+      x-apievangelist:
+        aid: vsco
+        harvested: '2026-07-21'
+        source: https://workspace.vsco.co/api/v2/openapi.json
+        catalog: https://raw.githubusercontent.com/api-evangelist/vsco/refs/heads/main/apis.yml
+  - target: $.info
+    description: Add a fuller description than the published one-liner, grounded in the docs.
+    update:
+      x-apievangelist-description: >-
+        The VSCO Workspace API (v2) is the public API for VSCO Workspace, the studio /
+        photography-business management product formerly known as Tave. It exposes a
+        single studio's contacts, jobs, orders, quotes, payments, events, galleries,
+        files, and REST Hook webhook subscriptions behind an X-API-KEY header created in
+        Settings > API Integrations.
+  - target: $.info
+    description: Record cross-cutting semantics captured in the repo conventions artifact.
+    update:
+      x-apievangelist-conventions:
+        pagination: page/pageSize (default 100, max 100)
+        errors: type/title/detail/status JSON envelope
+        rate_limits: 429 quota-limit + Retry-After on every operation
+        webhooks: REST Hooks (contact.created, job.created, order.booked, payment.created)
+  - target: $.tags
+    description: Flag the webhook subscription surface for agent tooling.
+    update:
+      - name: Rest Hooks
+        x-apievangelist-webhooks: asyncapi/vsco-workspace-webhooks.yml

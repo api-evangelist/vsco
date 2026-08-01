@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-KEY
+  sources:
+  - openapi/workspace-openapi-original.json
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/workspace-openapi-original.json

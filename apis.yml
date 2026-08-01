@@ -1,23 +1,465 @@
 aid: vsco
 name: VSCO
-description: 'VSCO is a company surfaced as a portfolio company of accel, obvious-ventures and added to
-  the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting
-  the enrichment pipeline.'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
+description: >-
+  VSCO is a photography company whose mobile apps and community give photographers
+  editing tools, presets, and a place to share their work. Its business product, VSCO
+  Workspace (the former Tave studio-management platform), ships a public REST API — the
+  VSCO Workspace API v2 — that exposes a studio's contacts, jobs, orders, quotes,
+  payments, events, galleries, files, and REST Hook webhook subscriptions behind API-key
+  authentication, with a published OpenAPI 3.0 definition and Redoc reference.
 url: https://raw.githubusercontent.com/api-evangelist/vsco/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/vsco
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - accel
 - obvious-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: workspace-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Consumer
-apis: []
+- Photography
+- Photo Editing
+- Creative Community
+- Studio Management
+- SaaS
+apis:
+- aid: vsco:vsco-brands-api
+  name: VSCO Brands API
+  description: The Brands API from VSCO — 2 operation(s) for brands.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Brands
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-brands-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-contacts-api
+  name: VSCO Contacts API
+  description: The Contacts API from VSCO — 2 operation(s) for contacts.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-custom-fields-api
+  name: VSCO Custom Fields API
+  description: The Custom Fields API from VSCO — 2 operation(s) for custom fields.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-custom-fields-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-discount-types-api
+  name: VSCO Discount Types API
+  description: The Discount Types API from VSCO — 2 operation(s) for discount types.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Discount Types
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-discount-types-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-discounts-api
+  name: VSCO Discounts API
+  description: The Discounts API from VSCO — 2 operation(s) for discounts.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Discounts
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-discounts-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-event-types-api
+  name: VSCO Event Types API
+  description: The Event Types API from VSCO — 2 operation(s) for event types.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Event Types
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-event-types-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-events-api
+  name: VSCO Events API
+  description: The Events API from VSCO — 2 operation(s) for events.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-events-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-file-types-api
+  name: VSCO File Types API
+  description: The File Types API from VSCO — 2 operation(s) for file types.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - File Types
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-file-types-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-files-api
+  name: VSCO Files API
+  description: The Files API from VSCO — 2 operation(s) for files.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-files-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-galleries-api
+  name: VSCO Galleries API
+  description: The Galleries API from VSCO — 2 operation(s) for galleries.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Galleries
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-galleries-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-closed-reasons-api
+  name: VSCO Job Closed Reasons API
+  description: The Job Closed Reasons API from VSCO — 2 operation(s) for job closed reasons.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Closed Reasons
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-closed-reasons-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-contacts-api
+  name: VSCO Job Contacts API
+  description: The Job Contacts API from VSCO — 2 operation(s) for job contacts.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-payment-api
+  name: VSCO Job Payment API
+  description: The Job Payment API from VSCO — 1 operation(s) for job payment.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Payment
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-payment-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-roles-api
+  name: VSCO Job Roles API
+  description: The Job Roles API from VSCO — 2 operation(s) for job roles.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-roles-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-types-api
+  name: VSCO Job Types API
+  description: The Job Types API from VSCO — 2 operation(s) for job types.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Types
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-types-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-job-worksheets-api
+  name: VSCO Job Worksheets API
+  description: The Job Worksheets API from VSCO — 2 operation(s) for job worksheets.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Job Worksheets
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-job-worksheets-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-jobs-api
+  name: VSCO Jobs API
+  description: The Jobs API from VSCO — 3 operation(s) for jobs.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-jobs-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-lead-sources-api
+  name: VSCO Lead Sources API
+  description: The Lead Sources API from VSCO — 2 operation(s) for lead sources.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Lead Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-lead-sources-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-lead-statuses-api
+  name: VSCO Lead Statuses API
+  description: The Lead Statuses API from VSCO — 2 operation(s) for lead statuses.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Lead Statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-lead-statuses-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-notes-api
+  name: VSCO Notes API
+  description: The Notes API from VSCO — 2 operation(s) for notes.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-notes-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-orders-api
+  name: VSCO Orders API
+  description: The Orders API from VSCO — 3 operation(s) for orders.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-orders-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-payment-methods-api
+  name: VSCO Payment Methods API
+  description: The Payment Methods API from VSCO — 2 operation(s) for payment methods.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Payment Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-payment-methods-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-payments-api
+  name: VSCO Payments API
+  description: The Payments API from VSCO — 3 operation(s) for payments.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-payments-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-product-types-api
+  name: VSCO Product Types API
+  description: The Product Types API from VSCO — 2 operation(s) for product types.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Product Types
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-product-types-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-products-api
+  name: VSCO Products API
+  description: The Products API from VSCO — 2 operation(s) for products.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-products-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-profit-centers-api
+  name: VSCO Profit Centers API
+  description: The Profit Centers API from VSCO — 2 operation(s) for profit centers.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Profit Centers
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-profit-centers-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-quotes-api
+  name: VSCO Quotes API
+  description: The Quotes API from VSCO — 2 operation(s) for quotes.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-quotes-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-rest-hooks-api
+  name: VSCO Rest Hooks API
+  description: >-
+    Webhooks based on <a href="https://zapier.com/engineering/introducing-resthooksorg/" target="_blank">Zapier's
+    now-deprecated REST Hooks specification</a>.<br> <br> You can use these to receive a postback to a
+    custom URL when certain events happen in VSCO Workspace.<br> <br> Much like an Automation Web Request
+    Action, these webhooks will trigger when the event occurs. However, for security reasons, only the
+    <code>targetId</code> will be provided, which you'll then use to fetch the current version of the
+    entity via the API.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Rest Hooks
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-rest-hooks-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-schedulers-client-access-api
+  name: VSCO Schedulers - Client Access API
+  description: >-
+    The Schedulers - Client Access API from VSCO — 1 operation(s) for schedulers - client access.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Schedulers - Client Access
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-schedulers-client-access-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-studio-api
+  name: VSCO Studio API
+  description: The Studio API from VSCO — 2 operation(s) for studio.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Studio
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-studio-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-tax-groups-api
+  name: VSCO Tax Groups API
+  description: The Tax Groups API from VSCO — 2 operation(s) for tax groups.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Tax Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-tax-groups-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-tax-rates-api
+  name: VSCO Tax Rates API
+  description: The Tax Rates API from VSCO — 2 operation(s) for tax rates.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Tax Rates
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-tax-rates-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-timezones-api
+  name: VSCO Timezones API
+  description: The Timezones API from VSCO — 2 operation(s) for timezones.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Timezones
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-timezones-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
+- aid: vsco:vsco-users-api
+  name: VSCO Users API
+  description: The Users API from VSCO — 2 operation(s) for users.
+  humanURL: https://workspace.vsco.co/api
+  baseURL: https://workspace.vsco.co/api/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/vsco-users-api-openapi.yml
+  - type: APIReference
+    url: https://workspace.vsco.co/api
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,4 +467,42 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://www.vsco.co
+  url: https://www.vsco.co
+- type: Documentation
+  url: https://workspace.vsco.co/api
+- type: GettingStarted
+  url: https://help.workspace.vsco.co/en/articles/13259288-public-api
+- type: Support
+  url: https://help.workspace.vsco.co
+- type: StatusPage
+  url: https://status.workspace.vsco.co/
+- type: GitHubOrganization
+  url: https://github.com/vsco
+- type: TermsOfService
+  url: https://www.vsco.co/about/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.vsco.co/about/privacy-policy
+- type: Authentication
+  url: authentication/vsco-authentication.yml
+- type: DomainSecurity
+  url: security/vsco-domain-security.yml
+- type: Webhooks
+  url: asyncapi/vsco-workspace-webhooks.yml
+- type: MCPServer
+  url: mcp/vsco-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/vsco-llms.txt
+- type: Packages
+  url: packages/vsco-packages.yml
+- type: Conformance
+  url: conformance/vsco-conformance.yml
+- type: ErrorCatalog
+  url: errors/vsco-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/vsco-lifecycle.yml
+- type: Conventions
+  url: conventions/vsco-conventions.yml
+- type: DataModel
+  url: data-model/vsco-data-model.yml

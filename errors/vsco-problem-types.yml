@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+format: json-error-envelope
+envelope:
+  content_type: application/json
+  fields:
+  - type
+  - title
+  - detail
+  - status
+  notes: 'The VSCO Workspace API error envelope mirrors RFC 9457 problem details fields (type/title/detail/status)
+    but is served as application/json, not application/problem+json. Error type values: unknown, quota-limit, not-implemented,
+    validation-error. Validation errors return a detail object breaking down which fields failed and why. 429 responses
+    include a Retry-After header.'
+problems:
+- status: 400
+  type: validation-error
+  title: Validation Error
+  detail: Check the info.errors property in the response for a field-by-field breakdown.
+  remediation: Fix the fields listed in the validation breakdown and retry.
+  source: components/responses/validationError
+- status: 401
+  type: unknown
+  title: Unauthorized
+  detail: API key is missing or invalid.
+  remediation: Send a valid key in the X-API-KEY header (create one under Settings > API Integrations).
+  source: components/responses/unauthorizedError
+- status: 404
+  type: unknown
+  title: Not Found
+  detail: The requested resource does not exist.
+  source: derived from per-operation 404 responses
+- status: 429
+  type: quota-limit
+  title: Too Many Requests
+  detail: Exceeded request quota; see Retry-After header.
+  remediation: Back off for the number of seconds indicated by the Retry-After header, then retry.
+  source: components/responses/tooManyRequestsError
+coverage:
+  operations_with_400: 143
+  operations_with_429: 144
+  operations_total: 144

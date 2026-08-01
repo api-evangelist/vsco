@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+spec_type: Webhooks
+notes: >-
+  VSCO Workspace publishes no AsyncAPI document, but the Workspace API ships a real
+  webhook surface modeled on REST Hooks (http://resthooks.org/): consumers subscribe by
+  POSTing a target URL plus an event name to /rest-hook and manage subscriptions with
+  full CRUD. The help center additionally documents Zapier-based webhook automation
+  (https://help.workspace.vsco.co/en/articles/13259282-using-zapier-webhooks-with-vsco-workspace-web-request-automation).
+model: rest-hooks
+subscription_api:
+  create: openapi/workspace-openapi-original.json#createResourceRestHook
+  list: openapi/workspace-openapi-original.json#listResourceRestHook
+  get: openapi/workspace-openapi-original.json#getResourceRestHook
+  update: openapi/workspace-openapi-original.json#updateResourceRestHook
+  delete: openapi/workspace-openapi-original.json#deleteResourceRestHook
+events:
+  - name: contact.created
+    description: Fires when a new contact is created in the Workspace address book. Supports limitTo.contactKinds (person, company, location) and limitTo.brands filters.
+  - name: job.created
+    description: Fires when a new job is created. Supports limitTo.jobTypes, limitTo.brands, and limitTo.webLead filters.
+  - name: order.booked
+    description: Fires when an order is booked. Supports limitTo.jobTypes and limitTo.brands filters.
+  - name: payment.created
+    description: Fires when a payment is recorded. Supports limitTo.jobTypes and limitTo.brands filters.
+delivery:
+  target: Subscriber-supplied HTTPS url per subscription (RestHook.url, format uri).
+  filters: Optional limitTo object narrows delivery by contact kind, job type, brand, or web-lead origin.

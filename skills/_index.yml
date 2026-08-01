@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/workspace-openapi-original.json
+skills:
+  - file: vsco-create-contact-and-job.md
+    name: Create a contact and open a job in VSCO Workspace
+    api: openapi/workspace-openapi-original.json
+    operations: [listResourceAddressBook, createResourceAddressBook, createResourceJob, createResourceJobContact, getResourceJob]
+  - file: vsco-record-and-apply-payment.md
+    name: Record a payment and apply it to an order
+    api: openapi/workspace-openapi-original.json
+    operations: [listResourceJobOrders, getResourceOrder, createResourcePayment, createResourceApplyPaymentToOrder, getResourcePayment]
+  - file: vsco-subscribe-rest-hooks.md
+    name: Subscribe to Workspace REST Hook events
+    api: openapi/workspace-openapi-original.json
+    operations: [listResourceRestHook, createResourceRestHook, getResourceRestHook, updateResourceRestHook, deleteResourceRestHook]

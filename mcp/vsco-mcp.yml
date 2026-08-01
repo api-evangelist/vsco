@@ -1,0 +1,449 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/workspace-openapi-original.json
+notes: No official first-party VSCO / VSCO Workspace MCP server was found in docs, npm, or the MCP registry as of
+  2026-07-21. A third-party hosted MCP server for the legacy Tave (now VSCO Workspace) API is offered by Pipedream
+  at https://mcp.pipedream.com/app/tave (HTTP 200 verified). The tool list below is a candidate surface derived
+  one-tool-per-operationId from the VSCO Workspace OpenAPI 3.0 spec.
+server:
+  name: vsco-workspace
+  transport: http
+  url: null
+third_party:
+- name: Pipedream Tave MCP
+  url: https://mcp.pipedream.com/app/tave
+  official: false
+tools:
+- name: listResourceAddressBook
+  description: List contacts of a studio
+  source_operation: openapi/workspace-openapi-original.json#listResourceAddressBook
+- name: createResourceAddressBook
+  description: Create an entry in the address book.
+  source_operation: openapi/workspace-openapi-original.json#createResourceAddressBook
+- name: getResourceAddressBook
+  description: Fetch a specific Address Book entity.
+  source_operation: openapi/workspace-openapi-original.json#getResourceAddressBook
+- name: updateResourceAddressBook
+  description: Update a specific entry in the address book
+  source_operation: openapi/workspace-openapi-original.json#updateResourceAddressBook
+- name: deleteResourceAddressBook
+  description: Delete an entry in the address book.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceAddressBook
+- name: listResourceBrand
+  description: List brands of a studio
+  source_operation: openapi/workspace-openapi-original.json#listResourceBrand
+- name: createResourceBrand
+  description: Create a brand
+  source_operation: openapi/workspace-openapi-original.json#createResourceBrand
+- name: getResourceBrand
+  description: Get a specific brand
+  source_operation: openapi/workspace-openapi-original.json#getResourceBrand
+- name: updateResourceBrand
+  description: Update a specific brand.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceBrand
+- name: deleteResourceBrand
+  description: Delete a brand.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceBrand
+- name: getResourceAddressBookCA
+  description: Get the address associated with the given location
+  source_operation: openapi/workspace-openapi-original.json#getResourceAddressBookCA
+- name: listResourceCustomField
+  description: List of Custom Fields on a studio
+  source_operation: openapi/workspace-openapi-original.json#listResourceCustomField
+- name: createResourceCustomField
+  description: Create a custom field.
+  source_operation: openapi/workspace-openapi-original.json#createResourceCustomField
+- name: getResourceCustomField
+  description: Get a specific Custom Field
+  source_operation: openapi/workspace-openapi-original.json#getResourceCustomField
+- name: updateResourceCustomField
+  description: Update a specific Custom Field
+  source_operation: openapi/workspace-openapi-original.json#updateResourceCustomField
+- name: deleteResourceCustomField
+  description: Delete a Custom Field.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceCustomField
+- name: listResourceDiscount
+  description: Get a list of discounts
+  source_operation: openapi/workspace-openapi-original.json#listResourceDiscount
+- name: createResourceDiscount
+  description: Create a discount.
+  source_operation: openapi/workspace-openapi-original.json#createResourceDiscount
+- name: listResourceDiscountType
+  description: Get a list of discount types
+  source_operation: openapi/workspace-openapi-original.json#listResourceDiscountType
+- name: createResourceDiscountType
+  description: Create a discount type.
+  source_operation: openapi/workspace-openapi-original.json#createResourceDiscountType
+- name: getResourceDiscountType
+  description: Get a specific discount type.
+  source_operation: openapi/workspace-openapi-original.json#getResourceDiscountType
+- name: deleteResourceDiscountType
+  description: Delete a specifc discount type
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceDiscountType
+- name: getResourceDiscount
+  description: Get a specific discount.
+  source_operation: openapi/workspace-openapi-original.json#getResourceDiscount
+- name: deleteResourceDiscount
+  description: Delete a specifc discount
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceDiscount
+- name: listResourceEvent
+  description: List of a studio’s events
+  source_operation: openapi/workspace-openapi-original.json#listResourceEvent
+- name: createResourceEvent
+  description: Create an event.
+  source_operation: openapi/workspace-openapi-original.json#createResourceEvent
+- name: listResourceEventType
+  description: List of a studio’s event types
+  source_operation: openapi/workspace-openapi-original.json#listResourceEventType
+- name: createResourceEventType
+  description: Create an event type.
+  source_operation: openapi/workspace-openapi-original.json#createResourceEventType
+- name: getResourceEventType
+  description: Get a specific event type
+  source_operation: openapi/workspace-openapi-original.json#getResourceEventType
+- name: updateResourceEventType
+  description: Update a specific event type.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceEventType
+- name: deleteResourceEventType
+  description: Delete an event type.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceEventType
+- name: getResourceEvent
+  description: Get a specific event
+  source_operation: openapi/workspace-openapi-original.json#getResourceEvent
+- name: updateResourceEvent
+  description: Update a specific event.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceEvent
+- name: deleteResourceEvent
+  description: Delete an event.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceEvent
+- name: listResourceFile
+  description: List files
+  source_operation: openapi/workspace-openapi-original.json#listResourceFile
+- name: createResourceFile
+  description: Create a file.
+  source_operation: openapi/workspace-openapi-original.json#createResourceFile
+- name: listResourceFileType
+  description: List file types
+  source_operation: openapi/workspace-openapi-original.json#listResourceFileType
+- name: getResourceFileType
+  description: Get a specific file type
+  source_operation: openapi/workspace-openapi-original.json#getResourceFileType
+- name: getResourceFile
+  description: Get a specific file
+  source_operation: openapi/workspace-openapi-original.json#getResourceFile
+- name: updateResourceFile
+  description: Update a specific file.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceFile
+- name: deleteResourceFile
+  description: Delete a file.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceFile
+- name: listResourceGallery
+  description: List of a studio’s galleries
+  source_operation: openapi/workspace-openapi-original.json#listResourceGallery
+- name: createResourceGallery
+  description: Create an gallery.
+  source_operation: openapi/workspace-openapi-original.json#createResourceGallery
+- name: getResourceGallery
+  description: Get a specific gallery
+  source_operation: openapi/workspace-openapi-original.json#getResourceGallery
+- name: updateResourceGallery
+  description: Update a specific gallery.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceGallery
+- name: deleteResourceGallery
+  description: Delete an gallery.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceGallery
+- name: listResourceJob
+  description: List jobs of a studio
+  source_operation: openapi/workspace-openapi-original.json#listResourceJob
+- name: createResourceJob
+  description: Create a job.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJob
+- name: listResourceJobClosedReason
+  description: List of a studio’s job closed reasons
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobClosedReason
+- name: createResourceJobClosedReason
+  description: Create a job closed reason.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobClosedReason
+- name: getResourceJobClosedReason
+  description: Get a specific job closed reason
+  source_operation: openapi/workspace-openapi-original.json#getResourceJobClosedReason
+- name: updateResourceJobClosedReason
+  description: Update a specific job closed reason.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceJobClosedReason
+- name: deleteResourceJobClosedReason
+  description: Delete a job closed reason.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceJobClosedReason
+- name: listResourceJobContact
+  description: List of a job's contacts
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobContact
+- name: createResourceJobContact
+  description: Create a job contact.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobContact
+- name: getResourceJobContact
+  description: Get a specific job contact
+  source_operation: openapi/workspace-openapi-original.json#getResourceJobContact
+- name: updateResourceJobContact
+  description: Update a specific job contact.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceJobContact
+- name: deleteResourceJobContact
+  description: Delete a job contact.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceJobContact
+- name: listResourceJobRole
+  description: List of a studio’s job roles
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobRole
+- name: createResourceJobRole
+  description: Create a job role.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobRole
+- name: getResourceJobRole
+  description: Get a specific job role
+  source_operation: openapi/workspace-openapi-original.json#getResourceJobRole
+- name: updateResourceJobRole
+  description: Update a specific job role.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceJobRole
+- name: deleteResourceJobRole
+  description: Delete a job role.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceJobRole
+- name: listResourceJobType
+  description: List of a studio’s job types
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobType
+- name: createResourceJobType
+  description: Create a job type.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobType
+- name: getResourceJobType
+  description: Get a specific job type
+  source_operation: openapi/workspace-openapi-original.json#getResourceJobType
+- name: updateResourceJobType
+  description: Update a specific job role.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceJobType
+- name: deleteResourceJobType
+  description: Delete a job type.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceJobType
+- name: createResourceJobWorksheet
+  description: Create a Job using a Worksheet
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobWorksheet
+- name: getResourceJob
+  description: Get a specific job
+  source_operation: openapi/workspace-openapi-original.json#getResourceJob
+- name: updateResourceJob
+  description: Update a specific job.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceJob
+- name: deleteResourceJob
+  description: Delete a job.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceJob
+- name: listResourceJobPayment
+  description: Get a list of payments for a specific job
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobPayment
+- name: listResourceJobOrders
+  description: List of orders on a given Job
+  source_operation: openapi/workspace-openapi-original.json#listResourceJobOrders
+- name: createResourceJobOrder
+  description: Create an order on a given job.
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobOrder
+- name: createResourceJobQuote
+  description: Create a quote on a given job
+  source_operation: openapi/workspace-openapi-original.json#createResourceJobQuote
+- name: getResourceJobWorksheet
+  description: Get a Job Worksheet on a given Job
+  source_operation: openapi/workspace-openapi-original.json#getResourceJobWorksheet
+- name: listResourceLeadSource
+  description: List of a studio’s lead sources
+  source_operation: openapi/workspace-openapi-original.json#listResourceLeadSource
+- name: createResourceLeadSource
+  description: Create a lead source.
+  source_operation: openapi/workspace-openapi-original.json#createResourceLeadSource
+- name: getResourceLeadSource
+  description: Get a specific lead source
+  source_operation: openapi/workspace-openapi-original.json#getResourceLeadSource
+- name: updateResourceLeadSource
+  description: Update a specific lead source.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceLeadSource
+- name: deleteResourceLeadSource
+  description: Delete a lead source.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceLeadSource
+- name: listResourceLeadStatus
+  description: List of a studio’s lead statuses
+  source_operation: openapi/workspace-openapi-original.json#listResourceLeadStatus
+- name: createResourceLeadStatus
+  description: Create a lead status.
+  source_operation: openapi/workspace-openapi-original.json#createResourceLeadStatus
+- name: getResourceLeadStatus
+  description: Get a specific lead status
+  source_operation: openapi/workspace-openapi-original.json#getResourceLeadStatus
+- name: updateResourceLeadStatus
+  description: Update a specific lead status.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceLeadStatus
+- name: deleteResourceLeadStatus
+  description: Delete a lead status.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceLeadStatus
+- name: listResourceNote
+  description: List notes
+  source_operation: openapi/workspace-openapi-original.json#listResourceNote
+- name: createResourceNote
+  description: Create a note.
+  source_operation: openapi/workspace-openapi-original.json#createResourceNote
+- name: getResourceNote
+  description: Get a specific note
+  source_operation: openapi/workspace-openapi-original.json#getResourceNote
+- name: updateResourceNote
+  description: Update a specific note.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceNote
+- name: deleteResourceNote
+  description: Delete a note.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceNote
+- name: listResourceOrder
+  description: Get a list of orders
+  source_operation: openapi/workspace-openapi-original.json#listResourceOrder
+- name: getResourceOrder
+  description: Get a specific Order
+  source_operation: openapi/workspace-openapi-original.json#getResourceOrder
+- name: updateResourceOrder
+  description: Update a specific Order
+  source_operation: openapi/workspace-openapi-original.json#updateResourceOrder
+- name: listResourcePayment
+  description: Get a list of payments
+  source_operation: openapi/workspace-openapi-original.json#listResourcePayment
+- name: createResourcePayment
+  description: Create a payment.
+  source_operation: openapi/workspace-openapi-original.json#createResourcePayment
+- name: listResourcePaymentMethod
+  description: List payment methods.
+  source_operation: openapi/workspace-openapi-original.json#listResourcePaymentMethod
+- name: getResourcePaymentMethod
+  description: Get a specific payment methods.
+  source_operation: openapi/workspace-openapi-original.json#getResourcePaymentMethod
+- name: getResourcePayment
+  description: Get a specific payment
+  source_operation: openapi/workspace-openapi-original.json#getResourcePayment
+- name: updateResourcePayments
+  description: Update a specific payment
+  source_operation: openapi/workspace-openapi-original.json#updateResourcePayments
+- name: deleteResourcePayments
+  description: Delete a specifc payment
+  source_operation: openapi/workspace-openapi-original.json#deleteResourcePayments
+- name: createResourceApplyPaymentToOrder
+  description: Apply payment to Order
+  source_operation: openapi/workspace-openapi-original.json#createResourceApplyPaymentToOrder
+- name: listResourceProduct
+  description: Get a list of products
+  source_operation: openapi/workspace-openapi-original.json#listResourceProduct
+- name: createResourceProduct
+  description: Create a product.
+  source_operation: openapi/workspace-openapi-original.json#createResourceProduct
+- name: listResourceProductType
+  description: Get a list of product types
+  source_operation: openapi/workspace-openapi-original.json#listResourceProductType
+- name: createResourceProductType
+  description: Create a product type.
+  source_operation: openapi/workspace-openapi-original.json#createResourceProductType
+- name: getResourceProductType
+  description: Get a specific product type.
+  source_operation: openapi/workspace-openapi-original.json#getResourceProductType
+- name: deleteResourceProductType
+  description: Delete a specifc product type
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceProductType
+- name: getResourceProduct
+  description: Get a specific product.
+  source_operation: openapi/workspace-openapi-original.json#getResourceProduct
+- name: updateResourceProduct
+  description: Update a specific product.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceProduct
+- name: deleteResourceProduct
+  description: Delete a specific product.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceProduct
+- name: listResourceProfitCenter
+  description: List of a studio’s profit centers
+  source_operation: openapi/workspace-openapi-original.json#listResourceProfitCenter
+- name: createResourceProfitCenter
+  description: Create a profit center.
+  source_operation: openapi/workspace-openapi-original.json#createResourceProfitCenter
+- name: getResourceProfitCenter
+  description: Get a specific profit center
+  source_operation: openapi/workspace-openapi-original.json#getResourceProfitCenter
+- name: updateResourceProfitCenter
+  description: Update a specific profit center.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceProfitCenter
+- name: deleteResourceProfitCenter
+  description: Delete a profit center.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceProfitCenter
+- name: listResourceQuote
+  description: Get a list of quotes
+  source_operation: openapi/workspace-openapi-original.json#listResourceQuote
+- name: getResourceQuote
+  description: Get a specific Quote
+  source_operation: openapi/workspace-openapi-original.json#getResourceQuote
+- name: listResourceRestHook
+  description: List Rest Hooks
+  source_operation: openapi/workspace-openapi-original.json#listResourceRestHook
+- name: createResourceRestHook
+  description: Create a RestHook subscription.
+  source_operation: openapi/workspace-openapi-original.json#createResourceRestHook
+- name: getResourceRestHook
+  description: Get a specific Rest Hook
+  source_operation: openapi/workspace-openapi-original.json#getResourceRestHook
+- name: updateResourceRestHook
+  description: Update a specific RestHook.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceRestHook
+- name: deleteResourceRestHook
+  description: Unsubscribe from and delete a RestHook.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceRestHook
+- name: getResourceMyStudio
+  description: Get info about my studio
+  source_operation: openapi/workspace-openapi-original.json#getResourceMyStudio
+- name: updateResourceMyStudio
+  description: Update my studio settings.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceMyStudio
+- name: updateStudioReadonlyMode
+  description: Set studio to readonly mode.
+  source_operation: openapi/workspace-openapi-original.json#updateStudioReadonlyMode
+- name: listResourceTaxGroups
+  description: Get a list of Tax Groups.
+  source_operation: openapi/workspace-openapi-original.json#listResourceTaxGroups
+- name: createResourceTaxGroup
+  description: Create a Tax Group.
+  source_operation: openapi/workspace-openapi-original.json#createResourceTaxGroup
+- name: getResourceTaxGroup
+  description: Get a specific Tax Group
+  source_operation: openapi/workspace-openapi-original.json#getResourceTaxGroup
+- name: updateResourceTaxGroup
+  description: Update a specific Tax Group
+  source_operation: openapi/workspace-openapi-original.json#updateResourceTaxGroup
+- name: deleteResourceTaxGroup
+  description: Delete a Tax Group.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceTaxGroup
+- name: listResourceTaxRates
+  description: Get a list of Tax Rates.
+  source_operation: openapi/workspace-openapi-original.json#listResourceTaxRates
+- name: createResourceTaxRate
+  description: Create a Tax Rate
+  source_operation: openapi/workspace-openapi-original.json#createResourceTaxRate
+- name: getResourceTaxRate
+  description: Get a specific Tax Rate
+  source_operation: openapi/workspace-openapi-original.json#getResourceTaxRate
+- name: updateResourceTaxRate
+  description: Update a specific Tax Rate
+  source_operation: openapi/workspace-openapi-original.json#updateResourceTaxRate
+- name: deleteResourceTaxRate
+  description: Delete a Tax Rate.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceTaxRate
+- name: listResourceTimezone
+  description: Get list of timezones
+  source_operation: openapi/workspace-openapi-original.json#listResourceTimezone
+- name: getResourceTimezone
+  description: Get a specific timezone
+  source_operation: openapi/workspace-openapi-original.json#getResourceTimezone
+- name: listResourceUser
+  description: List of a studio’s users
+  source_operation: openapi/workspace-openapi-original.json#listResourceUser
+- name: createResourceUser
+  description: Create an user.
+  source_operation: openapi/workspace-openapi-original.json#createResourceUser
+- name: getResourceUser
+  description: Get a specific user
+  source_operation: openapi/workspace-openapi-original.json#getResourceUser
+- name: updateResourceUser
+  description: Update a specific user.
+  source_operation: openapi/workspace-openapi-original.json#updateResourceUser
+- name: deleteResourceUser
+  description: Delete a user.
+  source_operation: openapi/workspace-openapi-original.json#deleteResourceUser

@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://help.workspace.vsco.co/en/articles/13259288-public-api
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://workspace.vsco.co/api
+  notes: >-
+    V2 is the first public (and current) version of the VSCO Workspace API. The OpenAPI
+    declares two production servers — https://workspace.vsco.co/api/v2 and the legacy
+    Tave environment https://tave.io/v2 (which now redirects to workspace.vsco.co/api/v2
+    following VSCO's acquisition and rebrand of Tave as VSCO Workspace).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No published deprecation policy or RFC 8594 Sunset header support was found in the
+    Workspace API docs or help center as of 2026-07-21. The legacy tave.io/v2 server
+    remains live (302 to workspace.vsco.co/api/v2).
+sla:
+  url: null
+status_page: https://status.workspace.vsco.co/
+status_page_notes: 'Verified live 2026-07-21 (HTTP 200, title: VSCO Workspace Status). status.tave.com 302-redirects here.'
+deprecated_operations: []

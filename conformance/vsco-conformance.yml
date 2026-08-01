@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: Published spec at https://workspace.vsco.co/api/v2/openapi.json declares openapi 3.0.0 (144 operations, all with operationIds).
+  - id: api-key-auth
+    conforms: true
+    evidence: securitySchemes ApiKeyAuth (apiKey in header X-API-KEY) and BearerAuth (http bearer) applied globally.
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security scheme in the OpenAPI; auth is API-key/bearer only.
+  - id: oidc
+    conforms: false
+    evidence: No openIdConnect scheme; /.well-known/openid-configuration returns 404 on workspace.vsco.co.
+  - id: rest-hooks
+    conforms: true
+    evidence: RestHook schema description cites http://resthooks.org/; subscription CRUD at /rest-hook for contact.created, job.created, order.booked, payment.created events.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Error envelope carries RFC 9457-shaped fields (type/title/detail/status) but is served as application/json, not application/problem+json.
+  - id: pagination
+    conforms: true
+    evidence: Shared page / pageSize query parameters (default 100, max 100) across collection endpoints.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key header or documented idempotency contract in spec or docs.
+  - id: rate-limit-signaling
+    conforms: true
+    evidence: All 144 operations declare a 429 quota-limit response with Retry-After header guidance.
+  - id: json-api
+    conforms: false
+    evidence: Plain JSON resources with a links object; not JSON:API media type.
+  - id: scim
+    conforms: false
+    evidence: No SCIM paths.
+  - id: odata
+    conforms: false
+    evidence: No OData conventions.

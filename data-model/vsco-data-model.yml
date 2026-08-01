@@ -1,0 +1,63 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+notes: >-
+  Entity-relationship graph derived from the VSCO Workspace API OpenAPI components.schemas
+  (108 schemas): id-reference fields (jobId, contactId, brandId, typeId, ...) become
+  belongs_to edges; join resources and sub-collections become has_many edges. Jobs are the
+  hub entity of the Workspace (studio management) domain.
+entities:
+  - name: Studio
+    description: The account root; the API key is scoped to a single studio.
+  - name: Contact
+    description: Address-book entry (person, company, or location) with custom fields and external mappings.
+  - name: Job
+    description: The central work record — lead-to-booking lifecycle, financial rollups, custom fields.
+  - name: JobContact
+    description: Join record linking a Contact to a Job with a role.
+  - name: Order
+    description: Booked commercial agreement under a Job.
+  - name: Quote
+    description: Proposal with options and recipients attached to a Job.
+  - name: Payment
+    description: Money received, allocatable to orders, refundable.
+  - name: Event
+    description: Calendar/session entry, optionally linked to a Job and Gallery.
+  - name: Gallery
+    description: Delivered image gallery tied to a Job or Event.
+  - name: File
+    description: Stored file with a type and creating contact.
+  - name: Note
+    description: Free-form note on a Contact or Job.
+  - name: RestHook
+    description: Webhook subscription (event + target URL + filters).
+relationships:
+  - {from: Job, to: Brand, kind: belongs_to, via: brandId}
+  - {from: Job, to: JobType, kind: belongs_to, via: jobTypeId}
+  - {from: Job, to: LeadSource, kind: belongs_to, via: leadSourceId}
+  - {from: Job, to: LeadStatus, kind: belongs_to, via: leadStatusId}
+  - {from: Job, to: JobClosedReason, kind: belongs_to, via: closedReasonId}
+  - {from: Job, to: Workflow, kind: belongs_to, via: workflowId}
+  - {from: Job, to: Event, kind: belongs_to, via: primarySessionId}
+  - {from: Job, to: JobContact, kind: has_many, via: '/job-contact?jobId'}
+  - {from: JobContact, to: Contact, kind: belongs_to, via: contactId}
+  - {from: Job, to: Order, kind: has_many, via: '/job/{jobId}/order'}
+  - {from: Job, to: Quote, kind: has_many, via: Quote.jobId}
+  - {from: Payment, to: Job, kind: belongs_to, via: jobId}
+  - {from: Payment, to: Contact, kind: belongs_to, via: payerId}
+  - {from: Payment, to: PaymentMethod, kind: belongs_to, via: paymentMethodId}
+  - {from: Payment, to: Payment, kind: has_many, via: 'refunds[]'}
+  - {from: Payment, to: Order, kind: has_many, via: 'paymentAllocations[]'}
+  - {from: Event, to: Job, kind: belongs_to, via: jobId}
+  - {from: Event, to: Gallery, kind: belongs_to, via: galleryId}
+  - {from: Event, to: EventType, kind: belongs_to, via: typeId}
+  - {from: Event, to: Timezone, kind: belongs_to, via: timezoneId}
+  - {from: Gallery, to: Job, kind: belongs_to, via: jobId}
+  - {from: Gallery, to: Event, kind: belongs_to, via: eventId}
+  - {from: File, to: FileType, kind: belongs_to, via: typeId}
+  - {from: File, to: Contact, kind: belongs_to, via: createdByContactId}
+  - {from: Note, to: Contact, kind: belongs_to, via: contactId}
+  - {from: Note, to: Job, kind: belongs_to, via: jobId}
+  - {from: Note, to: User, kind: belongs_to, via: authorId}
+  - {from: Studio, to: User, kind: has_many, via: /user}
+  - {from: Studio, to: RestHook, kind: has_many, via: /rest-hook}

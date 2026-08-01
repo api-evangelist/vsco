@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: npm registry search, PyPI, GitHub org github.com/vsco, VSCO Workspace help center
+notes: >-
+  No first-party client SDKs for the VSCO Workspace API were found on npm, PyPI, or the
+  VSCO GitHub org (github.com/vsco, 86 public repos — mostly infrastructure tooling and
+  forks, no API client libraries) as of 2026-07-21. The packages below are third-party
+  community/integration-platform packages that target the VSCO consumer surface or the
+  legacy Tave (now VSCO Workspace) API; none are published by VSCO.
+packages:
+  - language: javascript
+    registry: npm
+    name: '@pipedream/tave'
+    url: https://www.npmjs.com/package/@pipedream/tave
+    install: npm install @pipedream/tave
+    official: false
+    notes: Pipedream integration components for the legacy Tave (VSCO Workspace) API.
+  - language: python
+    registry: pypi
+    name: vsco
+    url: https://pypi.org/project/vsco/
+    install: pip install vsco
+    official: false
+    notes: Community Python wrapper (vsco.py) for the undocumented VSCO consumer app API; not affiliated with VSCO.

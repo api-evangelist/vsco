@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workspace-openapi-original.json
+docs: https://help.workspace.vsco.co/en/articles/13259288-public-api
+authentication:
+  style: api-key-header
+  header: X-API-KEY
+  alternate: HTTP Bearer token
+  key_management: Keys are created in Workspace Settings > API Integrations with Read/Write or Read Only permission levels.
+  cross_link: authentication/vsco-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header or documented idempotency contract was found in the OpenAPI or docs.
+pagination:
+  style: page-number
+  params:
+    - name: page
+      description: The page of results to return (integer, default 1, minimum 1).
+    - name: pageSize
+      description: Results per page (integer, default 100, minimum 10, maximum 100).
+  response_fields: Collections carry a links object (self/next-style hypertext link relationships) on each resource.
+hypermedia:
+  links_object: true
+  notes: Every resource carries a read-only links object of link relationships (self href, title, type), HAL-adjacent.
+filtering:
+  notes: Collection endpoints expose typed filter params (contactId, jobId, email, brandId, startDate/endDate, includeHidden, includeClosed, externalMappingId, contactKind, slug).
+field_expansion:
+  supported: false
+metadata:
+  custom_fields: true
+  notes: Contacts and Jobs carry customFields[] (CustomFieldValue) and externalMappings[] for mapping records to external systems.
+request_tracing:
+  header: x-request-id
+  notes: Responses include an x-request-id / data-request-id correlation value (observed on live responses).
+versioning:
+  scheme: uri-path
+  current: v2
+  cross_link: lifecycle/vsco-lifecycle.yml
+errors:
+  envelope: type / title / detail / status (application/json; RFC 9457-shaped fields without the problem+json media type)
+  cross_link: errors/vsco-problem-types.yml
+rate_limits:
+  signaling: HTTP 429 (type quota-limit) with a Retry-After header on every operation (144/144 declare a 429 response).
+  documented_quota: null
+webhooks:
+  model: REST Hooks (resthooks.org) subscriptions via the /rest-hook resource.
+  cross_link: asyncapi/vsco-workspace-webhooks.yml

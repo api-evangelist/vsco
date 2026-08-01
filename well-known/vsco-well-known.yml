@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+notes: >-
+  Live probes of the /.well-known/ discovery surface on the VSCO website and the VSCO
+  Workspace API host, recorded 2026-07-21. No well-known documents were published on
+  either host. vsco.co returns HTTP 403 to non-browser clients (Cloudflare bot
+  protection), so those statuses reflect the blocked probe, not a confirmed absence.
+  The only discovery document found anywhere on the surface is /llms.txt on the help
+  center host, saved verbatim at llms/vsco-llms.txt.
+hosts:
+  - host: https://workspace.vsco.co
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://vsco.co
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /llms.txt
+        status: 403
+      - path: /robots.txt
+        status: 200
+  - host: https://help.workspace.vsco.co
+    documents:
+      - path: /llms.txt
+        status: 200
+        file: ../llms/vsco-llms.txt

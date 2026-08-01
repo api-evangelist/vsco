@@ -1,0 +1,65 @@
+# VSCO Workspace Help Center
+
+> Advice and Answers from the VSCO Workspace Team
+
+## Contact Us
+
+- [Contact the VSCO Workspace Support Team](https://help.workspace.vsco.co/en/articles/13254142-contact-the-vsco-workspace-support-team.md): Need to contact our support team? We're here to help.
+- [Submit a Feature Request](https://help.workspace.vsco.co/en/articles/13254144-submit-a-feature-request.md): Vote for your favorite features and get alerted if they are implemented!
+- [Join the VSCO Workspace Facebook Community](https://help.workspace.vsco.co/en/articles/13254146-join-the-vsco-workspace-facebook-community.md)
+
+## Reporting
+
+- [Automatically Keeping Track of Expenses in VSCO Workspace](https://help.workspace.vsco.co/en/articles/13259718-automatically-keeping-track-of-expenses-in-vsco-workspace.md): Looking to automatically log, keep track of, or enter your expenses?
+- [Client Safe Mode](https://help.workspace.vsco.co/en/articles/13259722-client-safe-mode.md): Client Safe Mode will hide certain financial data in your account, ideal for when your client is sitting beside you at your computer
+- [Users & User Permissions](https://help.workspace.vsco.co/en/articles/13259724-users-user-permissions.md): Add new users, delete users, and the difference between an admin user and a non-admin user in VSCO Workspace
+- [Payments & Expenses](https://help.workspace.vsco.co/en/articles/13259728-payments-expenses.md): Track Revenue and expenses for your business in VSCO Workspace
+
+## Tips and Tricks
+
+- [Weather Tracking in VSCO Workspace](https://help.workspace.vsco.co/en/articles/13259736-weather-tracking-in-vsco-workspace.md): Check out our renovated weather integration!
+- [Quote Revision History](https://help.workspace.vsco.co/en/articles/13259741-quote-revision-history.md)
+- [Using Notes on a Lead or Job](https://help.workspace.vsco.co/en/articles/13259743-using-notes-on-a-lead-or-job.md): Looking to add a note to a lead or a job?
+- [Rescheduling a Job](https://help.workspace.vsco.co/en/articles/13259746-rescheduling-a-job.md): Moving a job date or need to reschedule a session? Here's some help.
+- [Using the Client Portal](https://help.workspace.vsco.co/en/articles/13259749-using-the-client-portal.md): Instructions for inviting clients to their client portal
+- [Previewing the Client Portal](https://help.workspace.vsco.co/en/articles/13259753-previewing-the-client-portal.md): See what your clients see and perfect your client experience.
+- [Using Custom Tags to Label Your Address Book Contacts](https://help.workspace.vsco.co/en/articles/13259758-using-custom-tags-to-label-your-address-book-contacts.md): Understanding Tags in VSCO Workspace
+- [Refunding Payments](https://help.workspace.vsco.co/en/articles/13259761-refunding-payments.md): Learn how to record refunds for payments made by your clients.
+- [Exporting Questionnaire Responses to CSV](https://help.workspace.vsco.co/en/articles/13259766-exporting-questionnaire-responses-to-csv.md): How to export all responses to a particular questionnaire template to a CSV spreadsheet
+- [Auto Responding to New Leads](https://help.workspace.vsco.co/en/articles/13259768-auto-responding-to-new-leads.md): How to set up an automation to automatically respond to new leads, including when you're out of the office.
+- [Automatically Remind Yourself to Follow Up with a Lead](https://help.workspace.vsco.co/en/articles/13259771-automatically-remind-yourself-to-follow-up-with-a-lead.md): How to set up a reminder to follow up with your leads using Lead Status
+- [Creating an Automatic Lead Follow-up Chain](https://help.workspace.vsco.co/en/articles/13259774-creating-an-automatic-lead-follow-up-chain.md): Using Lead Status Changes and Automations to nurture leads
+- [Complete List of Tokens](https://help.workspace.vsco.co/en/articles/13259779-complete-list-of-tokens.md): A list of available tokens, and the many types of tokens that exist in your account
+- [Sending Event Social Media Information to Yourself by Automation](https://help.workspace.vsco.co/en/articles/13259785-sending-event-social-media-information-to-yourself-by-automation.md): How I use VSCO Workspace to send myself Instagram content for each wedding I shoot by automation
+- [Setting Up a Recurring Task by Automation](https://help.workspace.vsco.co/en/articles/13259789-setting-up-a-recurring-task-by-automation.md): How to automate the addition of a recurring task in your General Tasks section
+- [Sending Facebook Inquiries Directly to VSCO Workspace](https://help.workspace.vsco.co/en/articles/13259793-sending-facebook-inquiries-directly-to-vsco-workspace.md): How to bypass Facebook Messenger to get leads sent right into Workspace from Facebook
+- [Create a Custom Wedding Show Contact Form](https://help.workspace.vsco.co/en/articles/13259794-create-a-custom-wedding-show-contact-form.md): Create a contact form you can use at a bridal fair or other trade show to collect leads
+- [Selectable Image Options in a Questionnaire](https://help.workspace.vsco.co/en/articles/13259798-selectable-image-options-in-a-questionnaire.md): Displaying images of the options your client can select from in a questionnaire
+- [Dark Mode](https://help.workspace.vsco.co/en/articles/13259801-dark-mode.md): Ease your eyes in low-light environments by switching VSCO Workspace to dark mode
+- [Booking Leads by Creating an Order](https://help.workspace.vsco.co/en/articles/13259803-booking-leads-by-creating-an-order.md): This method will allow you to book your clients with a simple order and one or more invoices.
+
+## Webinars
+
+- [Texting Clients in VSCO Workspace](https://help.workspace.vsco.co/en/articles/13544355-texting-clients-in-vsco-workspace.md): January 15, 2026
+
+## Subscription
+
+- [Plans and Pricing](https://help.workspace.vsco.co/en/articles/13259901-plans-and-pricing.md): Understanding the plans VSCO Workspace offers and how they can serve you best.
+- [Month-to-Month vs. Annual License](https://help.workspace.vsco.co/en/articles/13259906-month-to-month-vs-annual-license.md): The different ways to subscribe to VSCO Workspace
+- [Using a Coupon Code](https://help.workspace.vsco.co/en/articles/13259909-using-a-coupon-code.md)
+- [Changes to the Workspace Referral Program](https://help.workspace.vsco.co/en/articles/13259912-changes-to-the-workspace-referral-program.md): Our VSCO Workspace Referral Program has been completely upgraded.
+- [How to Update Your Credit Card](https://help.workspace.vsco.co/en/articles/13259913-how-to-update-your-credit-card.md): Updating your credit card for your VSCO Workspace subscription
+- [Changing Your VSCO Workspace Password](https://help.workspace.vsco.co/en/articles/13259914-changing-your-vsco-workspace-password.md): How to change your password you use to log in
+- [Canceling Your VSCO Workspace Subscription](https://help.workspace.vsco.co/en/articles/13259918-canceling-your-vsco-workspace-subscription.md): How to close down your Workspace account
+- [VSCO Workspace Account Notifications](https://help.workspace.vsco.co/en/articles/13259922-vsco-workspace-account-notifications.md)
+- [VSCO Workspace and VSCO One: What You Need to Know](https://help.workspace.vsco.co/en/articles/15544295-vsco-workspace-and-vsco-one-what-you-need-to-know.md)
+
+## Early Access Betas
+
+- [About Early Access Betas](https://help.workspace.vsco.co/en/articles/13259928-about-early-access-betas.md)
+
+## VSCO Products and Features
+
+- [How to Link VSCO Galleries to VSCO Workspace Jobs](https://help.workspace.vsco.co/en/articles/14894208-how-to-link-vsco-galleries-to-vsco-workspace-jobs.md): Link your VSCO Galleries to Workspace jobs to keep your work organized and accessible.
+- [VSCO Hub](https://help.workspace.vsco.co/en/articles/13259933-vsco-hub.md): VSCO Hub connects brands and businesses with professional photographers from the VSCO community who are ready to bring their vision to life.
+- [How to Connect Your VSCO Site Contact Form to VSCO Workspace](https://help.workspace.vsco.co/en/articles/15556803-how-to-connect-your-vsco-site-contact-form-to-vsco-workspace.md)
