@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Job Worksheets API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Worksheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Job using a Worksheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/job/-/worksheet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Jobs are complex entities that have many dependent entities. That causes an issue to arrise when there is an error creating a dependent entity, causing your Job to be invalid and requiring you to go through and delete each item you already created.\nThe Job Worksheet allows you to create a Job with its primary dependent entities in one request that will rollback all of the newly created entities automatically as one transaction if the request fails."
+        },
+        {
+          "info": {
+            "name": "Get a Job Worksheet on a given Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/job/:jobId/worksheet",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Job Worksheet on a given Job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

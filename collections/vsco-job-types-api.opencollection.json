@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Job Types API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of a studio’s job types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/job-type",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page of results to return."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page to return in the collection."
+              },
+              {
+                "name": "includeHidden",
+                "value": "",
+                "type": "query",
+                "description": "Include objects that have been hidden"
+              },
+              {
+                "name": "externalMappingId",
+                "value": "",
+                "type": "query",
+                "description": "Filter objects by an external id for this provider."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort items in the collection by the given property."
+              }
+            ]
+          },
+          "docs": "List of a studio’s job types"
+        },
+        {
+          "info": {
+            "name": "Create a job type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/job-type",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a job type."
+        },
+        {
+          "info": {
+            "name": "Get a specific job type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/job-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Get a specific job type"
+        },
+        {
+          "info": {
+            "name": "Update a specific job role.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/job-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific job role."
+        },
+        {
+          "info": {
+            "name": "Delete a job type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://tave.io/v2/job-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Delete a job type."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

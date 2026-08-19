@@ -1,0 +1,1126 @@
+{
+  "item": [
+    {
+      "id": "72b823b6-64a8-4ca7-a4dc-d3505f823ab7",
+      "name": "Lead Sources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "01819467-1efd-4da6-b458-04cc63e04fd4",
+          "name": "List of a studio’s lead sources",
+          "request": {
+            "name": "List of a studio’s lead sources",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-source"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdce1798-dbe1-480f-a0ec-c5481daabc11",
+              "name": "Lead Sources list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 8730,\n    \"totalPages\": 8172,\n    \"totalItems\": 6094,\n    \"rows\": 6731\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3716b3d0-51bd-4f4b-af36-285c2b3390d1",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad233096-9853-4d4a-ae3a-01f5f5a9b73b",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9f4d6d1-2277-4c32-a0c9-722fe850d776",
+          "name": "Create a lead source.",
+          "request": {
+            "name": "Create a lead source.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-source"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"parentId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "648c3872-27b3-4b0e-bd10-3bb722a2c51c",
+              "name": "Lead Source creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afb36839-c9a7-435d-815e-007ce0c2829f",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c441bdd1-cb15-4670-b15f-256970fee8f2",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd26eb8c-03ea-4b5b-a401-837e3681e485",
+          "name": "Get a specific lead source",
+          "request": {
+            "name": "Get a specific lead source",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-source",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b28ab593-d8f1-43f9-b46f-dd4eae9bb49f",
+              "name": "Fetch a specific lead source entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccf69d53-7740-41b4-9c64-2c74724b541b",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22690100-8b3e-4a24-be1c-0daa7934ba64",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5d56f8d-6cd3-4d53-ae9f-2bb3a71885da",
+          "name": "Update a specific lead source.",
+          "request": {
+            "name": "Update a specific lead source.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-source",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"parentId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f7c3be5-26b3-49fd-8c36-68a92a622557",
+              "name": "Lead Status response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"09fac8\",\n  \"externalMappings\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://bzJubkQbAHAGuNbYkmRQfydzoKpmEPVoL.nvftfHBpNEFcWboKg\"\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"https://PCpORxAAcpOyooaNzsiTuQRT.elfyoEZoe8Ts.kg6\"\n    }\n  ],\n  \"kind\": \"stale\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": 56453186246,\n  \"transitionIntervalUnit\": \"month\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dcd6c81-6b78-4810-8047-53aa6c8b6004",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6f1a59c-2dd6-43c5-8b50-f9bfb04ccb4a",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"parentId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11e9a42a-ab76-4190-ba7f-e4bb33c75b79",
+          "name": "Delete a lead source.",
+          "request": {
+            "name": "Delete a lead source.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-source",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2300d43-85e3-40a4-b013-f18c12eff065",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8e176d7-e77d-4fd5-91e2-31bcebf366ca",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47f9bf4e-bc44-44be-98eb-3d9dbc9afe59",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-source",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "390f452b-2afa-4f1f-8eb4-5165812e2d01",
+    "name": "VSCO Workspace Brands Lead Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Custom Fields API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of Custom Fields on a studio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/custom-field",
+            "params": [
+              {
+                "name": "canApplyTo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort items in the collection by the given property."
+              }
+            ]
+          },
+          "docs": "List of Custom Fields on a studio"
+        },
+        {
+          "info": {
+            "name": "Create a custom field.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/custom-field",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a custom field."
+        },
+        {
+          "info": {
+            "name": "Get a specific Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/custom-field/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Get a specific Custom Field"
+        },
+        {
+          "info": {
+            "name": "Update a specific Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/custom-field/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific Custom Field"
+        },
+        {
+          "info": {
+            "name": "Delete a Custom Field.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://tave.io/v2/custom-field/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Delete a Custom Field."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1054 @@
+{
+  "item": [
+    {
+      "id": "d6c4c72e-b9a9-42a5-b5cd-46c5231e446d",
+      "name": "Tax Rates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08adc60e-7aa8-4695-8977-cbebfea44619",
+          "name": "Get a list of Tax Rates.",
+          "request": {
+            "name": "Get a list of Tax Rates.",
+            "description": {},
+            "url": {
+              "path": [
+                "tax-rate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e94bf7b3-96b9-47f2-8a42-f0b061f904c5",
+              "name": "Fetch a list of Tax Rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"string\",\n  \"rate\": 864.737765130247,\n  \"inclusive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f12ca6d-3e74-427e-88b9-5ef7d96753fe",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7eef56ec-11bf-4514-ab62-7c7da416b2f9",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b5bec6a-9301-4a69-947b-8b6a901cb5d4",
+          "name": "Create a Tax Rate",
+          "request": {
+            "name": "Create a Tax Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "tax-rate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb7c9008-62a5-47b2-bc86-e7be7a566718",
+              "name": "Tax Rate creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bffa89b-a281-4b54-a3ec-fed491d68b73",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c90845ad-0ca2-419c-99ee-66fbc91209dd",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1ecf005-8166-4726-9390-02f2f376fc3a",
+          "name": "Get a specific Tax Rate",
+          "request": {
+            "name": "Get a specific Tax Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "tax-rate",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "220fad39-1b8b-438e-85db-069e223ff5ad",
+              "name": "Fetch a specific Tax Rate",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2965f10-3edf-43a2-b584-2923d09cb431",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27ae65e8-1922-47b7-bb20-2aec752176b3",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3ad1146-4089-443e-8b32-7879ef4c9f9c",
+          "name": "Update a specific Tax Rate",
+          "request": {
+            "name": "Update a specific Tax Rate",
+            "description": {},
+            "url": {
+              "path": [
+                "tax-rate",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f006132-855e-43e2-bf21-d3bfe07f49ef",
+              "name": "Tax Rate response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea69d4c3-b8c7-4692-8c89-0b2928e6f944",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52ba1213-3345-4367-bdd0-1b63aaa30e87",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"<string>\",\n  \"rate\": \"<float>\",\n  \"inclusive\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "769ae263-b412-4fa8-a2e8-6334fb12c414",
+          "name": "Delete a Tax Rate.",
+          "request": {
+            "name": "Delete a Tax Rate.",
+            "description": {},
+            "url": {
+              "path": [
+                "tax-rate",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c522ce8-96ae-4f02-9ad5-86cb8f76ef03",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67d39048-303d-4f78-8c2a-ca3809acb4fe",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c22a4c86-6778-4685-a9a3-4abe5cc5af47",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e2cf9a23-11e4-428a-8d8e-2fcb28633b1b",
+    "name": "VSCO Workspace Brands Tax Rates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

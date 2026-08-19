@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Rest Hooks API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rest Hooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Rest Hooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/rest-hook",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page of results to return."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page to return in the collection."
+              },
+              {
+                "name": "includeHidden",
+                "value": "",
+                "type": "query",
+                "description": "Include objects that have been hidden"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort items in the collection by the given property."
+              }
+            ]
+          },
+          "docs": "List Rest Hooks"
+        },
+        {
+          "info": {
+            "name": "Create a RestHook subscription.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/rest-hook",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a RestHook subscription."
+        },
+        {
+          "info": {
+            "name": "Get a specific Rest Hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/rest-hook/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Get a specific Rest Hook"
+        },
+        {
+          "info": {
+            "name": "Update a specific RestHook.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/rest-hook/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific RestHook."
+        },
+        {
+          "info": {
+            "name": "Unsubscribe from and delete a RestHook.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://tave.io/v2/rest-hook/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Unsubscribe from and delete a RestHook."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

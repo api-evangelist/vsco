@@ -1,0 +1,820 @@
+{
+  "item": [
+    {
+      "id": "29726ab4-5b56-4324-a79f-05daeab72fe9",
+      "name": "Discounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4181e12-648b-4820-b154-d5bdeed2323d",
+          "name": "Get a list of discounts",
+          "request": {
+            "name": "Get a list of discounts",
+            "description": {},
+            "url": {
+              "path": [
+                "discount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d9c3028-1de1-4172-a81d-c3dca4221dcc",
+              "name": "Successful response for discount list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"price\": 78091933916,\n      \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"manualEntry\": true,\n      \"descriptionHtml\": \"string\",\n      \"sku\": \"string\",\n      \"rebate\": false,\n      \"kind\": \"Percent\"\n    },\n    {\n      \"name\": \"string\",\n      \"price\": 56545132958,\n      \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"manualEntry\": true,\n      \"descriptionHtml\": \"string\",\n      \"sku\": \"string\",\n      \"rebate\": false,\n      \"kind\": \"Amount\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 1058,\n    \"totalPages\": 5341,\n    \"totalItems\": 2191,\n    \"rows\": 5273\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edfc57a0-f42b-46b9-8948-cb73ef9b6ab2",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f7bdd87-03d1-415a-ab66-2c59a23d4ea0",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45a686f2-71fd-4d4f-861c-9b651d470fb9",
+          "name": "Create a discount.",
+          "request": {
+            "name": "Create a discount.",
+            "description": {},
+            "url": {
+              "path": [
+                "discount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"<ulid>\",\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b59b1747-25ef-4c2d-b43c-dc732a8f14fe",
+              "name": "Discount creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "687ca3e1-1fbd-401e-b924-cce9f5bc47f8",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da71d9ce-54af-4a49-9862-972b30d855f0",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "742d7a3e-2342-4f10-9461-8ceadbc7adf5",
+          "name": "Get a specific discount.",
+          "request": {
+            "name": "Get a specific discount.",
+            "description": {},
+            "url": {
+              "path": [
+                "discount",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbb49323-457b-49c9-9ac6-97ece875abc7",
+              "name": "Successfully retrieve a specific discount",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"typeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"manualEntry\": true,\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"rebate\": false,\n  \"kind\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b43e3aa1-c34b-4342-a7aa-28df10782fc5",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8118fd14-b6d2-4cf3-8d20-0c15fa87df50",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1daa3c59-44a3-4add-ac64-71bac7e31d45",
+          "name": "Delete a specifc discount",
+          "request": {
+            "name": "Delete a specifc discount",
+            "description": {},
+            "url": {
+              "path": [
+                "discount",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4963a495-612c-4e55-a544-a28fe3a9215c",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aeba9111-8094-4a4b-8d72-6879cd807241",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45261130-0e47-4109-915a-30cf9e8a135c",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discount",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3f6db4e6-e306-47f6-a704-71d45bf794e8",
+    "name": "VSCO Workspace Brands Discounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

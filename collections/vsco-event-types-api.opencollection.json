@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Event Types API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of a studio’s event types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/event-type",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page of results to return."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page to return in the collection."
+              },
+              {
+                "name": "includeHidden",
+                "value": "",
+                "type": "query",
+                "description": "Include objects that have been hidden"
+              },
+              {
+                "name": "externalMappingId",
+                "value": "",
+                "type": "query",
+                "description": "Filter objects by an external id for this provider."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort items in the collection by the given property."
+              }
+            ]
+          },
+          "docs": "List of a studio’s event types"
+        },
+        {
+          "info": {
+            "name": "Create an event type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/event-type",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an event type."
+        },
+        {
+          "info": {
+            "name": "Get a specific event type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/event-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Get a specific event type"
+        },
+        {
+          "info": {
+            "name": "Update a specific event type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/event-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific event type."
+        },
+        {
+          "info": {
+            "name": "Delete an event type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://tave.io/v2/event-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Delete an event type."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

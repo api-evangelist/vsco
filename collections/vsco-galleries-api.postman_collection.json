@@ -1,0 +1,1126 @@
+{
+  "item": [
+    {
+      "id": "6088ada0-9e5c-4d52-a347-57dedc8d888b",
+      "name": "Galleries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9df4eca-5350-483c-a015-f606bc4aeab0",
+          "name": "List of a studio’s galleries",
+          "request": {
+            "name": "List of a studio’s galleries",
+            "description": {},
+            "url": {
+              "path": [
+                "gallery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1911b6f8-826a-4904-a1c3-724f08123993",
+              "name": "Gallery list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"clientUrl\": \"https://sLxVxvlLmsPZzutOQn.jcboV2rPKAO3YMUpRcdPj4npsQxy3Pd+rCOwIKiPYh4RFCtwQ+H0-lyuZQ,+a\",\n      \"adminUrl\": \"https://mEDgcuLvCmHbjxBIuGdeYAEiubo.frdZ5sA9W4TOmApweRjJozjGF6T0qpXgd2-LXqyxBSXzg6lYzZr+7yhWt.tE+I2DaZ3kZ,Mlp5jquN\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://dEQvTyRlWQX.ijsTkhbFpUcDz-GvWb.-CPCQchihNIqLKbOX6\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"http://AV.uqBVs+HUv\"\n        }\n      ],\n      \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"remoteId\": \"string\",\n      \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n      \"status\": \"active\",\n      \"coverPhoto\": {\n        \"remoteUrl\": \"http://cHsocEV.druNUdd-0vlgYBOzW4fEo8mMStL4tAE.\",\n        \"focalPointX\": 16.976756580760277,\n        \"focalPointY\": 84.23715154432679,\n        \"remoteId\": \"string\"\n      },\n      \"public\": false,\n      \"requiresPassword\": true,\n      \"password\": \"string\",\n      \"category\": \"string\",\n      \"releaseDate\": \"2007-12-03\",\n      \"eventDate\": \"1992-02-02\",\n      \"expirationDate\": \"1972-10-25\",\n      \"orderDueDate\": \"1976-09-05\",\n      \"orderCount\": 0,\n      \"photoCount\": 0,\n      \"visitorCount\": 0,\n      \"headline\": \"string\",\n      \"slug\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"clientUrl\": \"https://RCELDfaoUGgzXtoeDeledWrCKjfgaQhy.tkjja7xmMEZaknv\",\n      \"adminUrl\": \"https://WwYlabsv.jpfIJe-khnZJBqFPL5xNq4eWkyFTTrTKio+y9jd,95QUYsALWDrop0chJf25kDxH5PQ3\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"https://JSlktWrcCBWUS.ajY49UPIfG6XV5ws-qOUJi+PXuSWUcr1GVel.rJ+djXwbIv1XPt\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"https://YDcJuKIAnnbhjdWr.tzbPh\"\n        }\n      ],\n      \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"remoteId\": \"string\",\n      \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n      \"status\": \"active\",\n      \"coverPhoto\": {\n        \"remoteUrl\": \"https://YMXEgfZlS.pbiCqvtTll6Xdan,aNcGVfRikakk+Unns2CQsjkQzS\",\n        \"focalPointX\": 8.434019651229486,\n        \"focalPointY\": 71.26380590175195,\n        \"remoteId\": \"string\"\n      },\n      \"public\": false,\n      \"requiresPassword\": true,\n      \"password\": \"string\",\n      \"category\": \"string\",\n      \"releaseDate\": \"1954-11-24\",\n      \"eventDate\": \"2004-11-08\",\n      \"expirationDate\": \"1993-04-11\",\n      \"orderDueDate\": \"1955-12-10\",\n      \"orderCount\": 0,\n      \"photoCount\": 0,\n      \"visitorCount\": 0,\n      \"headline\": \"string\",\n      \"slug\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 2692,\n    \"totalPages\": 7576,\n    \"totalItems\": 7679,\n    \"rows\": 1778\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88f9a0d7-65cd-4d38-b6e5-4a4c43b5cba3",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbd07756-a889-4af7-9f06-cee23befd939",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04ddbfea-d2c9-446a-ae7e-d786e88757be",
+          "name": "Create an gallery.",
+          "request": {
+            "name": "Create an gallery.",
+            "description": {},
+            "url": {
+              "path": [
+                "gallery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"<ulid>\",\n  \"eventId\": \"<ulid>\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"<dateTime>\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84fb1a85-de42-4b4c-83a0-cc845b96a56b",
+              "name": "Gallery creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42fe1c2a-f6fa-4519-9774-035999fbd34e",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d706cff1-7a28-4e34-a35c-3cafc0d976e4",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0363e47c-2cb5-4ff2-b44c-24d3fb08c11d",
+          "name": "Get a specific gallery",
+          "request": {
+            "name": "Get a specific gallery",
+            "description": {},
+            "url": {
+              "path": [
+                "gallery",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09ae7bee-c360-4f13-8656-95d380acec47",
+              "name": "Fetch a specific gallery entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7067eb30-6dcb-4fd2-a35e-57e14a2b0952",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b420b5f7-74dd-422a-9d8f-d7f313b3ba88",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ab29114-c7f0-436c-96bb-d8df15f88213",
+          "name": "Update a specific gallery.",
+          "request": {
+            "name": "Update a specific gallery.",
+            "description": {},
+            "url": {
+              "path": [
+                "gallery",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"<ulid>\",\n  \"eventId\": \"<ulid>\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"<dateTime>\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90c81d2f-0cca-4c48-b8aa-ec09ee32e09b",
+              "name": "gallery response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f0c53fc-5c3f-48e3-b524-12bc97eb70f6",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fb37786-6897-4b09-9ad6-755ecfc77944",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"clientUrl\": \"<uri>\",\n  \"adminUrl\": \"<uri>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"jobId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"eventId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"remoteId\": \"<string>\",\n  \"remoteCreated\": \"2020-06-17T13:06:22+00:00\",\n  \"status\": \"active\",\n  \"coverPhoto\": {\n    \"remoteUrl\": \"<uri>\",\n    \"focalPointX\": \"<float>\",\n    \"focalPointY\": \"<float>\",\n    \"remoteId\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"requiresPassword\": true,\n  \"password\": \"<string>\",\n  \"category\": \"<string>\",\n  \"releaseDate\": \"<date>\",\n  \"eventDate\": \"<date>\",\n  \"expirationDate\": \"<date>\",\n  \"orderDueDate\": \"<date>\",\n  \"orderCount\": 0,\n  \"photoCount\": 0,\n  \"visitorCount\": 0,\n  \"headline\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "432df86f-fd27-451f-9136-e03461b92e33",
+          "name": "Delete an gallery.",
+          "request": {
+            "name": "Delete an gallery.",
+            "description": {},
+            "url": {
+              "path": [
+                "gallery",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0371cf38-32cd-45d3-9f51-3df527a4a9a9",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fca742f-dda9-4b45-992e-e396fa936060",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7add87a8-5307-40b8-a633-7a4f6435c261",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gallery",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ef6d3f36-ac89-4cdc-af07-11576f5dedac",
+    "name": "VSCO Workspace Brands Galleries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

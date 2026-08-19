@@ -1,0 +1,429 @@
+{
+  "item": [
+    {
+      "id": "3c3a98b0-4075-463e-bec4-4190c8e7f89c",
+      "name": "Payment Methods",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "39761b55-49d4-470e-96dc-8370e1eda7d0",
+          "name": "List payment methods.",
+          "request": {
+            "name": "List payment methods.",
+            "description": {},
+            "url": {
+              "path": [
+                "payment-method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f72bbf8f-a497-44a7-b498-bd30085842c4",
+              "name": "Successfully list payment methods.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"name\": \"string\",\n      \"kind\": \"Cash\"\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"name\": \"string\",\n      \"kind\": \"Cash\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 3710,\n    \"totalPages\": 2988,\n    \"totalItems\": 9734,\n    \"rows\": 2544\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53fcb5b8-33ff-4796-85c9-c5bf906ffa31",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bff22ab6-56bd-496e-9fc9-a5df68b51e44",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f776693a-d594-4837-bc69-fe32920442f2",
+          "name": "Get a specific payment methods.",
+          "request": {
+            "name": "Get a specific payment methods.",
+            "description": {},
+            "url": {
+              "path": [
+                "payment-method",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b45cf54-ab84-48b5-9dc7-23fbd8590648",
+              "name": "Successfully retrieve a specific payment method",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"name\": \"string\",\n  \"kind\": \"Cash\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c16d9d21-bbb1-4b40-9bbb-27da06663aae",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6e5e764-9f72-4f3d-a306-5f27be1922a2",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-method",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3213d84e-0f10-452d-8a71-b612af9e02c1",
+    "name": "VSCO Workspace Brands Payment Methods API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

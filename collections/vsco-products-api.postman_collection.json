@@ -1,0 +1,1054 @@
+{
+  "item": [
+    {
+      "id": "d32b48be-9605-4f4d-9623-95bcd8ea992b",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c78680c-d7f6-4500-bdfb-c35dcff5fe1a",
+          "name": "Get a list of products",
+          "request": {
+            "name": "Get a list of products",
+            "description": {},
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b51f3c1-a286-4506-93da-e39cbdc494b9",
+              "name": "Successful response for product list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"name\": \"string\",\n      \"price\": 75809582787,\n      \"manualEntry\": true,\n      \"descriptionHtml\": \"string\",\n      \"sku\": \"string\",\n      \"taxable\": false,\n      \"deliverable\": false,\n      \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"expenseDueFrom\": \"Never\",\n      \"expenseDuePeriod\": 8525.253303860223,\n      \"expenseDuePeriodType\": \"Days\",\n      \"expenses\": [\n        {\n          \"memo\": \"string\",\n          \"amount\": 32259549387\n        },\n        {\n          \"memo\": \"string\",\n          \"amount\": 95797594777\n        }\n      ]\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"name\": \"string\",\n      \"price\": 22531301571,\n      \"manualEntry\": true,\n      \"descriptionHtml\": \"string\",\n      \"sku\": \"string\",\n      \"taxable\": false,\n      \"deliverable\": false,\n      \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"expenseDueFrom\": \"Never\",\n      \"expenseDuePeriod\": 4533.160760118374,\n      \"expenseDuePeriodType\": \"Days\",\n      \"expenses\": [\n        {\n          \"memo\": \"string\",\n          \"amount\": 50636130111\n        },\n        {\n          \"memo\": \"string\",\n          \"amount\": 61750930574\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 9767,\n    \"totalPages\": 6688,\n    \"totalItems\": 8344,\n    \"rows\": 7331\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d51a6541-6c2e-47ce-9d67-8201f4beedca",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01a4247d-0d72-41e1-9a50-469143676a85",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53019fd8-ad8c-4fcc-865c-df2d98ae2312",
+          "name": "Create a product.",
+          "request": {
+            "name": "Create a product.",
+            "description": {},
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"type\": \"<ulid>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"<ulid>\",\n  \"expenseCategoryId\": \"<ulid>\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a5e28b3-e9b7-4600-905f-1f0da5aa62f7",
+              "name": "Product creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62805c42-e4f0-443f-ad08-a87f4e361c57",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f008e1d5-3022-498c-97d1-764f44c09ac0",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90818f32-7186-482f-b45f-fb0ddd47c486",
+          "name": "Get a specific product.",
+          "request": {
+            "name": "Get a specific product.",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e8d7775-bf12-41fc-b47c-e6e847871d8b",
+              "name": "Successfully retrieve a specific product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86ae36d5-935d-495f-95b6-2de779f26406",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6e90b3b-75be-45a6-b75e-b5545c7e29d8",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2717be34-fd0c-4271-9b32-a5dadcc7be98",
+          "name": "Update a specific product.",
+          "request": {
+            "name": "Update a specific product.",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"type\": \"<ulid>\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"<ulid>\",\n  \"expenseCategoryId\": \"<ulid>\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0244a18f-fe42-42bb-af6d-23459b169c48",
+              "name": "Product update response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105d63e0-f09e-4468-92a1-d0829dd6efed",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f6d37ef-bd71-4d0f-93c6-02998ebe3ffc",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"type\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"price\": \"<integer>\",\n  \"manualEntry\": \"<boolean>\",\n  \"descriptionHtml\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"taxable\": false,\n  \"deliverable\": false,\n  \"vendorId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseCategoryId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"expenseDueFrom\": \"Never\",\n  \"expenseDuePeriod\": \"<number>\",\n  \"expenseDuePeriodType\": \"Days\",\n  \"expenses\": [\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"memo\": \"<string>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "150b198a-fc89-4f8e-8034-9209d8e7c1b4",
+          "name": "Delete a specific product.",
+          "request": {
+            "name": "Delete a specific product.",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b136638-4463-4300-9fbf-1768e807bbe7",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30406f6a-3c8f-4a19-aa32-714857122a0d",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d6efa58-fb8f-48b2-ac63-514cf4167442",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9844e3fb-3055-45fc-b085-31d634908e5d",
+    "name": "VSCO Workspace Brands Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

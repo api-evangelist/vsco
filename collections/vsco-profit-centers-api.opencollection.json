@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Profit Centers API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profit Centers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of a studio’s profit centers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/profit-center",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page of results to return."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page to return in the collection."
+              },
+              {
+                "name": "includeHidden",
+                "value": "",
+                "type": "query",
+                "description": "Include objects that have been hidden"
+              },
+              {
+                "name": "externalMappingId",
+                "value": "",
+                "type": "query",
+                "description": "Filter objects by an external id for this provider."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort items in the collection by the given property."
+              }
+            ]
+          },
+          "docs": "List of a studio’s profit centers"
+        },
+        {
+          "info": {
+            "name": "Create a profit center.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://tave.io/v2/profit-center",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a profit center."
+        },
+        {
+          "info": {
+            "name": "Get a specific profit center",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/profit-center/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Get a specific profit center"
+        },
+        {
+          "info": {
+            "name": "Update a specific profit center.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/profit-center/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific profit center."
+        },
+        {
+          "info": {
+            "name": "Delete a profit center.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://tave.io/v2/profit-center/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ULID to perform an action on."
+              }
+            ]
+          },
+          "docs": "Delete a profit center."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

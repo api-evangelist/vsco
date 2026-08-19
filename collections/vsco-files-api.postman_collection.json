@@ -1,0 +1,1161 @@
+{
+  "item": [
+    {
+      "id": "af2749d1-cdcd-4c62-ba72-1a4050a6b94f",
+      "name": "Files",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c3793d77-c5a7-441f-8b81-3ed318ecacef",
+          "name": "List files",
+          "request": {
+            "name": "List files",
+            "description": {},
+            "url": {
+              "path": [
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "jobId",
+                  "value": "<ulid>",
+                  "description": "Include objects attached to a job"
+                },
+                {
+                  "disabled": false,
+                  "key": "contactId",
+                  "value": "<ulid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd3c8ca5-892d-4e93-ac5a-349fa2832bef",
+              "name": "File list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "jobId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"filename\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"attachedTo\": [\n        {\n          \"entity\": \"brand\",\n          \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n          \"link\": \"http://rgZMUmlrlXRR.wlgW+dlUS2BZy8pDVzk\"\n        },\n        {\n          \"entity\": \"payment\",\n          \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n          \"link\": \"http://EjmNAspSvQwfIcgKnEN.jzLutHqKDTBkkeZBNt6kO\"\n        }\n      ],\n      \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"description\": \"string\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"https://lvlc.bspnWkpLPsgs,fQymOYPSJ-klMabSEZt7OmCd5ldgIVnLaK02UMcABz80SwZB5xa7\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"https://sIVUX.wwenPxs-1R+Z26vClF+\"\n        }\n      ],\n      \"imageMetaData\": {\n        \"crop\": {\n          \"height\": 2251,\n          \"left\": 9519,\n          \"top\": 64615,\n          \"width\": 7835\n        },\n        \"focalPoint\": {\n          \"x\": 7511.949938533091,\n          \"y\": 4196.682138271396\n        },\n        \"height\": 61253,\n        \"latitude\": 2853.9796788828307,\n        \"longitude\": 9062.033650252164,\n        \"width\": 11570\n      },\n      \"mimeType\": \"string\",\n      \"name\": \"string\",\n      \"remoteUrl\": \"https://OXdqwMfDeTvPYlNgkSJelHzrLntsSGS.iwelnk88bRgg6SasPIG3s76\",\n      \"size\": 9790,\n      \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"url\": \"http://s.tislP.TMsut10-AqoZVYWqmBDY5OI6RLewEP.FwAC7t9ddg6w88CESWhOB,\"\n    },\n    {\n      \"filename\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"attachedTo\": [\n        {\n          \"entity\": \"invoice-item\",\n          \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n          \"link\": \"http://lOMQHDqUWhmri.tgf83M-EPigDesomoEuQjtw\"\n        },\n        {\n          \"entity\": null,\n          \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n          \"link\": \"https://YRXRUVbUFeCYroMdJownROnO.gibdmX+1cY3ASZqgrwcle8Y0jcAsFZvedlUSr0s\"\n        }\n      ],\n      \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"description\": \"string\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://caP.uaknzUUWKtriHO\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"http://KjbBayQOZdHMtMIFuEwmktiCekvEn.wxRLrabi53axHOPtVpax3.sDotMzXe4Zv2,cDwwHs93-,HAL.SFSGFqwEyAvvVDJ2BNfoAiwi\"\n        }\n      ],\n      \"imageMetaData\": {\n        \"crop\": {\n          \"height\": 11024,\n          \"left\": 2138,\n          \"top\": 52676,\n          \"width\": 37952\n        },\n        \"focalPoint\": {\n          \"x\": 5553.877479674962,\n          \"y\": 9683.767692019572\n        },\n        \"height\": 22335,\n        \"latitude\": 7246.439870436967,\n        \"longitude\": 5917.479844928784,\n        \"width\": 22587\n      },\n      \"mimeType\": \"string\",\n      \"name\": \"string\",\n      \"remoteUrl\": \"http://tbrGy.udbyMDc2,9cNC1dXA5r8JEPSoiXzYF+kZAvVYC5YG8-5zWPau5jAoSVvYOCrSBBWfCDWayVF\",\n      \"size\": 6056,\n      \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"url\": \"http://KGqUMxs.bfqUK5odYIH1uBObZ0SuMf1apqtm\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 7847,\n    \"totalPages\": 5807,\n    \"totalItems\": 8626,\n    \"rows\": 7522\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "394e9cc3-e24c-4355-80a6-808c43613a8c",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "jobId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0195f0b-b35c-495b-9601-b9220652fba5",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "jobId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "01fqcr215r79p3h19crqbpzwzh"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38829349-8d73-423a-94fe-3015137129de",
+          "name": "Create a file.",
+          "request": {
+            "name": "Create a file.",
+            "description": {},
+            "url": {
+              "path": [
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"<ulid>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"<ulid>\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"<ulid>\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "444ccb67-1576-420d-93ab-0c8063901788",
+              "name": "File creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://KYKVMoTdlaG.zpDMgYP5QtDpoGUtROsreRCWKBLUByx1kucQBFL9oBd8,GAx+N,oB0iZ\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://FfudobdH.gxkvehY6zLmW,paXVQaPT\"\n    }\n  ],\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"height\": 51483,\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\",\n    \"width\": 50695\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"size\": 3417,\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"url\": \"https://Azo.ady7V.-9uhCadB,KHKZ2aOqfuWR3Jo\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b780141-c680-45ea-9123-c2e413b31496",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c28388d-49de-4c3d-a283-3778432dc263",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7535ad21-b9e5-4bc5-a31a-2d2e9ac3a4fe",
+          "name": "Get a specific file",
+          "request": {
+            "name": "Get a specific file",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf96f04c-6300-461b-8f8a-ece9874e790a",
+              "name": "Fetch a specific File entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://KYKVMoTdlaG.zpDMgYP5QtDpoGUtROsreRCWKBLUByx1kucQBFL9oBd8,GAx+N,oB0iZ\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://FfudobdH.gxkvehY6zLmW,paXVQaPT\"\n    }\n  ],\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"height\": 51483,\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\",\n    \"width\": 50695\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"size\": 3417,\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"url\": \"https://Azo.ady7V.-9uhCadB,KHKZ2aOqfuWR3Jo\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "402a1b55-6ea8-4e58-8ea4-28e53f4a20fb",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bfbfc23-ba90-43f8-bbab-2ddeea15641e",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56fe8674-aae5-4cfd-8f18-b5de7ba3304c",
+          "name": "Update a specific file.",
+          "request": {
+            "name": "Update a specific file.",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"<ulid>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"<ulid>\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"<ulid>\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32709fad-36a6-4b38-a334-ddec97ce4927",
+              "name": "File response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://KYKVMoTdlaG.zpDMgYP5QtDpoGUtROsreRCWKBLUByx1kucQBFL9oBd8,GAx+N,oB0iZ\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"link\": \"http://FfudobdH.gxkvehY6zLmW,paXVQaPT\"\n    }\n  ],\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"height\": 51483,\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\",\n    \"width\": 50695\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"size\": 3417,\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"url\": \"https://Azo.ady7V.-9uhCadB,KHKZ2aOqfuWR3Jo\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98fe2482-6312-4c26-a060-b0f0a6e106ed",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f882909-e83c-4c71-ad60-73f4e16a66a8",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"attachedTo\": [\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"binaryData\": \"<byte>\",\n  \"createdByContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"description\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"imageMetaData\": {\n    \"crop\": {\n      \"height\": \"<integer>\",\n      \"left\": \"<integer>\",\n      \"top\": \"<integer>\",\n      \"width\": \"<integer>\"\n    },\n    \"focalPoint\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"mimeType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"remoteUrl\": \"<uri>\",\n  \"typeId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "302ab4f3-55f1-4447-8948-8eb8c624363b",
+          "name": "Delete a file.",
+          "request": {
+            "name": "Delete a file.",
+            "description": {},
+            "url": {
+              "path": [
+                "file",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b80727a9-43f9-4d39-a069-433d618338d5",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb42a306-1f2b-487e-842c-b57c7b933463",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7bd7462-82d6-4455-9b07-790e4ef645d6",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "file",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b5adc90-8aa8-4219-a4f1-99f094fa64c7",
+    "name": "VSCO Workspace Brands Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

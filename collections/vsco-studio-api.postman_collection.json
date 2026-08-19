@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "a6361bd1-b45a-42b8-ba93-520b337a63ea",
+      "name": "Studio",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "410ec09b-5eb8-4d8e-b4ac-0b23e6cecc0c",
+          "name": "Get info about my studio",
+          "request": {
+            "name": "Get info about my studio",
+            "description": {},
+            "url": {
+              "path": [
+                "studio",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1719922a-33ff-44c7-9518-18e6428332b8",
+              "name": "Fetch specific info about my studio.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"https://lNHTaNNwtMUYTAON.orAWl+7-kzJyKV5h3Wx.NTS1k00e0,f6chu\",\n      \"managerHref\": \"https://eVJIbCaMyViTf.vlfnewdGTzSA4gwE9cUD6ooLZyOmOlu-m.M6uLniYjrf4Oom\",\n      \"clientHref\": \"https://iPfMlCtwLnhcangoqnbMwRXXszdpZR.adoTPgWsHgc73dQAx3600cs1PGDVo-idmNyM8JMCjByYGi-CaVEmBO5Jbivkf\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": 51568360572,\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"defaultBrandAlias\": \"string\",\n  \"email\": \"cXyLiw3mO7@jsoYKNvJfiuGSWCvMMlsEUJJIgkwrij.zuaj\",\n  \"externalMappings\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://GOaKUrWuhoHJvLdizDZHktsdjtBZ.cchvCQGaX8UZhOKSFLAt7Q3wnaQYYKcN7bh5HHXobPDdiUafnPfboiOhJminGA\"\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"https://wHoWpzmVmsInQoGjMPaV.mwI-lC+Hnxrf,90VItsc88+llx\"\n    }\n  ],\n  \"plan\": {\n    \"codeName\": \"string\",\n    \"name\": \"string\",\n    \"limits\": {\n      \"brands\": 82804184882,\n      \"contactForms\": 91881109566,\n      \"contracts\": 58474617207,\n      \"customDomains\": 47763351789,\n      \"quotes\": 79339534170,\n      \"questionnaires\": 3539411615,\n      \"storage\": 74284720929,\n      \"users\": 46578768071\n    }\n  },\n  \"temperature\": \"Fahrenheit\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabled\": true,\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"primaryIndustrySlug\": \"string\",\n  \"primaryIndustryName\": \"string\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"appliedDefaults\": {\n    \"key_0\": 5361\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21842013-58d8-4a49-a338-dd5225ffd10a",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee3bdaa3-d7db-496f-9220-bbc9239eb4de",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "681e8ea2-733d-44e6-9840-b5fc8c80414e",
+          "name": "Update my studio settings.",
+          "request": {
+            "name": "Update my studio settings.",
+            "description": {},
+            "url": {
+              "path": [
+                "studio",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"<ulid>\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"<ulid>\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabledAt\": \"<dateTime>\",\n  \"firstUserContactId\": \"<ulid>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8580f9b-94ad-4a18-a590-e092ffd19655",
+              "name": "Updated studio.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"defaultBrandAlias\": \"string\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"codeName\": \"string\",\n    \"name\": \"string\",\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabled\": true,\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"primaryIndustrySlug\": \"string\",\n  \"primaryIndustryName\": \"string\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"appliedDefaults\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "893fc3b9-46af-4ab6-8a1b-c94a03d89200",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d70f6726-58c6-4c35-bc11-023aba1dc24d",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4966460b-a62a-4cab-9ebe-6f99e1eccc80",
+          "name": "Set studio to readonly mode.",
+          "request": {
+            "name": "Set studio to readonly mode.",
+            "description": {},
+            "url": {
+              "path": [
+                "studio",
+                "me",
+                "readonly-mode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a7eafca-5cb2-4e1e-ae1f-f74231456dcb",
+              "name": "Successfully updated studio's readonly mode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me",
+                    "readonly-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"cacheVersion\": \"<integer>\",\n  \"currencyCode\": \"USD\",\n  \"dateFormat\": \"n/j/Y\",\n  \"decimalSeparator\": \".\",\n  \"defaultBrandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"defaultBrandAlias\": \"string\",\n  \"email\": \"<email>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"plan\": {\n    \"codeName\": \"string\",\n    \"name\": \"string\",\n    \"limits\": {\n      \"brands\": \"<integer>\",\n      \"contactForms\": \"<integer>\",\n      \"contracts\": \"<integer>\",\n      \"customDomains\": \"<integer>\",\n      \"quotes\": \"<integer>\",\n      \"questionnaires\": \"<integer>\",\n      \"storage\": \"<integer>\",\n      \"users\": \"<integer>\"\n    }\n  },\n  \"temperature\": \"<string>\",\n  \"thousandsSeparator\": \",\",\n  \"timeFormat\": \"g:ia\",\n  \"timezoneId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"weekStartsOn\": \"Sunday\",\n  \"readonlyEnabled\": true,\n  \"readonlyEnabledAt\": \"2020-06-17T13:06:22+00:00\",\n  \"primaryIndustrySlug\": \"string\",\n  \"primaryIndustryName\": \"string\",\n  \"firstUserContactId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"appliedDefaults\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5acbdf9f-6c83-414c-9b79-d41f2edbc1da",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me",
+                    "readonly-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c59da92-5901-4add-9081-7b70b602f280",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio",
+                    "me",
+                    "readonly-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3bfbc274-8b86-40aa-abf2-62e7ff862423",
+    "name": "VSCO Workspace Brands Studio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

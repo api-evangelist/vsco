@@ -1,0 +1,1126 @@
+{
+  "item": [
+    {
+      "id": "50fae19d-b05f-405a-a0f0-a8ed1426e377",
+      "name": "Lead Statuses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5a14e0b-ffe4-4c1e-8d2f-677c23273346",
+          "name": "List of a studio’s lead statuses",
+          "request": {
+            "name": "List of a studio’s lead statuses",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a1774bb-6ed6-45a5-9d09-4b25af254ac5",
+              "name": "Lead Status list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"color\": \"4ba7e3\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://dEsZgwHu.hxzbrV.h,CVUTqlp.NtYHM1fRZ8J9avlLhClka5\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"http://KsGpth.ajQ37PUdZVOR1yxb8lQz1jAezzS32l,olCiUGztybdcKZT+QGyd8tI\"\n        }\n      ],\n      \"kind\": \"new\",\n      \"sortPosition\": 100,\n      \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"transitionInterval\": 12140735899,\n      \"transitionIntervalUnit\": \"week\",\n      \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"color\": \"2a1c04\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"https://buUyijiOfyZ.vnysJ+\"\n        },\n        {\n          \"id\": \"str\",\n          \"url\": \"https://QSmSH.otpjr1VPWCOj5BtbZpexJjqDJA6CYviqV5LT\"\n        }\n      ],\n      \"kind\": \"new\",\n      \"sortPosition\": 100,\n      \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"transitionInterval\": 24441017291,\n      \"transitionIntervalUnit\": \"week\",\n      \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 8097,\n    \"totalPages\": 7506,\n    \"totalItems\": 3202,\n    \"rows\": 9784\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f8a1d75-db5b-4c30-bdb3-b30be36e92a6",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84ec2eeb-a410-41de-b5f1-6b0176912734",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa7f4b30-d513-4b69-bb80-f39d41a85918",
+          "name": "Create a lead status.",
+          "request": {
+            "name": "Create a lead status.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"afterDocumentSentTransitionToId\": \"<ulid>\",\n  \"afterEmailSentTransitionToId\": \"<ulid>\",\n  \"afterEventScheduledTransitionToId\": \"<ulid>\",\n  \"afterFormSentTransitionToId\": \"<ulid>\",\n  \"afterQuoteSentTransitionToId\": \"<ulid>\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"<ulid>\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f2876c8-cdd0-4603-8b79-8578f1891332",
+              "name": "Lead Status creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cf6f91d-a6e7-4fa7-bedc-9d4dd67ca238",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b25ba5a-087f-457b-9804-29092a4bd6eb",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d7c5490-7d5d-409d-b11f-3fbe7ebd0a5c",
+          "name": "Get a specific lead status",
+          "request": {
+            "name": "Get a specific lead status",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-status",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3372ba78-3209-4c77-b23f-20df0d81456e",
+              "name": "Fetch a specific lead status entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a232087b-1cf4-4b85-83c6-bf30f783bc6a",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b3e60e0-c2d7-46c9-8fe7-802979a344a5",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44fc30e7-bed7-44f2-b235-203eb30db698",
+          "name": "Update a specific lead status.",
+          "request": {
+            "name": "Update a specific lead status.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-status",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"afterDocumentSentTransitionToId\": \"<ulid>\",\n  \"afterEmailSentTransitionToId\": \"<ulid>\",\n  \"afterEventScheduledTransitionToId\": \"<ulid>\",\n  \"afterFormSentTransitionToId\": \"<ulid>\",\n  \"afterQuoteSentTransitionToId\": \"<ulid>\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"<ulid>\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2c623c6-78b1-4276-8831-8ea3635ab3ea",
+              "name": "Lead Status response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "809e6cac-de9c-49c2-8f33-2588143e2693",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82e90a7a-f211-4684-a3ae-6895ced1e962",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"afterDocumentSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEmailSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterEventScheduledTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterFormSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"afterQuoteSentTransitionToId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"color\": \"<string>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"kind\": \"<string>\",\n  \"sortPosition\": 100,\n  \"transitionClosedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"transitionInterval\": \"<integer>\",\n  \"transitionIntervalUnit\": \"<string>\",\n  \"transitionToId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da7dd8df-4101-407e-bfd2-15a127fa1df3",
+          "name": "Delete a lead status.",
+          "request": {
+            "name": "Delete a lead status.",
+            "description": {},
+            "url": {
+              "path": [
+                "lead-status",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9ed1b92-9b4d-417a-98ed-0d8418ed98dd",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd5f6f37-1cf8-412d-ab6b-a782bc250f9a",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3ef0ae0-478e-4be8-abde-b9a5f871c338",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lead-status",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"not-implemented\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d0f8567d-a775-4c37-b6db-c97a60df5052",
+    "name": "VSCO Workspace Brands Lead Statuses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -2,10 +2,10 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/workspace-openapi-original.json
-notes: No official first-party VSCO / VSCO Workspace MCP server was found in docs, npm, or the MCP registry as of
-  2026-07-21. A third-party hosted MCP server for the legacy Tave (now VSCO Workspace) API is offered by Pipedream
-  at https://mcp.pipedream.com/app/tave (HTTP 200 verified). The tool list below is a candidate surface derived
-  one-tool-per-operationId from the VSCO Workspace OpenAPI 3.0 spec.
+notes: No official first-party VSCO / VSCO Workspace MCP server was found in docs, npm, or the MCP registry
+  as of 2026-07-21. A third-party hosted MCP server for the legacy Tave (now VSCO Workspace) API is offered
+  by Pipedream at https://mcp.pipedream.com/app/tave (HTTP 200 verified). The tool list below is a candidate
+  surface derived one-tool-per-operationId from the VSCO Workspace OpenAPI 3.0 spec.
 server:
   name: vsco-workspace
   transport: http
@@ -447,3 +447,9 @@ tools:
 - name: deleteResourceUser
   description: Delete a user.
   source_operation: openapi/workspace-openapi-original.json#deleteResourceUser
+deployment:
+  mode: none
+  verified: derived
+  tools: 144
+  checked: '2026-08-12'
+  source: catalog MCP census

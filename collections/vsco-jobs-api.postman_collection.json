@@ -1,0 +1,1360 @@
+{
+  "item": [
+    {
+      "id": "e8ef9047-f123-41ad-a9cc-d8f5dfb3727a",
+      "name": "Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "437e4fca-fea7-4e4b-bfe3-e2337b4451e7",
+          "name": "List jobs of a studio",
+          "request": {
+            "name": "List jobs of a studio",
+            "description": {},
+            "url": {
+              "path": [
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeClosed",
+                  "value": "false",
+                  "description": "Include jobs that have been closed"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a3f9dfe-ae8f-4d23-bd86-424b690e2f6f",
+              "name": "Job list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"accountBalance\": 200,\n      \"bookingDate\": \"2020-04-10\",\n      \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"closed\": false,\n      \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"closedDate\": \"2020-04-10\",\n      \"closedReasonName\": \"string\",\n      \"completedDate\": \"2020-04-10\",\n      \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"creditBalance\": 200,\n      \"customFields\": [\n        {\n          \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"created\": \"2020-08-01T17:32:32Z\",\n          \"modified\": \"2020-08-01T17:32:32Z\",\n          \"hidden\": false,\n          \"value\": \"string\"\n        },\n        {\n          \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"created\": \"2020-08-01T17:32:32Z\",\n          \"modified\": \"2020-08-01T17:32:32Z\",\n          \"hidden\": false,\n          \"value\": \"string\"\n        }\n      ],\n      \"customNumber\": \"string\",\n      \"eventDate\": \"2020-04-10\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://tfxkWLJjwRUqtKICgB.sriw-8sjymHna45Q4RVmQUL3z7oQ2lEt-4esdDaTdEqbdWpTBKefV1D\"\n        },\n        {\n          \"id\": \"st\",\n          \"url\": \"http://zfIOTYiFMRjCEIrEFhPJfn.vsgmJ1xBafifc4SGKLMGIBNk,E.N8xr5UL9\"\n        }\n      ],\n      \"fulfillmentDate\": \"2020-04-10\",\n      \"guestCount\": 19642693316,\n      \"inquiryDate\": \"2020-04-10\",\n      \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"jobTypeName\": \"string\",\n      \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n      \"leadConfidence\": \"high\",\n      \"leadDecisionExpectedByDate\": \"2020-04-10\",\n      \"leadMaxBudget\": -3564942391,\n      \"leadNotes\": \"string\",\n      \"leadRating\": 3,\n      \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"leadSourceName\": \"string\",\n      \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"leadStatusName\": \"string\",\n      \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n      \"name\": \"string\",\n      \"nextInteractionDate\": \"2020-04-10\",\n      \"nextInteractionItem\": \"http://eqxwFkyPbnUjMmKSjTkHV.rgswOTkLS0J3FmTgU\",\n      \"pinned\": false,\n      \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"previousInteractionDate\": \"2020-04-10\",\n      \"previousInteractionItem\": \"https://aiMRy.tcVfw69N7lEprVYobNC7T+5veI-1Fb7fCxa4OMAgd,SIL6.f9sGxw0oTf3wMN4FSxiaRpVb\",\n      \"sample\": false,\n      \"stage\": \"booked\",\n      \"staleDate\": \"2020-04-10\",\n      \"title\": \"string\",\n      \"totalCost\": 200,\n      \"totalProfit\": 200,\n      \"totalRevenue\": 200,\n      \"webLead\": false,\n      \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"workflowName\": \"string\"\n    },\n    {\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"accountBalance\": 200,\n      \"bookingDate\": \"2020-04-10\",\n      \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"closed\": false,\n      \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"closedDate\": \"2020-04-10\",\n      \"closedReasonName\": \"string\",\n      \"completedDate\": \"2020-04-10\",\n      \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"creditBalance\": 200,\n      \"customFields\": [\n        {\n          \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"created\": \"2020-08-01T17:32:32Z\",\n          \"modified\": \"2020-08-01T17:32:32Z\",\n          \"hidden\": false,\n          \"value\": \"string\"\n        },\n        {\n          \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"created\": \"2020-08-01T17:32:32Z\",\n          \"modified\": \"2020-08-01T17:32:32Z\",\n          \"hidden\": false,\n          \"value\": \"string\"\n        }\n      ],\n      \"customNumber\": \"string\",\n      \"eventDate\": \"2020-04-10\",\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"https://wlnEkXSKFRsDHtlJkYXig.abjfSYDRFkZFgkeY3P6p.Wp5tQe1EYGo\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"http://kddgCgbDLANigKZIINef.bulogv0GdukReS8a6W-b3GZLfMiKLni5VJTv2DC\"\n        }\n      ],\n      \"fulfillmentDate\": \"2020-04-10\",\n      \"guestCount\": 80869003087,\n      \"inquiryDate\": \"2020-04-10\",\n      \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"jobTypeName\": \"string\",\n      \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n      \"leadConfidence\": \"high\",\n      \"leadDecisionExpectedByDate\": \"2020-04-10\",\n      \"leadMaxBudget\": -36014453191,\n      \"leadNotes\": \"string\",\n      \"leadRating\": 4,\n      \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"leadSourceName\": \"string\",\n      \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"leadStatusName\": \"string\",\n      \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n      \"name\": \"string\",\n      \"nextInteractionDate\": \"2020-04-10\",\n      \"nextInteractionItem\": \"http://CscwTSTtdANPgIaNvHmNkGNXE.lkfaqEQTkAioqog7qoH99vptEdGB+qUzHif.NENCLQ+1TSWmMuK9\",\n      \"pinned\": false,\n      \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"previousInteractionDate\": \"2020-04-10\",\n      \"previousInteractionItem\": \"https://TTYUNthb.vclfpI15-MiOP1yaXEyq2\",\n      \"sample\": false,\n      \"stage\": \"booked\",\n      \"staleDate\": \"2020-04-10\",\n      \"title\": \"string\",\n      \"totalCost\": 200,\n      \"totalProfit\": 200,\n      \"totalRevenue\": 200,\n      \"webLead\": false,\n      \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"workflowName\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 2165,\n    \"totalPages\": 2247,\n    \"totalItems\": 6666,\n    \"rows\": 2614\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e503b78-c564-4488-9405-a80223ea0f45",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df0e3489-d2cb-43e8-a114-a14cd78452a2",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2248a418-03d3-4758-af07-0c3358a56b5d",
+          "name": "Create a job.",
+          "request": {
+            "name": "Create a job.",
+            "description": {},
+            "url": {
+              "path": [
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"accountBalance\": \"<integer>\",\n  \"bookingDate\": \"<date>\",\n  \"brandId\": \"<ulid>\",\n  \"closed\": \"<boolean>\",\n  \"closedReasonId\": \"<ulid>\",\n  \"closedDate\": \"<date>\",\n  \"completedDate\": \"<date>\",\n  \"contactFormId\": \"<ulid>\",\n  \"creditBalance\": \"<integer>\",\n  \"customFields\": [\n    {\n      \"fieldId\": \"<ulid>\",\n      \"id\": \"<ulid>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"hidden\": \"<boolean>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<ulid>\",\n      \"id\": \"<ulid>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"hidden\": \"<boolean>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"<date>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"<date>\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"<date>\",\n  \"jobTypeId\": \"<ulid>\",\n  \"lastClientActivity\": \"<dateTime>\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"<date>\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"<ulid>\",\n  \"leadStatusId\": \"<ulid>\",\n  \"leadStatusChangedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"<date>\",\n  \"pinned\": false,\n  \"primarySessionId\": \"<ulid>\",\n  \"previousInteractionDate\": \"<date>\",\n  \"stage\": \"<string>\",\n  \"staleDate\": \"<date>\",\n  \"totalCost\": \"<integer>\",\n  \"totalProfit\": \"<integer>\",\n  \"totalRevenue\": \"<integer>\",\n  \"webLead\": false,\n  \"workflowId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dda84b14-54b2-4413-9c09-4432dd99e7f7",
+              "name": "Job creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"closedReasonName\": \"string\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"customNumber\": \"string\",\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"jobTypeName\": \"string\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadSourceName\": \"string\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusName\": \"string\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"nextInteractionItem\": \"http://ZMzftGvDzjucTgOKZKgM.zxGZj.CLTZJfBJAWKGVcHyKosn7vDGIKEA7N+fie\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"previousInteractionItem\": \"https://kNmn.dwO92slwQ\",\n  \"sample\": false,\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"title\": \"string\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"workflowName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10cb2a45-681e-47ac-b8e2-248943179db4",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e93af8a-d4c5-4783-83bc-407aacee12c7",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4ff23b5-43b0-42e0-9947-3a539d3637a5",
+          "name": "Get a specific job",
+          "request": {
+            "name": "Get a specific job",
+            "description": {},
+            "url": {
+              "path": [
+                "job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d0513d4-469d-495a-a579-95a353152be4",
+              "name": "Fetch a specific Job entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"closedReasonName\": \"string\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"customNumber\": \"string\",\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"jobTypeName\": \"string\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadSourceName\": \"string\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusName\": \"string\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"nextInteractionItem\": \"http://ZMzftGvDzjucTgOKZKgM.zxGZj.CLTZJfBJAWKGVcHyKosn7vDGIKEA7N+fie\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"previousInteractionItem\": \"https://kNmn.dwO92slwQ\",\n  \"sample\": false,\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"title\": \"string\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"workflowName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bb3b6f9-0b57-4aec-bc79-e85a9f0d6590",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f3bc9b3-e488-4681-b684-cbc402cb37de",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcc772ba-87c3-4050-8b64-0e41d6c51a11",
+          "name": "Update a specific job.",
+          "request": {
+            "name": "Update a specific job.",
+            "description": {},
+            "url": {
+              "path": [
+                "job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"accountBalance\": \"<integer>\",\n  \"bookingDate\": \"<date>\",\n  \"brandId\": \"<ulid>\",\n  \"closed\": \"<boolean>\",\n  \"closedReasonId\": \"<ulid>\",\n  \"closedDate\": \"<date>\",\n  \"completedDate\": \"<date>\",\n  \"contactFormId\": \"<ulid>\",\n  \"creditBalance\": \"<integer>\",\n  \"customFields\": [\n    {\n      \"fieldId\": \"<ulid>\",\n      \"id\": \"<ulid>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"hidden\": \"<boolean>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<ulid>\",\n      \"id\": \"<ulid>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\",\n      \"hidden\": \"<boolean>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"<date>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"<date>\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"<date>\",\n  \"jobTypeId\": \"<ulid>\",\n  \"lastClientActivity\": \"<dateTime>\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"<date>\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"<ulid>\",\n  \"leadStatusId\": \"<ulid>\",\n  \"leadStatusChangedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"<date>\",\n  \"pinned\": false,\n  \"primarySessionId\": \"<ulid>\",\n  \"previousInteractionDate\": \"<date>\",\n  \"stage\": \"<string>\",\n  \"staleDate\": \"<date>\",\n  \"totalCost\": \"<integer>\",\n  \"totalProfit\": \"<integer>\",\n  \"totalRevenue\": \"<integer>\",\n  \"webLead\": false,\n  \"workflowId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc367fa6-e4f8-42a6-ace8-350b1f3a1441",
+              "name": "Job response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"closedReasonName\": \"string\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"customNumber\": \"string\",\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"jobTypeName\": \"string\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadSourceName\": \"string\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusName\": \"string\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"nextInteractionItem\": \"http://ZMzftGvDzjucTgOKZKgM.zxGZj.CLTZJfBJAWKGVcHyKosn7vDGIKEA7N+fie\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"previousInteractionItem\": \"https://kNmn.dwO92slwQ\",\n  \"sample\": false,\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"title\": \"string\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"workflowName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffc5244e-f338-41c8-856e-60379920cd36",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9149589-8882-49b4-a38d-0a650f18117c",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"accountBalance\": 200,\n  \"bookingDate\": \"2020-04-10\",\n  \"brandId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closed\": false,\n  \"closedReasonId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"closedDate\": \"2020-04-10\",\n  \"completedDate\": \"2020-04-10\",\n  \"contactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"creditBalance\": 200,\n  \"customFields\": [\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"value\": \"<string>\"\n    }\n  ],\n  \"eventDate\": \"2020-04-10\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"fulfillmentDate\": \"2020-04-10\",\n  \"guestCount\": \"<integer>\",\n  \"inquiryDate\": \"2020-04-10\",\n  \"jobTypeId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"lastClientActivity\": \"2020-06-17T13:06:22+00:00\",\n  \"leadConfidence\": \"<string>\",\n  \"leadDecisionExpectedByDate\": \"2020-04-10\",\n  \"leadMaxBudget\": \"<integer>\",\n  \"leadNotes\": \"<string>\",\n  \"leadRating\": \"<integer>\",\n  \"leadSourceId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"leadStatusChangedAt\": \"2020-06-17T13:06:22+00:00\",\n  \"name\": \"<string>\",\n  \"nextInteractionDate\": \"2020-04-10\",\n  \"pinned\": false,\n  \"primarySessionId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"previousInteractionDate\": \"2020-04-10\",\n  \"stage\": \"booked\",\n  \"staleDate\": \"2020-04-10\",\n  \"totalCost\": 200,\n  \"totalProfit\": 200,\n  \"totalRevenue\": 200,\n  \"webLead\": false,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b1eb875-29c3-4d3a-a952-d288d270cccd",
+          "name": "Delete a job.",
+          "request": {
+            "name": "Delete a job.",
+            "description": {},
+            "url": {
+              "path": [
+                "job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1b115fe-cfb1-424a-b52a-17be3305088b",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a25ebd3f-6a34-4fe8-bf19-7f943b135515",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "132db036-f553-486b-8346-9578462363da",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a2b679c-50bf-4f85-882c-d724635f3f97",
+          "name": "Create a quote on a given job",
+          "request": {
+            "name": "Create a quote on a given job",
+            "description": {},
+            "url": {
+              "path": [
+                "job",
+                ":jobId",
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "jobId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<ulid>\",\n  \"jobId\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"kind\": \"simple\",\n  \"name\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"expiration\": {\n    \"date\": \"<date>\",\n    \"period\": \"<integer>\",\n    \"periodType\": \"<string>\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"<ulid>\",\n      \"lastSent\": \"<dateTime>\",\n      \"lastViewed\": \"<dateTime>\"\n    },\n    {\n      \"contactId\": \"<ulid>\",\n      \"lastSent\": \"<dateTime>\",\n      \"lastViewed\": \"<dateTime>\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"<ulid>\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"<ulid>\",\n      \"tax2\": {\n        \"taxRateId\": \"<ulid>\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"<ulid>\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    },\n    {\n      \"id\": \"<ulid>\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"<ulid>\",\n      \"tax2\": {\n        \"taxRateId\": \"<ulid>\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"<ulid>\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7aa0852e-6b8e-4804-9a85-dc301743031e",
+              "name": "Quote creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":jobId",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"kind\": \"simple\",\n  \"name\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"expiration\": {\n    \"date\": \"2020-04-10\",\n    \"period\": \"<integer>\",\n    \"periodType\": \"<string>\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    },\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"kind\": \"simple\",\n  \"name\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"status\": \"booked\",\n  \"expiration\": {\n    \"date\": \"2020-04-10\",\n    \"period\": \"<integer>\",\n    \"periodType\": \"<string>\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"clientUrl\": \"http://wVUMgni.oeuLreqKIC+KqfiutNQHh7\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    },\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"clientUrl\": \"https://UHGnlz.xmA,LkOeBA++gknymsDLEysxzUPlFRk7cV5Tj+V\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"preTaxDiscount\": {\n        \"fixedAmount\": \"<integer>\",\n        \"percentageAmount\": \"<integer>\",\n        \"percentage\": 30\n      },\n      \"afterTaxDiscount\": {\n        \"fixedAmount\": \"<integer>\",\n        \"percentageAmount\": \"<integer>\",\n        \"percentage\": 35\n      },\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax1\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"taxIsCompounding\": false,\n      \"subtotal\": {\n        \"amount\": \"<integer>\",\n        \"taxable\": \"<integer>\",\n        \"nonTaxable\": \"<integer>\"\n      },\n      \"total\": \"<integer>\"\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"preTaxDiscount\": {\n        \"fixedAmount\": \"<integer>\",\n        \"percentageAmount\": \"<integer>\",\n        \"percentage\": 91\n      },\n      \"afterTaxDiscount\": {\n        \"fixedAmount\": \"<integer>\",\n        \"percentageAmount\": \"<integer>\",\n        \"percentage\": 79\n      },\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax1\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"taxIsCompounding\": false,\n      \"subtotal\": {\n        \"amount\": \"<integer>\",\n        \"taxable\": \"<integer>\",\n        \"nonTaxable\": \"<integer>\"\n      },\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "920f56be-2309-449f-acee-5520ecffee85",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":jobId",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"kind\": \"simple\",\n  \"name\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"expiration\": {\n    \"date\": \"2020-04-10\",\n    \"period\": \"<integer>\",\n    \"periodType\": \"<string>\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    },\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "997c6402-b16e-4cf3-aab1-18f293fc574d",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job",
+                    ":jobId",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "jobId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"kind\": \"simple\",\n  \"name\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"expiration\": {\n    \"date\": \"2020-04-10\",\n    \"period\": \"<integer>\",\n    \"periodType\": \"<string>\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    },\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"<string>\",\n      \"lineItems\": [\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"<string>\",\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": \"<float>\",\n          \"taxable\": \"<boolean>\",\n          \"discount\": \"<boolean>\",\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": \"<boolean>\",\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": \"<integer>\"\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"<string>\",\n        \"rate\": \"<number>\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"total\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f557505b-175d-4639-b3d9-ad4795771729",
+    "name": "VSCO Workspace Brands Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

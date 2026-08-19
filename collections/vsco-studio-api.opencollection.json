@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VSCO Workspace Brands Studio API",
+    "version": "v2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Studio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get info about my studio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tave.io/v2/studio/me"
+          },
+          "docs": "Get info about my studio"
+        },
+        {
+          "info": {
+            "name": "Update my studio settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/studio/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update my studio settings."
+        },
+        {
+          "info": {
+            "name": "Set studio to readonly mode.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://tave.io/v2/studio/me/readonly-mode",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set studio to readonly mode."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1126 @@
+{
+  "item": [
+    {
+      "id": "48c8f5c5-7dfa-46b4-9a6b-fdbd3b2705f0",
+      "name": "Brands",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7742fca2-f76a-4ed8-a91d-72598fd7e35f",
+          "name": "List brands of a studio",
+          "request": {
+            "name": "List brands of a studio",
+            "description": {},
+            "url": {
+              "path": [
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc8283eb-9ac7-423b-b6db-41d71bbd5e92",
+              "name": "Brand list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"alias\": \"string\",\n      \"bcc\": \"Zn2JDoYl1Mwv@IVFNvWAikGhvp.rg\",\n      \"breakoutPackagePricing\": true,\n      \"clientAccessVersion\": 7,\n      \"customDomain\": \"string\",\n      \"customDomainStatus\": \"pending\",\n      \"enableProfileEdit\": false,\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://qxcNseHkMOOpVoGokVcdjtDsXMRkMx.ijayi9IBZQHNNMUzx8blUa+8MxYYBOmGIwfjTfT7bqz5hvO3UTrCH9Jz.oeDKEj1f6JVWVab9Fhftr\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"https://twgEBDmJGUABtdEJhuy.pzcyYllPdlrUN8xp2CCH2slwHPVfHRL-rmQzIkzPTkXC\"\n        }\n      ],\n      \"forwardTo\": \"IynPfeO@AyAoYdNVUVfCItEkdywjHT.trj\",\n      \"googleAnalyticsId\": \"MO-58289621644-6477834303\",\n      \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"name\": \"string\",\n      \"officeHours\": \"string\",\n      \"phone1\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"phone2\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"phone3\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"replyTo\": \"iOWWkH@xlmqofVBajIrDGAbvviLT.dv\",\n      \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"shortName\": \"string\",\n      \"showHistoryInPortal\": false,\n      \"theme\": {\n        \"colors\": {\n          \"accent\": \"ceaf96\",\n          \"background\": \"78afeb\",\n          \"box\": \"e4776b\",\n          \"error\": \"844b54\",\n          \"footerText\": \"531d68\",\n          \"link\": \"b92643\",\n          \"print\": \"f534ae\",\n          \"text\": \"d45d08\"\n        }\n      }\n    },\n    {\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"alias\": \"string\",\n      \"bcc\": \"SKe5@vmAcsIOiKCTRjeZ.rv\",\n      \"breakoutPackagePricing\": true,\n      \"clientAccessVersion\": 8,\n      \"customDomain\": \"string\",\n      \"customDomainStatus\": \"pending\",\n      \"enableProfileEdit\": true,\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://zJvtmXyAmIVecVxEmUqVQwRODpyU.objmQ3PYSmJHu\"\n        },\n        {\n          \"id\": \"strin\",\n          \"url\": \"http://BfhkUFa.ombwC.uDJRrmtgnXHTUQAm,YmQ2jQt-Obb9t9GIidPvuBEASdzmTIwisouywnrFjKNAv\"\n        }\n      ],\n      \"forwardTo\": \"Wq7ajNkUfi@deDnIXFZHIuabkCVKZtoJCmFwg.xmpe\",\n      \"googleAnalyticsId\": \"YT-0736394073-5715804\",\n      \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"name\": \"string\",\n      \"officeHours\": \"string\",\n      \"phone1\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"phone2\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"phone3\": {\n        \"label\": \"Office\",\n        \"number\": {\n          \"description\": \"This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"replyTo\": \"hGgcnAND@hFMgzcJodwNivMttnSDOKjQeP.nnfk\",\n      \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"shortName\": \"string\",\n      \"showHistoryInPortal\": false,\n      \"theme\": {\n        \"colors\": {\n          \"accent\": \"bf4ad9\",\n          \"background\": \"fe44b1\",\n          \"box\": \"4beaa0\",\n          \"error\": \"2621f1\",\n          \"footerText\": \"4bdf4e\",\n          \"link\": \"7656f8\",\n          \"print\": \"7ddff8\",\n          \"text\": \"e8e8ad\"\n        }\n      }\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 7614,\n    \"totalPages\": 8881,\n    \"totalItems\": 6694,\n    \"rows\": 9795\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c70d0e87-5a1c-420c-9ae3-c988a992b290",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "225ef3a8-c140-4ba8-a7ce-f114834419ed",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d7d85dd-1f02-4e75-9764-fab0299a464e",
+          "name": "Create a brand",
+          "request": {
+            "name": "Create a brand",
+            "description": {},
+            "url": {
+              "path": [
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"<ulid>\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"<ulid>\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53d60a15-ebf5-427a-8d89-1e6e72883622",
+              "name": "Brand creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"clientAccessVersion\": 7,\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": null,\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5c26e71-7a3a-4a0b-ad83-42bebab3cdcd",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8f26f0a-baf8-4c83-8e2e-ca619ea58151",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d03373b-d101-4b74-a83a-ca25fdfd4649",
+          "name": "Get a specific brand",
+          "request": {
+            "name": "Get a specific brand",
+            "description": {},
+            "url": {
+              "path": [
+                "brand",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc772c8e-0488-430c-ac40-c4eee369e23d",
+              "name": "Fetch a specific Brand entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"clientAccessVersion\": 7,\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": null,\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "140dbb08-90cb-429c-8326-208a0b7b4b45",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93ce8dbc-33a2-40c6-b791-4bae4a50aea0",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cf8c25f-fd0c-418d-8b9f-86b5966a9500",
+          "name": "Update a specific brand.",
+          "request": {
+            "name": "Update a specific brand.",
+            "description": {},
+            "url": {
+              "path": [
+                "brand",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"<ulid>\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"<string>\",\n    \"number\": {\n      \"id\": \"<ulid>\",\n      \"formatted\": \"<string>\",\n      \"e164\": \"<string>\",\n      \"extension\": \"<integer>\",\n      \"telUri\": \"<rfc3966>\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"<ulid>\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20cd928c-8020-4551-91e7-003f979839a8",
+              "name": "Brand response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"clientAccessVersion\": 7,\n  \"customDomain\": \"<string>\",\n  \"customDomainStatus\": null,\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"dialCode\": 1,\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa235b83-3f5a-467b-b03e-4a6a684802f2",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40fc2624-5573-4117-bda5-9d803d1675a3",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"alias\": \"<string>\",\n  \"bcc\": \"<email>\",\n  \"breakoutPackagePricing\": \"<boolean>\",\n  \"customDomain\": \"<string>\",\n  \"enableProfileEdit\": \"<boolean>\",\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"forwardTo\": \"<email>\",\n  \"googleAnalyticsId\": \"<string>\",\n  \"locationId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"name\": \"<string>\",\n  \"officeHours\": \"<string>\",\n  \"phone1\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone2\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"phone3\": {\n    \"label\": \"Office\",\n    \"number\": {\n      \"id\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"formatted\": \"(800) 560-8283 x123\",\n      \"e164\": \"<string>\",\n      \"extension\": 123,\n      \"telUri\": \"tel:+1-800-560-8283;ext=123\",\n      \"countryCode\": \"<string>\"\n    }\n  },\n  \"replyTo\": \"<email>\",\n  \"rootContactFormId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"shortName\": \"<string>\",\n  \"showHistoryInPortal\": \"<boolean>\",\n  \"theme\": {\n    \"colors\": {\n      \"accent\": \"<string>\",\n      \"background\": \"<string>\",\n      \"box\": \"<string>\",\n      \"error\": \"<string>\",\n      \"footerText\": \"<string>\",\n      \"link\": \"<string>\",\n      \"print\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6dd14cc-6bb0-459b-9c74-ca66e7c5f7e2",
+          "name": "Delete a brand.",
+          "request": {
+            "name": "Delete a brand.",
+            "description": {},
+            "url": {
+              "path": [
+                "brand",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98013cf1-f246-4581-9c32-f36b4df36f23",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9210e7ca-5251-45f2-803d-9e7b8cff17b6",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdca6d4f-ea91-4ac7-b81c-403def981e28",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "784e925f-a3ea-40b5-be49-aebb8f4169b1",
+    "name": "VSCO Workspace Brands API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

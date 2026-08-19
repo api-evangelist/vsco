@@ -1,0 +1,1126 @@
+{
+  "item": [
+    {
+      "id": "57b6a6e2-9dfb-436e-abf6-f2741fe5a8f9",
+      "name": "Job Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "37c6f2f2-d4ea-4b5d-b0da-af4b342c588e",
+          "name": "List of a studio’s job types",
+          "request": {
+            "name": "List of a studio’s job types",
+            "description": {},
+            "url": {
+              "path": [
+                "job-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHidden",
+                  "value": "false",
+                  "description": "Include objects that have been hidden"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalMappingId",
+                  "value": "",
+                  "description": "Filter objects by an external id for this provider."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69ef9ef0-aace-4d63-afd0-5600ad31a6ca",
+              "name": "Job Type list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"defaultContacts\": [\n        {\n          \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"client\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        },\n        {\n          \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"client\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        }\n      ],\n      \"defaultEvents\": [\n        {\n          \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"primarySession\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        },\n        {\n          \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"primarySession\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        }\n      ],\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"https://CtszXQhCvZlqxos.unnnudD5MGKdC0F5Ek,FpQOd6j\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"https://KYHGExZvuYxyAMsudzZgOyNMwvhzACZu.bupJM7SB+Em5nuCFjaUyCDCjRZ\"\n        }\n      ],\n      \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"primarySessionRequired\": true,\n      \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"sortPosition\": 100,\n      \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    },\n    {\n      \"name\": \"string\",\n      \"links\": {\n        \"self\": {\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientHref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"defaultContacts\": [\n        {\n          \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"client\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        },\n        {\n          \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"client\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        }\n      ],\n      \"defaultEvents\": [\n        {\n          \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"primarySession\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        },\n        {\n          \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n          \"primarySession\": false,\n          \"quantity\": 1,\n          \"sortPosition\": 100\n        }\n      ],\n      \"externalMappings\": [\n        {\n          \"id\": \"string\",\n          \"url\": \"http://lF.auIHD1wOkdr0\"\n        },\n        {\n          \"id\": \"string\",\n          \"url\": \"http://diOrMErRHTvebYXEOmRQevBsoYjHMUun.ppFXGC4V3DhCLQMMg.Y6zMeErwaukEjDV3WPc.FcXlnGmGTx0L8\"\n        }\n      ],\n      \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"primarySessionRequired\": true,\n      \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"sortPosition\": 100,\n      \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 4239,\n    \"totalPages\": 6123,\n    \"totalItems\": 9496,\n    \"rows\": 1514\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b45a3e5e-b0ce-4050-88cc-e25fb8c91bd4",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89e51aaa-582e-45e8-bfa8-8c29a3b02e2f",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "includeHidden",
+                      "value": "false"
+                    },
+                    {
+                      "key": "externalMappingId",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d372bd8-b864-44aa-89fa-e843c19e9bc2",
+          "name": "Create a job type.",
+          "request": {
+            "name": "Create a job type.",
+            "description": {},
+            "url": {
+              "path": [
+                "job-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"<ulid>\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"<ulid>\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"<ulid>\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"<ulid>\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"<ulid>\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"<ulid>\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eae30141-7bf3-44aa-a405-49c994bb7960",
+              "name": "Job Role creation response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab9b1223-138a-432e-a6d4-c2bde0cc75ed",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43bc244b-dc11-4695-9488-4cc198fa150e",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b98bd6-31ff-451d-853d-98afd8f68cfa",
+          "name": "Get a specific job type",
+          "request": {
+            "name": "Get a specific job type",
+            "description": {},
+            "url": {
+              "path": [
+                "job-type",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87f4bceb-cf0e-454b-b134-b294d9595348",
+              "name": "Fetch a specific Job Type entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a395a220-f0c4-494d-81a0-63573f94c24c",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c374ca8-f912-4d7f-ad50-a042fcce240f",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "211c9a81-a9f5-4fc4-bfa8-e89c7a7aaf36",
+          "name": "Update a specific job role.",
+          "request": {
+            "name": "Update a specific job role.",
+            "description": {},
+            "url": {
+              "path": [
+                "job-type",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"<ulid>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\",\n  \"hidden\": \"<boolean>\",\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"<ulid>\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"<ulid>\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"<ulid>\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"<ulid>\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"<ulid>\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"<ulid>\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"<ulid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41e9f68a-2539-460b-b6c1-59a4018ee6f0",
+              "name": "Job Type response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20b80e99-2dd8-49aa-9f36-3e8267726e5a",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "489e9093-133f-4ace-823a-812a03aae826",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"managerHref\": \"<uri>\",\n      \"clientHref\": \"<uri>\"\n    }\n  },\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"defaultContacts\": [\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"jobRoleId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"client\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"defaultEvents\": [\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    },\n    {\n      \"eventTypeId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"primarySession\": false,\n      \"quantity\": 1,\n      \"sortPosition\": 100\n    }\n  ],\n  \"externalMappings\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"initialLeadStatusId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"primarySessionRequired\": true,\n  \"profitCenterId\": \"01fqcr215r79p3h19crqbpzwzh\",\n  \"sortPosition\": 100,\n  \"workflowId\": \"01fqcr215r79p3h19crqbpzwzh\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72fdfc58-9133-430d-832b-be2bcec463f1",
+          "name": "Delete a job type.",
+          "request": {
+            "name": "Delete a job type.",
+            "description": {},
+            "url": {
+              "path": [
+                "job-type",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "142a8cd3-9dbb-4b69-b2b4-f3608fe66029",
+              "name": "The resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c46063a6-913e-4125-a4f9-7176f441fce9",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12934c26-abbe-4f63-a8ad-c6a52aff7677",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "job-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"unknown\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2354e9b0-e047-4251-aa1a-35ddc0323da3",
+    "name": "VSCO Workspace Brands Job Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,465 @@
+{
+  "item": [
+    {
+      "id": "48de8c12-4d53-4927-bd3d-8fb20c3ba2f3",
+      "name": "Quotes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "37aa6d33-cd2e-4b6d-bf2e-15693789e133",
+          "name": "Get a list of quotes",
+          "request": {
+            "name": "Get a list of quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page to return in the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort items in the collection by the given property."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15648e38-509a-43dc-87b2-4bfaf451dea3",
+              "name": "Quote list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"resource-type\",\n  \"items\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"kind\": \"simple\",\n      \"name\": \"string\",\n      \"introduction\": \"string\",\n      \"status\": \"closed\",\n      \"expiration\": {\n        \"date\": \"2020-04-10\",\n        \"period\": 9718,\n        \"periodType\": \"months\"\n      },\n      \"recipients\": [\n        {\n          \"contactId\": {\n            \"writeOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientUrl\": \"https://ovPDNeLsmtnDfXjYKdSklsadrNJpkrZo.hlsoZ\",\n          \"lastSent\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lastViewed\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"contactId\": {\n            \"writeOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientUrl\": \"http://GmfieHFufJYfzKTRNBwnywRI.skfw2DaeLg9RTaIlhWubdM9nHtt1-FxQJdfJ,eBLupKDhTlf4USkzrYIQOnBY3LCixFIan-VlH\",\n          \"lastSent\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lastViewed\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"options\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"lineItems\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"preTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"afterTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxGroupId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxCombined\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxIsCompounding\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"subtotal\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"lineItems\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"preTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"afterTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxGroupId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxCombined\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxIsCompounding\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"subtotal\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"created\": \"2020-08-01T17:32:32Z\",\n      \"modified\": \"2020-08-01T17:32:32Z\",\n      \"hidden\": false,\n      \"kind\": \"simple\",\n      \"name\": \"string\",\n      \"introduction\": \"string\",\n      \"status\": \"closed\",\n      \"expiration\": {\n        \"date\": \"2020-04-10\",\n        \"period\": 9799,\n        \"periodType\": \"months\"\n      },\n      \"recipients\": [\n        {\n          \"contactId\": {\n            \"writeOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientUrl\": \"http://S.wfKfWP0K1gAqqRteT9Rt.c6xcEIDHiO\",\n          \"lastSent\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lastViewed\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"contactId\": {\n            \"writeOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"clientUrl\": \"https://WyXE.vsvsbV41Zb7TN1wxMGf5ovnR-\",\n          \"lastSent\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lastViewed\": {\n            \"readOnly\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"options\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"lineItems\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"preTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"afterTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxGroupId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxCombined\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxIsCompounding\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"subtotal\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"lineItems\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"preTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"afterTaxDiscount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxGroupId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tax3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxCombined\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxIsCompounding\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"subtotal\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"currentPage\": 7471,\n    \"totalPages\": 7524,\n    \"totalItems\": 4058,\n    \"rows\": 1483\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e71de53-693b-4442-9d6f-8817479486fc",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c788c25d-db74-48cb-a68c-27af618f619c",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0eb164d-c31f-4648-b477-af9b1e2ab108",
+          "name": "Get a specific Quote",
+          "request": {
+            "name": "Get a specific Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "quote",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<ulid>",
+                  "key": "id",
+                  "description": "ULID to perform an action on."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1288221-04bd-48e2-8a55-2655cd022aa6",
+              "name": "Successfully retrieve a Quote",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"jobId\": \"01h35ccwymj5ctckp8px1azhg6\",\n  \"created\": \"2020-08-01T17:32:32Z\",\n  \"modified\": \"2020-08-01T17:32:32Z\",\n  \"hidden\": false,\n  \"kind\": \"simple\",\n  \"name\": \"string\",\n  \"introduction\": \"string\",\n  \"status\": \"closed\",\n  \"expiration\": {\n    \"date\": \"2020-04-10\",\n    \"period\": 8762,\n    \"periodType\": \"days\"\n  },\n  \"recipients\": [\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"clientUrl\": \"http://PqAXnHGurUzJHHEKil.xtpOpZPda4M966kC9BXwGp+Iec3cT\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    },\n    {\n      \"contactId\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"clientUrl\": \"http://ueoGcPlbzCEnoJvRANIycNOukjku.pkvht+cuo-dV.Zo4x72EeaVbngTAxICXyHpP8+Nnd\",\n      \"lastSent\": \"2020-06-17T13:06:22+00:00\",\n      \"lastViewed\": \"2020-06-17T13:06:22+00:00\"\n    }\n  ],\n  \"options\": [\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"string\",\n      \"lineItems\": [\n        {\n          \"name\": \"string\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"string\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": 3123.0896068211455,\n          \"taxable\": true,\n          \"discount\": true,\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": false,\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"string\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": 9901.627348225,\n          \"taxable\": true,\n          \"discount\": false,\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": true,\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"preTaxDiscount\": {\n        \"fixedAmount\": 13239272062,\n        \"percentageAmount\": 35981225700,\n        \"percentage\": 94\n      },\n      \"afterTaxDiscount\": {\n        \"fixedAmount\": 20237541298,\n        \"percentageAmount\": 76950362058,\n        \"percentage\": 41\n      },\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax1\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.6835,\n        \"amount\": 22772303157\n      },\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.2654,\n        \"amount\": 8822819025\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.9171,\n        \"amount\": 44973577702\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.6747000000000001,\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"taxIsCompounding\": false,\n      \"subtotal\": {\n        \"amount\": 97764359093,\n        \"taxable\": 87259390146,\n        \"nonTaxable\": 57455874505\n      },\n      \"total\": 49873451233\n    },\n    {\n      \"id\": \"01h35ccwymj5ctckp8px1azhg6\",\n      \"name\": \"string\",\n      \"lineItems\": [\n        {\n          \"name\": \"string\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"string\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": 796.3740058815183,\n          \"taxable\": false,\n          \"discount\": false,\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": true,\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"created\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"modified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hidden\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"orderId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"productId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"descriptionHtml\": \"string\",\n          \"baseConfiguration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"configuration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"basePricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pricePerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"baseCostPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"costPerUnit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": 3551.3091954622387,\n          \"taxable\": false,\n          \"discount\": true,\n          \"discountKind\": \"amount\",\n          \"selectability\": \"required\",\n          \"selected\": false,\n          \"children\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"preTaxDiscount\": {\n        \"fixedAmount\": 70160081755,\n        \"percentageAmount\": 67331896640,\n        \"percentage\": 68\n      },\n      \"afterTaxDiscount\": {\n        \"fixedAmount\": 86145725403,\n        \"percentageAmount\": 49154984681,\n        \"percentage\": 63\n      },\n      \"taxGroupId\": \"01fqcr215r79p3h19crqbpzwzh\",\n      \"tax1\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.11220000000000001,\n        \"amount\": 85409962401\n      },\n      \"tax2\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.8733000000000001,\n        \"amount\": 32818223707\n      },\n      \"tax3\": {\n        \"taxRateId\": \"01fqcr215r79p3h19crqbpzwzh\",\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.4051,\n        \"amount\": 7730421298\n      },\n      \"taxCombined\": {\n        \"taxRateId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isInclusive\": false,\n        \"name\": \"string\",\n        \"rate\": 0.42450000000000004,\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"taxIsCompounding\": false,\n      \"subtotal\": {\n        \"amount\": 5451045282,\n        \"taxable\": 2363119970,\n        \"nonTaxable\": 8778603511\n      },\n      \"total\": 48388270753\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf6ec54a-ebe1-4ad8-9f87-44660bbb138a",
+              "name": "Validation error response. Check the `info.errors` property in the\nresponse for more details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"validation-error\",\n  \"title\": \"Validation Error\",\n  \"detail\": {},\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ab38a0a-4990-436e-a39f-9d047903fcb2",
+              "name": "Exceeded request quota, see Retry-After header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<ulid>",
+                      "key": "id",
+                      "description": "ULID to perform an action on."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"quota-limit\",\n  \"title\": \"Bad Request\",\n  \"detail\": \"There was a problem with your request. Please see `info` for more information.\",\n  \"status\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tave.io/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "906e395c-e77c-41f3-b5af-5fb21376938e",
+    "name": "VSCO Workspace Brands Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API is for interacting with a single Studio using <a href=\"https://workspace.vsco.co/settings/api\" target=\"_blank\">an API Key</a>.\n\nContact Support:\n Name: VSCO Workspace Support\n Email: workspace-support@vsco.co",
+      "type": "text/plain"
+    }
+  }
+}
