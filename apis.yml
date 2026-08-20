@@ -43,6 +43,14 @@ tags:
 - Photo Editing
 - Creative Community
 - Studio Management
+- Software-as-a-Service
+tags_raw:
+- Company
+- Consumer
+- Photography
+- Photo Editing
+- Creative Community
+- Studio Management
 - SaaS
 apis:
 - aid: vsco:vsco-brands-api
@@ -123,6 +131,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -147,6 +157,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -243,6 +255,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -291,6 +305,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -339,6 +355,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -381,6 +399,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - REST Hooks
+  tags_raw:
   - Rest Hooks
   properties:
   - type: OpenAPI
@@ -454,6 +474,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
