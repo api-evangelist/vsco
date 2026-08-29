@@ -13,6 +13,18 @@ description: >-
   payments, events, galleries, files, and REST Hook webhook subscriptions behind API-key
   authentication, with a published OpenAPI 3.0 definition and Redoc reference.
 url: https://raw.githubusercontent.com/api-evangelist/vsco/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -488,6 +500,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/vsco-capability-edges.yml
+  name: VSCO Business Capability Map
 - type: Overlay
   url: overlays/vsco-workspace-overlay.yaml
 - type: Website
