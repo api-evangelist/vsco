@@ -411,7 +411,7 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
-  - Rest Hooks
+  - REST Hooks
   tags_raw:
   - Rest Hooks
   properties:
