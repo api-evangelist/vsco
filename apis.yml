@@ -475,6 +475,8 @@ apis:
   humanURL: https://workspace.vsco.co/api
   baseURL: https://workspace.vsco.co/api/v2
   tags:
+  - Timezone
+  tags_raw:
   - Timezones
   properties:
   - type: OpenAPI
