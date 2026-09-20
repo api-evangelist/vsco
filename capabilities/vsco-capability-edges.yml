@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 11
 edges:
 - tag: Contacts
   spec_file: vsco-contacts-api-openapi.yml
@@ -33,6 +33,17 @@ edges:
     ProductConfiguration
   reason: Quotes with options, recipients and product configuration are configure-price-quote artefacts
     sent to prospective clients, matching Quote & Configuration Management.
+- tag: Lead Statuses
+  spec_file: vsco-lead-statuses-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.75
+  evidence: GET /lead-status "List of a studio's lead statuses"; "Create a lead status."; schemas LeadStatus,
+    LeadStatusCollection
+  reason: Defines the lead stage/status values driving the studio's lead-to-booking pipeline, squarely
+    lead and opportunity lifecycle management.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Payments
   spec_file: vsco-payments-api-openapi.yml
   capability_id: BC-200.30
@@ -64,3 +75,53 @@ edges:
   reason: Creation and management of monetary discounts applied to studio orders/quotes maps to BC-440.30
     Discount & Promotion Management. Held at 0.7 as the operations are generic CRUD without explicit promotion
     or rebate semantics.
+- tag: Jobs
+  spec_file: vsco-jobs-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.7
+  evidence: POST /job "Create a job."; POST /job/{jobId}/quote "Create a quote on a given job"; schemas
+    Quote, QuoteOption, QuoteRecipient, OrderItem
+  reason: Jobs are the studio's deal/engagement records carried from creation through quoting to orders,
+    matching lead/opportunity/deal lifecycle management; quoting is a secondary aspect.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Lead Sources
+  spec_file: vsco-lead-sources-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.7
+  evidence: GET /lead-source "List of a studio's lead sources"; schemas LeadSource, LeadStatus, LeadSourceCollection
+  reason: Manages lead source attribution values used in the studio's lead pipeline, part of lead/opportunity
+    lifecycle management (could also be read as demand-gen attribution, hence not higher).
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Rest Hooks
+  spec_file: vsco-rest-hooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.7
+  evidence: POST /rest-hook  createResourceRestHook  Create a RestHook subscription. ... DELETE /rest-hook/{id}
+    Unsubscribe from and delete a RestHook.
+  reason: Lifecycle management of outbound event/webhook subscriptions exposed to API consumers, which
+    is exactly the Webhook & Event Subscription Management capability of the developer-platform domain.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Tax Groups
+  spec_file: vsco-tax-groups-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.7
+  evidence: 'POST /tax-group  createResourceTaxGroup  Create a Tax Group. ... schemas: TaxGroup, TaxRate'
+  reason: Groupings of sales-tax rates applied to studio orders/invoices — indirect (sales/VAT) tax configuration.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Tax Rates
+  spec_file: vsco-tax-rates-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.7
+  evidence: 'POST /tax-rate  createResourceTaxRate  Create a Tax Rate ... schemas: TaxRate'
+  reason: Maintenance of sales-tax rates used when billing clients, i.e. indirect tax determination/configuration.
+  recovered_from: sweep-20260829T005356Z-edges.json
