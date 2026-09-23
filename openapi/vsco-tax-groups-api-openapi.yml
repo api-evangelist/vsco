@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: VSCO Workspace Brands Tax Groups API
+  title: VSCO Workspace Tax Groups API
   termsOfService: https://terms-of-service.vsco.page/
-  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  description: This API is for interacting with a single Studio using an API Key.
   contact:
     name: VSCO Workspace Support
     url: https://help.workspace.vsco.co/
@@ -24,7 +24,7 @@ tags:
 paths:
   /tax-group:
     get:
-      summary: Get a list of Tax Groups.
+      summary: Get a list of Tax Groups
       operationId: listResourceTaxGroups
       x-entity: TaxGroup
       parameters:
@@ -70,7 +70,7 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     post:
-      summary: Create a Tax Group.
+      summary: Create a Tax Group
       operationId: createResourceTaxGroup
       tags:
       - Tax Groups
@@ -133,7 +133,7 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     delete:
-      summary: Delete a Tax Group.
+      summary: Delete a Tax Group
       operationId: deleteResourceTaxGroup
       tags:
       - Tax Groups
@@ -165,40 +165,6 @@ components:
     deleteSuccess:
       description: The resource was successfully deleted.
   schemas:
-    TaxGroup:
-      title: Tax Group
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        name:
-          type: string
-          maxLength: 64
-          nullable: true
-        taxRates:
-          type: array
-          nullable: true
-          items:
-            $ref: '#/components/schemas/TaxRate'
-          maxItems: 3
-        compounding:
-          type: boolean
-          default: false
-        default:
-          type: boolean
-          default: false
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     ErrorValidation:
       description: A validation error.
       type: object
@@ -239,9 +205,10 @@ components:
         hidden:
           $ref: '#/components/schemas/IsHidden'
         name:
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 32
-          nullable: true
         rate:
           type: number
           format: float
@@ -281,6 +248,42 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    TaxGroup:
+      title: Tax Group
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        taxRates:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TaxRate'
+          maxItems: 3
+        compounding:
+          type: boolean
+          default: false
+        default:
+          type: boolean
+          default: false
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
   parameters:
     idInPath:
       name: id

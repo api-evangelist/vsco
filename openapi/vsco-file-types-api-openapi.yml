@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: VSCO Workspace Brands File Types API
+  title: VSCO Workspace File Types API
   termsOfService: https://terms-of-service.vsco.page/
-  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  description: This API is for interacting with a single Studio using an API Key.
   contact:
     name: VSCO Workspace Support
     url: https://help.workspace.vsco.co/
@@ -92,91 +92,22 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    FileTypeCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - file-type-collection
-          items:
-            title: File Types
-            type: array
-            items:
-              $ref: '#/components/schemas/FileType'
-      - $ref: '#/components/schemas/List'
-    FileType:
-      title: File Type
-      description: Specifies what a file's purpose is
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        codeName:
-          type: string
-          maxLength: 32
-        name:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-          maxLength: 1000
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     ErrorValidation:
       description: A validation error.
       type: object
@@ -209,29 +140,6 @@ components:
       description: The type of resource represented.
       type: string
       example: resource-type
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
     ServerTimestamp:
       title: Server Timestamp
       description: A server timestamp (always in UTC)
@@ -275,6 +183,113 @@ components:
           type: array
           items:
             type: object
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    FileTypeCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - file-type-collection
+          items:
+            title: File Types
+            type: array
+            items:
+              $ref: '#/components/schemas/FileType'
+      - $ref: '#/components/schemas/List'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    FileType:
+      title: File Type
+      description: Specifies what a file's purpose is
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        codeName:
+          type: string
+          maxLength: 32
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 1000
   parameters:
     pageSize:
       name: pageSize
@@ -285,20 +300,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
     includeHidden:
       name: includeHidden
       in: query
@@ -307,21 +308,20 @@ components:
         type: boolean
         default: false
         example: false
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

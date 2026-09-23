@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: VSCO Workspace Brands Lead Sources API
+  title: VSCO Workspace Lead Sources API
   termsOfService: https://terms-of-service.vsco.page/
-  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  description: This API is for interacting with a single Studio using an API Key.
   contact:
     name: VSCO Workspace Support
     url: https://help.workspace.vsco.co/
@@ -74,7 +74,7 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     post:
-      summary: Create a lead source.
+      summary: Create a lead source
       operationId: createResourceLeadSource
       tags:
       - Lead Sources
@@ -114,7 +114,7 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     put:
-      summary: Update a specific lead source.
+      summary: Update a specific lead source
       operationId: updateResourceLeadSource
       tags:
       - Lead Sources
@@ -137,7 +137,7 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     delete:
-      summary: Delete a lead source.
+      summary: Delete a lead source
       operationId: deleteResourceLeadSource
       tags:
       - Lead Sources
@@ -151,59 +151,42 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    LeadSource:
-      title: Lead Source
-      type: object
-      required:
-      - name
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        name:
-          type: string
-          minLength: 3
-          maxLength: 128
-        parentId:
-          $ref: '#/components/schemas/NullableId'
-    SortPosition:
-      title: Sort Position
-      type: integer
-      nullable: true
-      minimum: 0
-      maximum: 65535
-      default: 100
+    Color:
+      title: Hex color definition
+      type:
+      - string
+      - 'null'
+      pattern: ^[a-f0-9]{6}$
+    LeadSourceCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - leadsource-collection
+          items:
+            title: Lead Source
+            type: array
+            items:
+              $ref: '#/components/schemas/LeadSource'
+      - $ref: '#/components/schemas/List'
     Error:
       description: An error.
       type: object
@@ -227,88 +210,22 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    Color:
-      title: Hex color definition
-      type: string
-      pattern: ^[a-f0-9]{6}$
-      nullable: true
+    SortPosition:
+      title: Sort Position
+      type:
+      - integer
+      - 'null'
+      minimum: 0
+      maximum: 65535
+      default: 100
     NullableId:
       title: Entity Identifier that might be null instead
       description: A ULID entity identifier that is nullable.
-      type: string
+      type:
+      - string
+      - 'null'
       format: ulid
-      nullable: true
       example: 01fqcr215r79p3h19crqbpzwzh
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    LeadSourceCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - leadsource-collection
-          items:
-            title: Lead Source
-            type: array
-            items:
-              $ref: '#/components/schemas/LeadSource'
-      - $ref: '#/components/schemas/List'
     Id:
       title: Entity Identifier
       description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
@@ -316,26 +233,11 @@ components:
       format: ulid
       example: 01h35ccwymj5ctckp8px1azhg6
       readOnly: true
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
     LeadStatus:
       title: Lead Status
       description: https://help.workspace.vsco.co/en/articles/370307-lead-tracking-with-lead-status
@@ -366,13 +268,15 @@ components:
         color:
           $ref: '#/components/schemas/Color'
         externalMappings:
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/ExternalMapping'
         kind:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           enum:
           - general
           - new
@@ -386,13 +290,15 @@ components:
         transitionClosedReasonId:
           $ref: '#/components/schemas/NullableId'
         transitionInterval:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           minimum: 0
           maximum: 99999999999
         transitionIntervalUnit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           enum:
           - day
           - week
@@ -436,7 +342,133 @@ components:
           type: array
           items:
             type: object
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    LeadSource:
+      title: Lead Source
+      type: object
+      required:
+      - name
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type: string
+          minLength: 3
+          maxLength: 128
+        parentId:
+          $ref: '#/components/schemas/NullableId'
   parameters:
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
     pageSize:
       name: pageSize
       in: query
@@ -446,22 +478,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
     includeHidden:
       name: includeHidden
       in: query
@@ -476,23 +492,14 @@ components:
       description: ULID to perform an action on.
       schema:
         $ref: '#/components/schemas/Id'
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    deleteSuccess:
-      description: The resource was successfully deleted.
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

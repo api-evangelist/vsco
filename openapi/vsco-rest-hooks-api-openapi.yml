@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: VSCO Workspace Brands Rest Hooks API
+  title: VSCO Workspace Rest Hooks API
   termsOfService: https://terms-of-service.vsco.page/
-  description: This API is for interacting with a single Studio using <a href="https://workspace.vsco.co/settings/api" target="_blank">an API Key</a>.
+  description: This API is for interacting with a single Studio using an API Key.
   contact:
     name: VSCO Workspace Support
     url: https://help.workspace.vsco.co/
@@ -20,8 +20,14 @@ security:
 - ApiKeyAuth: []
 - BearerAuth: []
 tags:
-- name: Rest Hooks
-  description: Webhooks based on <a href="https://zapier.com/engineering/introducing-resthooksorg/" target="_blank">Zapier's now-deprecated REST Hooks specification</a>.<br> <br> You can use these to receive a postback to a custom URL when certain events happen in VSCO Workspace.<br> <br> Much like an Automation Web Request Action, these webhooks will trigger when the event occurs. However, for security reasons, only the <code>targetId</code> will be provided, which you'll then use to fetch the current version of the entity via the API.
+- name: REST Hooks
+  description: 'Webhooks based on Zapier''s now-deprecated REST Hooks specification.
+
+
+    You can use these to receive a postback to a custom URL when certain events happen in VSCO Workspace.
+
+
+    Much like an Automation Web Request Action, these webhooks will trigger when the event occurs. However, for security reasons, only the targetId will be provided, which you''ll then use to fetch the current version of the entity via the API.'
 paths:
   /rest-hook:
     get:
@@ -29,7 +35,7 @@ paths:
       operationId: listResourceRestHook
       x-entity: RestHook
       tags:
-      - Rest Hooks
+      - REST Hooks
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -69,10 +75,10 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     post:
-      summary: Create a RestHook subscription.
+      summary: Create a RestHook subscription
       operationId: createResourceRestHook
       tags:
-      - Rest Hooks
+      - REST Hooks
       requestBody:
         content:
           application/json:
@@ -94,7 +100,7 @@ paths:
       summary: Get a specific Rest Hook
       operationId: getResourceRestHook
       tags:
-      - Rest Hooks
+      - REST Hooks
       parameters:
       - $ref: '#/components/parameters/idInPath'
       responses:
@@ -109,10 +115,10 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     put:
-      summary: Update a specific RestHook.
+      summary: Update a specific RestHook
       operationId: updateResourceRestHook
       tags:
-      - Rest Hooks
+      - REST Hooks
       parameters:
       - $ref: '#/components/parameters/idInPath'
       requestBody:
@@ -132,10 +138,10 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
     delete:
-      summary: Unsubscribe from and delete a RestHook.
+      summary: Unsubscribe from and delete a RestHook
       operationId: deleteResourceRestHook
       tags:
-      - Rest Hooks
+      - REST Hooks
       parameters:
       - $ref: '#/components/parameters/idInPath'
       responses:
@@ -146,122 +152,24 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
   schemas:
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    RestHook:
-      title: Rest Hook
-      description: http://resthooks.org/
-      type: object
-      required:
-      - event
-      - url
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        event:
-          type: string
-          enum:
-          - contact.created
-          - job.created
-          - order.booked
-          - payment.created
-        limitTo:
-          type: object
-          nullable: true
-          default: null
-          properties:
-            contactKinds:
-              description: Only available for contact.created events
-              type: array
-              items:
-                type: string
-                enum:
-                - person
-                - company
-                - location
-            jobTypes:
-              description: Not available on contact.created events
-              type: array
-              items:
-                $ref: '#/components/schemas/Id'
-            brands:
-              type: array
-              items:
-                $ref: '#/components/schemas/Id'
-            webLead:
-              description: Only available for job.created events
-              type: boolean
-        url:
-          type: string
-          format: uri
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    RestHookCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - resthook-collection
-            items:
-              title: Rest Hooks
-              type: array
-              items:
-                $ref: '#/components/schemas/RestHook'
-      - $ref: '#/components/schemas/List'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     ErrorValidation:
       description: A validation error.
       type: object
@@ -294,29 +202,61 @@ components:
       description: The type of resource represented.
       type: string
       example: resource-type
-    Error:
-      description: An error.
+    RestHook:
+      title: Rest Hook
+      description: http://resthooks.org/
       type: object
+      required:
+      - event
+      - url
       properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        event:
           type: string
           enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
+          - contact.created
+          - job.created
+          - order.booked
+          - payment.created
+        limitTo:
+          type:
+          - object
+          - 'null'
+          default: null
+          properties:
+            contactKinds:
+              description: Only available for contact.created events
+              type: array
+              items:
+                type: string
+                enum:
+                - person
+                - company
+                - location
+            jobTypes:
+              description: Not available on contact.created events
+              type: array
+              items:
+                $ref: '#/components/schemas/Id'
+            brands:
+              type: array
+              items:
+                $ref: '#/components/schemas/Id'
+            webLead:
+              description: Only available for job.created events
+              type: boolean
+        url:
           type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
+          format: uri
     ServerTimestamp:
       title: Server Timestamp
       description: A server timestamp (always in UTC)
@@ -360,6 +300,90 @@ components:
           type: array
           items:
             type: object
+    RestHookCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - resthook-collection
+            items:
+              title: Rest Hooks
+              type: array
+              items:
+                $ref: '#/components/schemas/RestHook'
+      - $ref: '#/components/schemas/List'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
   parameters:
     pageSize:
       name: pageSize
@@ -370,20 +394,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
     includeHidden:
       name: includeHidden
       in: query
@@ -392,23 +402,20 @@ components:
         type: boolean
         default: false
         example: false
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    deleteSuccess:
-      description: The resource was successfully deleted.
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
