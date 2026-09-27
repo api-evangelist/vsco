@@ -311,114 +311,56 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
   schemas:
-    MoneyAmount:
-      title: Numeric representing an amount in the studio's currency
-      type: integer
-      minimum: -99999999999
-      maximum: 99999999999
-      example: 200
-    OrderItem:
-      title: Order Item
+    ProductConfiguration:
+      title: Product Configuration
       type: object
       required:
       - name
+      - affectsPrice
+      - kind
+      - value
       properties:
         id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        orderId:
-          $ref: '#/components/schemas/Id'
-        productId:
           allOf:
-          - $ref: '#/components/schemas/Id'
+          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
+          - $ref: '#/components/schemas/NullableId'
         name:
           type: string
-          minLength: 1
-          maxLength: 128
-        descriptionHtml:
-          type:
-          - string
-          - 'null'
-          maxLength: 16777215
-        baseConfiguration:
-          type:
-          - array
-          - 'null'
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/ProductConfiguration'
-        configuration:
-          type:
-          - array
-          - 'null'
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/ProductConfiguration'
-        basePricePerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        pricePerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        baseCostPerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        costPerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        units:
-          type: number
-          format: float
-        taxable:
+        affectsPrice:
           type: boolean
-        discount:
-          type: boolean
-        discountKind:
+        kind:
           type: string
           enum:
-          - amount
-          - percent
-          default: amount
-        selectability:
+          - AddOn
+          - Option
+        value:
           type: string
-          enum:
-          - required
-          - suggested
-          - optional
-          default: required
-        selected:
-          type: boolean
-        children:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrderItem'
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
+        unitCost:
+          allOf:
+          - {}
+          - $ref: '#/components/schemas/MoneyAmount'
+        unitPrice:
+          allOf:
+          - {}
+          - $ref: '#/components/schemas/MoneyAmount'
     OrderConfiguration:
       title: Order Configuration
       type: object
@@ -519,6 +461,76 @@ components:
           allOf:
           - readOnly: true
           - $ref: '#/components/schemas/PositiveMoneyAmount'
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+    QuoteOption:
+      title: Quote Option
+      type: object
+      properties:
+        id:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        name:
+          type:
+          - string
+          - 'null'
+      allOf:
+      - $ref: '#/components/schemas/OrderConfiguration'
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
     CustomFieldValue:
       title: Custom Field Value
       type: object
@@ -543,6 +555,218 @@ components:
           type:
           - string
           - 'null'
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
+    Pinned:
+      title: Whether or not the entity is favorited.
+      type:
+      - boolean
+      - 'null'
+      default: false
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    PositiveMoneyAmount:
+      title: Positive numeric representing an amount in the studio's currency
+      type: integer
+      minimum: 0
+      maximum: 99999999999
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type:
+      - string
+      - 'null'
+      format: ulid
+      example: 01fqcr215r79p3h19crqbpzwzh
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    OrderItem:
+      title: Order Item
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        orderId:
+          $ref: '#/components/schemas/Id'
+        productId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        descriptionHtml:
+          type:
+          - string
+          - 'null'
+          maxLength: 16777215
+        baseConfiguration:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        configuration:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        basePricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        pricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        baseCostPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        costPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        units:
+          type: number
+          format: float
+        taxable:
+          type: boolean
+        discount:
+          type: boolean
+        discountKind:
+          type: string
+          enum:
+          - amount
+          - percent
+          default: amount
+        selectability:
+          type: string
+          enum:
+          - required
+          - suggested
+          - optional
+          default: required
+        selected:
+          type: boolean
+        children:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    JobCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - job-collection
+          items:
+            title: Job
+            type: array
+            items:
+              $ref: '#/components/schemas/Job'
+      - $ref: '#/components/schemas/List'
+    QuoteRecipient:
+      title: Quote Recipient
+      type: object
+      properties:
+        contactId:
+          allOf:
+          - writeOnly: true
+          - $ref: '#/components/schemas/Id'
+        clientUrl:
+          type: string
+          format: uri
+          readOnly: true
+        lastSent:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        lastViewed:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
     NullableDate:
       title: A date that could be null instead
       description: 'A date string consisting of year, month and day in the timezone of the
@@ -553,6 +777,40 @@ components:
       - 'null'
       format: date
       example: '2020-04-10'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     Quote:
       title: Quote
       description: A job quote (pre-booking). POST creates the quote and its priced option invoices.
@@ -617,167 +875,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuoteOption'
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
       type:
       - string
       - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    ProductConfiguration:
-      title: Product Configuration
-      type: object
-      required:
-      - name
-      - affectsPrice
-      - kind
-      - value
-      properties:
-        id:
-          allOf:
-          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
-          - $ref: '#/components/schemas/NullableId'
-        name:
-          type: string
-        affectsPrice:
-          type: boolean
-        kind:
-          type: string
-          enum:
-          - AddOn
-          - Option
-        value:
-          type: string
-        unitCost:
-          allOf:
-          - {}
-          - $ref: '#/components/schemas/MoneyAmount'
-        unitPrice:
-          allOf:
-          - {}
-          - $ref: '#/components/schemas/MoneyAmount'
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    Pinned:
-      title: Whether or not the entity is favorited.
-      type:
-      - boolean
-      - 'null'
-      default: false
-    PositiveMoneyAmount:
-      title: Positive numeric representing an amount in the studio's currency
-      type: integer
-      minimum: 0
-      maximum: 99999999999
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
       format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    JobCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - job-collection
-          items:
-            title: Job
-            type: array
-            items:
-              $ref: '#/components/schemas/Job'
-      - $ref: '#/components/schemas/List'
+      example: '2020-06-17T13:06:22+00:00'
     Job:
       title: Job
       description: https://help.workspace.vsco.co/en/articles/639878-leads-jobs-and-job-stages
@@ -992,113 +1099,6 @@ components:
           - string
           - 'null'
           readOnly: true
-    QuoteRecipient:
-      title: Quote Recipient
-      type: object
-      properties:
-        contactId:
-          allOf:
-          - writeOnly: true
-          - $ref: '#/components/schemas/Id'
-        clientUrl:
-          type: string
-          format: uri
-          readOnly: true
-        lastSent:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/NullableDateTime'
-        lastViewed:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/NullableDateTime'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    NullableDateTime:
-      title: A date time (in UTC) that could be null instead
-      description: 'A date time string consisting of year, month and day along with hour,
-
-        minute and second in UTC.'
-      type:
-      - string
-      - 'null'
-      format: date-time
-      example: '2020-06-17T13:06:22+00:00'
-    QuoteOption:
-      title: Quote Option
-      type: object
-      properties:
-        id:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/Id'
-        name:
-          type:
-          - string
-          - 'null'
-      allOf:
-      - $ref: '#/components/schemas/OrderConfiguration'
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    deleteSuccess:
-      description: The resource was successfully deleted.
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     includeClosed:
       name: includeClosed
@@ -1108,14 +1108,6 @@ components:
         type: boolean
         default: false
         example: false
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
     pageSize:
       name: pageSize
       in: query
@@ -1125,17 +1117,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    jobIdInPath:
-      name: jobId
-      in: path
-      schema:
-        $ref: '#/components/schemas/Id'
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
     page:
       name: page
       in: query
@@ -1144,6 +1125,25 @@ components:
         type: integer
         default: 1
         minimum: 1
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    jobIdInPath:
+      name: jobId
+      in: path
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

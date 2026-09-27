@@ -152,24 +152,14 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    deleteSuccess:
-      description: The resource was successfully deleted.
   schemas:
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
     ErrorValidation:
       description: A validation error.
       type: object
@@ -190,18 +180,24 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
+    RestHookCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - resthook-collection
+            items:
+              title: Rest Hooks
+              type: array
+              items:
+                $ref: '#/components/schemas/RestHook'
+      - $ref: '#/components/schemas/List'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
       readOnly: true
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
     RestHook:
       title: Rest Hook
       description: http://resthooks.org/
@@ -257,13 +253,6 @@ components:
         url:
           type: string
           format: uri
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
     List:
       title: Collection
       description: A collection (or list) of resources.
@@ -300,18 +289,33 @@ components:
           type: array
           items:
             type: object
-    RestHookCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - resthook-collection
-            items:
-              title: Rest Hooks
-              type: array
-              items:
-                $ref: '#/components/schemas/RestHook'
-      - $ref: '#/components/schemas/List'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
     Error:
       description: An error.
       type: object
@@ -335,6 +339,11 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
     Link:
       title: Hypermedia Link Relationship
       description: 'The target URL indicated in the `href` property is related to the
@@ -358,32 +367,23 @@ components:
           description: The URL to this item in Client Access, if available.
           type: string
           format: uri
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
+  responses:
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
 
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
   parameters:
     pageSize:
       name: pageSize
@@ -394,14 +394,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
     page:
       name: page
       in: query
@@ -416,6 +408,14 @@ components:
       description: ULID to perform an action on.
       schema:
         $ref: '#/components/schemas/Id'
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
