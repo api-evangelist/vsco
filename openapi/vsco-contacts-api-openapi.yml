@@ -320,7 +320,541 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  parameters:
+    email:
+      name: email
+      in: query
+      description: 'Filter objects by email. When this is specified, a rank will be calculated
+
+        so that it can be used to sort the results in highest rank first.'
+      schema:
+        type: string
+        default: null
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
   schemas:
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    ChatAccount:
+      type:
+      - object
+      - 'null'
+      properties:
+        service:
+          type:
+          - string
+          - 'null'
+          enum:
+          - etsy
+          - flickr
+          - google
+          - instagram
+          - linkedin
+          - pinterest
+          - skype
+          - tumbler
+          - aim
+          - mobileme
+          - msn
+          - yahoo
+          default: null
+          description: 'The social service. The following values might appear in responses,
+
+            but are not able to be created: AIM, MobileMe, MSN, Yahoo'
+        identity:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+    AddressBookCollection:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - properties:
+          type:
+            enum:
+            - addressbook-collection
+          items:
+            title: Address Book
+            type: array
+            items:
+              discriminator:
+                propertyName: kind
+                mapping:
+                  person: ../entities/Person.yaml
+                  company: ../entities/Company.yaml
+                  location: ../entities/Location.yaml
+                  employee: ../entities/Employee.yaml
+              anyOf:
+              - $ref: '#/components/schemas/Company'
+              - $ref: '#/components/schemas/Employee'
+              - $ref: '#/components/schemas/Location'
+              - $ref: '#/components/schemas/Person'
+    Event:
+      title: Event
+      description: https://help.workspace.vsco.co/en/articles/347132-event-types
+      type: object
+      additionalProperties: false
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        allDay:
+          type:
+          - boolean
+          - 'null'
+          default: false
+        channel:
+          type: string
+          enum:
+          - InPerson
+          - Phone
+          - Virtual
+          default: InPerson
+        confirmed:
+          type:
+          - boolean
+          - 'null'
+          default: false
+        descriptionHtml:
+          type:
+          - string
+          - 'null'
+          maxLength: 1073741824
+        endDate:
+          $ref: '#/components/schemas/NullableDate'
+        endTime:
+          $ref: '#/components/schemas/NullableTime'
+        endUtc:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        externalMappings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        galleryId:
+          $ref: '#/components/schemas/NullableId'
+        jobId:
+          $ref: '#/components/schemas/NullableId'
+        location:
+          type:
+          - object
+          - 'null'
+          properties:
+            id:
+              $ref: '#/components/schemas/NullableId'
+            address:
+              $ref: '#/components/schemas/Address'
+        name:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        phoneNumber:
+          title: Representation of a phone number
+          type:
+          - object
+          - 'null'
+          properties:
+            id:
+              allOf:
+              - readOnly: true
+                description: The ID of the phone number, if any. This is a unique identifier for the phone number and is generated by the API. It is not the phone number itself.<br> <br> Most phone numbers will not have an ID, as they are usually stored in the database as an E.164 string. We are in the process of refactoring our database to normalize phone numbers to use this representation, and as such, some phone numbers may have an ID.
+              - $ref: '#/components/schemas/NullableId'
+            formatted:
+              description: While this ASCII value is writable, it will be parsed by `libphonenumber` and should thus be considered a lossy value. You can preview how we'll parse it using <a href="https://giggsey.com/libphonenumber/" target="_blank">their website</a>.<br> <br> If `countryCode` or `dialCode` are not provided, the Studio's default country will be assumed.<br> <br> If the value is not parseable, `formatted` will return the original value and `dialCode`, `e164`, `extension`, and `telUri` will all be `null`.<br> <br> If `e164` or `uriTel` are provided, `formatted` will be ignored and replaced with the studio's local formatting of the number.
+              type:
+              - string
+              - 'null'
+              example: (800) 560-8283 x123
+              pattern: ^[ -~]+$
+              maxLength: 24
+            e164:
+              description: An ASCII <a href="https://www.twilio.com/docs/glossary/what-e164" target="_balnk">E.164 representation</a> of the phone number.<br> <br> When writing to the API, you can provide an extension by appending `x` and the extension to the end of the phone. Future reads will move the extension to the `extension` and `telUri` properties, since it isn't strictly a part of the E.164 specification.<br> <br> <b>This is the prefered field for writing to phone fields in the API.</b><br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type:
+              - string
+              - 'null'
+              example: 18005608283
+              pattern: ^\+[1-9]\d{1,14}(x{1,6})?$
+              maxLength: 24
+            extension:
+              description: The number's extension, if any. If provided in a write operation, it will be included in future `e164` and `telUri` values as well.<br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type:
+              - number
+              - 'null'
+              format: integer
+              example: 123
+              minimum: 1
+              maximum: 999999
+            telUri:
+              description: A <a href="https://tools.ietf.org/html/rfc3966" target="_blank">RFC 3966</a> representation of the phone number. This and `e164` are the prefered formats for writing to phone fields in the API. This value will be parsed and only the number and extension will be applied.<br> <br> Will be `null` if the original `formatted` value was not parseable.
+              type:
+              - string
+              - 'null'
+              example: tel:+1-800-560-8283;ext=123
+              format: rfc3966
+            dialCode:
+              type:
+              - number
+              - 'null'
+              format: integer
+              example: 1
+              minimum: 1
+              maximum: 999
+              readOnly: true
+            countryCode:
+              description: The country code of the phone number. This is a two-letter country code as defined by <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2</a>. Providing this in a write operation with user-provided `formatted` value may improve our ability to parse the number.<br> <br> If the property is not normalized (it has no `id` after save), then this will be `null` if the original `formatted` value was not parseable, even if `countryCode` was provided.
+              type:
+              - string
+              - 'null'
+              example: US
+              pattern: ^[a-z]{2}$
+              maxLength: 2
+        readOnly:
+          type: boolean
+          readOnly: true
+        startDate:
+          $ref: '#/components/schemas/NullableDate'
+        startTime:
+          $ref: '#/components/schemas/NullableTime'
+        startUtc:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableDateTime'
+        timezoneName:
+          type:
+          - string
+          - 'null'
+          description: A VSCO Workspace approved timezone name. If `timezoneId` is provided then this will be ignored.
+        timezoneId:
+          $ref: '#/components/schemas/NullableId'
+        typeId:
+          $ref: '#/components/schemas/NullableId'
+        virtualUrl:
+          type:
+          - string
+          - 'null'
+          format: uri
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    Employee:
+      allOf:
+      - title: Employee
+        description: An employee entity
+        type: object
+        properties:
+          anniversary:
+            $ref: '#/components/schemas/NullableDate'
+          birthdate:
+            $ref: '#/components/schemas/NullableDate'
+          brandId:
+            allOf:
+            - description: The default brand the person belongs to.
+            - $ref: '#/components/schemas/NullableId'
+          cellPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          companyName:
+            type:
+            - string
+            - 'null'
+            maxLength: 128
+          contactPreference:
+            type:
+            - string
+            - 'null'
+            enum:
+            - email
+            - cell-phone
+            - home-phone
+            - work-phone
+            - null
+          displayAs:
+            type:
+            - string
+            - 'null'
+            maxLength: 64
+          fax:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          firstName:
+            type:
+            - string
+            - 'null'
+            maxLength: 48
+          gender:
+            type:
+            - string
+            - 'null'
+            enum:
+            - male
+            - female
+            - null
+          kind:
+            type: string
+            enum:
+            - employee
+          homePhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          jobTitle:
+            type:
+            - string
+            - 'null'
+            maxLength: 64
+          lastName:
+            type:
+            - string
+            - 'null'
+            maxLength: 48
+          maidenName:
+            type:
+            - string
+            - 'null'
+            maxLength: 48
+          mailingAddress:
+            $ref: '#/components/schemas/Address'
+          name:
+            type: string
+            description: This is used as the combination of firstName and lastName fields.
+            maxLength: 255
+            readOnly: true
+          salutation:
+            type:
+            - string
+            - 'null'
+            enum:
+            - mr
+            - miss
+            - mrs
+            - ms
+            - dr
+            - null
+          vendorRoleId:
+            description: 'This is a vendor and defines the default job role this
+
+              contact will have when added to a job.'
+            type:
+            - string
+            - 'null'
+            format: ulid
+          workPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type:
+      - string
+      - 'null'
+      format: date
+      example: '2020-04-10'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    Note:
+      title: Note
+      description: Additional notes about a specific entity.
+      type: object
+      required:
+      - contentHtml
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        authorId:
+          $ref: '#/components/schemas/NullableId'
+        contactId:
+          $ref: '#/components/schemas/NullableId'
+        contentHtml:
+          type:
+          - string
+          - 'null'
+          minLength: 1
+          maxLength: 1000000000
+        date:
+          $ref: '#/components/schemas/NullableDate'
+        jobId:
+          $ref: '#/components/schemas/NullableId'
+    Pinned:
+      title: Whether or not the entity is favorited.
+      type:
+      - boolean
+      - 'null'
+      default: false
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    Location:
+      allOf:
+      - title: Location
+        description: A Location entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - location
+          name:
+            type: string
+            description: Location name.
+            maxLength: 255
+          phone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          tollFree:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
     Address:
       description: Represents an address.
       type:
@@ -498,14 +1032,12 @@ components:
           - string
           - 'null'
           format: uri
-    Event:
-      title: Event
-      description: https://help.workspace.vsco.co/en/articles/347132-event-types
+    CustomFieldValue:
+      title: Custom Field Value
       type: object
-      additionalProperties: false
+      required:
+      - fieldId
       properties:
-        links:
-          $ref: '#/components/schemas/Links'
         id:
           $ref: '#/components/schemas/Id'
         created:
@@ -514,181 +1046,24 @@ components:
           $ref: '#/components/schemas/ServerTimestamp'
         hidden:
           $ref: '#/components/schemas/IsHidden'
-        allDay:
-          type:
-          - boolean
-          - 'null'
-          default: false
-        channel:
+        fieldId:
+          title: Entity Identifier
+          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
           type: string
-          enum:
-          - InPerson
-          - Phone
-          - Virtual
-          default: InPerson
-        confirmed:
-          type:
-          - boolean
-          - 'null'
-          default: false
-        descriptionHtml:
+          format: ulid
+          example: 01h35ccwymj5ctckp8px1azhg6
+        value:
           type:
           - string
           - 'null'
-          maxLength: 1073741824
-        endDate:
-          $ref: '#/components/schemas/NullableDate'
-        endTime:
-          $ref: '#/components/schemas/NullableTime'
-        endUtc:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/NullableDateTime'
-        externalMappings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ExternalMapping'
-        galleryId:
-          $ref: '#/components/schemas/NullableId'
-        jobId:
-          $ref: '#/components/schemas/NullableId'
-        location:
-          type:
-          - object
-          - 'null'
-          properties:
-            id:
-              $ref: '#/components/schemas/NullableId'
-            address:
-              $ref: '#/components/schemas/Address'
-        name:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        phoneNumber:
-          title: Representation of a phone number
-          type:
-          - object
-          - 'null'
-          properties:
-            id:
-              allOf:
-              - readOnly: true
-                description: The ID of the phone number, if any. This is a unique identifier for the phone number and is generated by the API. It is not the phone number itself.<br> <br> Most phone numbers will not have an ID, as they are usually stored in the database as an E.164 string. We are in the process of refactoring our database to normalize phone numbers to use this representation, and as such, some phone numbers may have an ID.
-              - $ref: '#/components/schemas/NullableId'
-            formatted:
-              description: While this ASCII value is writable, it will be parsed by `libphonenumber` and should thus be considered a lossy value. You can preview how we'll parse it using <a href="https://giggsey.com/libphonenumber/" target="_blank">their website</a>.<br> <br> If `countryCode` or `dialCode` are not provided, the Studio's default country will be assumed.<br> <br> If the value is not parseable, `formatted` will return the original value and `dialCode`, `e164`, `extension`, and `telUri` will all be `null`.<br> <br> If `e164` or `uriTel` are provided, `formatted` will be ignored and replaced with the studio's local formatting of the number.
-              type:
-              - string
-              - 'null'
-              example: (800) 560-8283 x123
-              pattern: ^[ -~]+$
-              maxLength: 24
-            e164:
-              description: An ASCII <a href="https://www.twilio.com/docs/glossary/what-e164" target="_balnk">E.164 representation</a> of the phone number.<br> <br> When writing to the API, you can provide an extension by appending `x` and the extension to the end of the phone. Future reads will move the extension to the `extension` and `telUri` properties, since it isn't strictly a part of the E.164 specification.<br> <br> <b>This is the prefered field for writing to phone fields in the API.</b><br> <br> Will be `null` if the original `formatted` value was not parseable.
-              type:
-              - string
-              - 'null'
-              example: 18005608283
-              pattern: ^\+[1-9]\d{1,14}(x{1,6})?$
-              maxLength: 24
-            extension:
-              description: The number's extension, if any. If provided in a write operation, it will be included in future `e164` and `telUri` values as well.<br> <br> Will be `null` if the original `formatted` value was not parseable.
-              type:
-              - number
-              - 'null'
-              format: integer
-              example: 123
-              minimum: 1
-              maximum: 999999
-            telUri:
-              description: A <a href="https://tools.ietf.org/html/rfc3966" target="_blank">RFC 3966</a> representation of the phone number. This and `e164` are the prefered formats for writing to phone fields in the API. This value will be parsed and only the number and extension will be applied.<br> <br> Will be `null` if the original `formatted` value was not parseable.
-              type:
-              - string
-              - 'null'
-              example: tel:+1-800-560-8283;ext=123
-              format: rfc3966
-            dialCode:
-              type:
-              - number
-              - 'null'
-              format: integer
-              example: 1
-              minimum: 1
-              maximum: 999
-              readOnly: true
-            countryCode:
-              description: The country code of the phone number. This is a two-letter country code as defined by <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2</a>. Providing this in a write operation with user-provided `formatted` value may improve our ability to parse the number.<br> <br> If the property is not normalized (it has no `id` after save), then this will be `null` if the original `formatted` value was not parseable, even if `countryCode` was provided.
-              type:
-              - string
-              - 'null'
-              example: US
-              pattern: ^[a-z]{2}$
-              maxLength: 2
-        readOnly:
-          type: boolean
-          readOnly: true
-        startDate:
-          $ref: '#/components/schemas/NullableDate'
-        startTime:
-          $ref: '#/components/schemas/NullableTime'
-        startUtc:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/NullableDateTime'
-        timezoneName:
-          type:
-          - string
-          - 'null'
-          description: A VSCO Workspace approved timezone name. If `timezoneId` is provided then this will be ignored.
-        timezoneId:
-          $ref: '#/components/schemas/NullableId'
-        typeId:
-          $ref: '#/components/schemas/NullableId'
-        virtualUrl:
-          type:
-          - string
-          - 'null'
-          format: uri
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type:
+      - string
+      - 'null'
+      format: ulid
+      example: 01fqcr215r79p3h19crqbpzwzh
     Company:
       allOf:
       - title: Company
@@ -759,42 +1134,6 @@ components:
             - 'null'
             format: ulid
       - $ref: '#/components/schemas/Contact'
-    CustomFieldValue:
-      title: Custom Field Value
-      type: object
-      required:
-      - fieldId
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        fieldId:
-          title: Entity Identifier
-          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-          type: string
-          format: ulid
-          example: 01h35ccwymj5ctckp8px1azhg6
-        value:
-          type:
-          - string
-          - 'null'
-    MoneyAmount:
-      title: Numeric representing an amount in the studio's currency
-      type: integer
-      minimum: -99999999999
-      maximum: 99999999999
-      example: 200
-    Pinned:
-      title: Whether or not the entity is favorited.
-      type:
-      - boolean
-      - 'null'
-      default: false
     Id:
       title: Entity Identifier
       description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
@@ -802,144 +1141,6 @@ components:
       format: ulid
       example: 01h35ccwymj5ctckp8px1azhg6
       readOnly: true
-    Location:
-      allOf:
-      - title: Location
-        description: A Location entity
-        type: object
-        properties:
-          kind:
-            type: string
-            enum:
-            - location
-          name:
-            type: string
-            description: Location name.
-            maxLength: 255
-          phone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          tollFree:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-      - $ref: '#/components/schemas/Contact'
-    Note:
-      title: Note
-      description: Additional notes about a specific entity.
-      type: object
-      required:
-      - contentHtml
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        authorId:
-          $ref: '#/components/schemas/NullableId'
-        contactId:
-          $ref: '#/components/schemas/NullableId'
-        contentHtml:
-          type:
-          - string
-          - 'null'
-          minLength: 1
-          maxLength: 1000000000
-        date:
-          $ref: '#/components/schemas/NullableDate'
-        jobId:
-          $ref: '#/components/schemas/NullableId'
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
-      type:
-      - string
-      - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
-    NullableDate:
-      title: A date that could be null instead
-      description: 'A date string consisting of year, month and day in the timezone of the
-
-        event if specified or the studio.'
-      type:
-      - string
-      - 'null'
-      format: date
-      example: '2020-04-10'
     Error:
       description: An error.
       type: object
@@ -963,11 +1164,26 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
     Person:
       allOf:
       - title: Person
@@ -1160,188 +1376,19 @@ components:
           workPhone:
             $ref: '#/components/schemas/Event/properties/phoneNumber'
       - $ref: '#/components/schemas/Contact'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    AddressBookCollection:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - properties:
-          type:
-            enum:
-            - addressbook-collection
-          items:
-            title: Address Book
-            type: array
-            items:
-              discriminator:
-                propertyName: kind
-                mapping:
-                  person: ../entities/Person.yaml
-                  company: ../entities/Company.yaml
-                  location: ../entities/Location.yaml
-                  employee: ../entities/Employee.yaml
-              anyOf:
-              - $ref: '#/components/schemas/Company'
-              - $ref: '#/components/schemas/Employee'
-              - $ref: '#/components/schemas/Location'
-              - $ref: '#/components/schemas/Person'
-    ChatAccount:
-      type:
-      - object
-      - 'null'
-      properties:
-        service:
-          type:
-          - string
-          - 'null'
-          enum:
-          - etsy
-          - flickr
-          - google
-          - instagram
-          - linkedin
-          - pinterest
-          - skype
-          - tumbler
-          - aim
-          - mobileme
-          - msn
-          - yahoo
-          default: null
-          description: 'The social service. The following values might appear in responses,
-
-            but are not able to be created: AIM, MobileMe, MSN, Yahoo'
-        identity:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    Employee:
-      allOf:
-      - title: Employee
-        description: An employee entity
-        type: object
-        properties:
-          anniversary:
-            $ref: '#/components/schemas/NullableDate'
-          birthdate:
-            $ref: '#/components/schemas/NullableDate'
-          brandId:
-            allOf:
-            - description: The default brand the person belongs to.
-            - $ref: '#/components/schemas/NullableId'
-          cellPhone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          companyName:
-            type:
-            - string
-            - 'null'
-            maxLength: 128
-          contactPreference:
-            type:
-            - string
-            - 'null'
-            enum:
-            - email
-            - cell-phone
-            - home-phone
-            - work-phone
-            - null
-          displayAs:
-            type:
-            - string
-            - 'null'
-            maxLength: 64
-          fax:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          firstName:
-            type:
-            - string
-            - 'null'
-            maxLength: 48
-          gender:
-            type:
-            - string
-            - 'null'
-            enum:
-            - male
-            - female
-            - null
-          kind:
-            type: string
-            enum:
-            - employee
-          homePhone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          jobTitle:
-            type:
-            - string
-            - 'null'
-            maxLength: 64
-          lastName:
-            type:
-            - string
-            - 'null'
-            maxLength: 48
-          maidenName:
-            type:
-            - string
-            - 'null'
-            maxLength: 48
-          mailingAddress:
-            $ref: '#/components/schemas/Address'
-          name:
-            type: string
-            description: This is used as the combination of firstName and lastName fields.
-            maxLength: 255
-            readOnly: true
-          salutation:
-            type:
-            - string
-            - 'null'
-            enum:
-            - mr
-            - miss
-            - mrs
-            - ms
-            - dr
-            - null
-          vendorRoleId:
-            description: 'This is a vendor and defines the default job role this
-
-              contact will have when added to a job.'
-            type:
-            - string
-            - 'null'
-            format: ulid
-          workPhone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-      - $ref: '#/components/schemas/Contact'
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
   responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -1350,55 +1397,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     deleteSuccess:
       description: The resource was successfully deleted.
-  parameters:
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
-    email:
-      name: email
-      in: query
-      description: 'Filter objects by email. When this is specified, a rank will be calculated
-
-        so that it can be used to sort the results in highest rank first.'
-      schema:
-        type: string
-        default: null
-    pageSize:
-      name: pageSize
-      in: query
-      description: Number of results per page to return in the collection.
-      schema:
-        type: integer
-        minimum: 10
-        maximum: 100
-        default: 100
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

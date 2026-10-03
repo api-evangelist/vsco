@@ -151,7 +151,58 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  parameters:
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
   schemas:
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    Color:
+      title: Hex color definition
+      type:
+      - string
+      - 'null'
+      pattern: ^[a-f0-9]{6}$
     Event:
       title: Event
       description: https://help.workspace.vsco.co/en/articles/347132-event-types
@@ -307,42 +358,48 @@ components:
           - string
           - 'null'
           format: uri
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
+    BrandCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - brand-collection
+          items:
+            title: Brand
+            type: array
+            items:
+              $ref: '#/components/schemas/Brand'
+      - $ref: '#/components/schemas/List'
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
       type: object
       required:
-      - type
-      - items
+      - href
       properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
     Brand:
       title: Brand
       description: https://help.workspace.vsco.co/en/articles/346756-customizing-your-branding-to-match-your-business
@@ -485,78 +542,6 @@ components:
                   $ref: '#/components/schemas/Color'
                 text:
                   $ref: '#/components/schemas/Color'
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
-      type:
-      - string
-      - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    BrandCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - brand-collection
-          items:
-            title: Brand
-            type: array
-            items:
-              $ref: '#/components/schemas/Brand'
-      - $ref: '#/components/schemas/List'
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    BrandPhone:
-      title: Brand Phone
-      type:
-      - object
-      - 'null'
-      properties:
-        label:
-          type: string
-          minLength: 1
-          maxLength: 64
-          example: Office
-        number:
-          allOf:
-          - description: This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.
-          - $ref: '#/components/schemas/Event/properties/phoneNumber'
     ErrorValidation:
       description: A validation error.
       type: object
@@ -577,6 +562,12 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     ExternalMapping:
       title: External Mapping
       description: 'This is used to relate a unique entity id in an external system to an
@@ -597,6 +588,72 @@ components:
           format: uri
           minLength: 12
           maxLength: 255
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+    BrandPhone:
+      title: Brand Phone
+      type:
+      - object
+      - 'null'
+      properties:
+        label:
+          type: string
+          minLength: 1
+          maxLength: 64
+          example: Office
+        number:
+          allOf:
+          - description: This is currently a free-text field and not a normalized phone number, so only the `formatted` property will have a value.
+          - $ref: '#/components/schemas/Event/properties/phoneNumber'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type:
+      - string
+      - 'null'
+      format: ulid
+      example: 01fqcr215r79p3h19crqbpzwzh
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     Error:
       description: An error.
       type: object
@@ -620,23 +677,6 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    Color:
-      title: Hex color definition
-      type:
-      - string
-      - 'null'
-      pattern: ^[a-f0-9]{6}$
     Links:
       title: Link Relationships
       description: 'Each property defines a hypertext link relationship as indicated by a
@@ -658,6 +698,12 @@ components:
             description: The target URL is the current resource's own location.
           - $ref: '#/components/schemas/Link'
   responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -666,54 +712,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     deleteSuccess:
       description: The resource was successfully deleted.
-  parameters:
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
-    pageSize:
-      name: pageSize
-      in: query
-      description: Number of results per page to return in the collection.
-      schema:
-        type: integer
-        minimum: 10
-        maximum: 100
-        default: 100
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

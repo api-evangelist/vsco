@@ -152,7 +152,202 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  parameters:
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
+    jobId:
+      name: jobId
+      in: query
+      description: Include objects attached to a job
+      schema:
+        $ref: '#/components/schemas/NullableId'
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
   schemas:
+    EventCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - event-collection
+          items:
+            title: Events
+            type: array
+            items:
+              $ref: '#/components/schemas/Event'
+      - $ref: '#/components/schemas/List'
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type:
+      - string
+      - 'null'
+      format: date
+      example: '2020-04-10'
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
+      type:
+      - string
+      - 'null'
+      format: date-time
+      example: '2020-06-17T13:06:22+00:00'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
     Address:
       description: Represents an address.
       type:
@@ -227,49 +422,6 @@ components:
           - string
           - 'null'
           readOnly: true
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
     NullableId:
       title: Entity Identifier that might be null instead
       description: A ULID entity identifier that is nullable.
@@ -278,88 +430,6 @@ components:
       - 'null'
       format: ulid
       example: 01fqcr215r79p3h19crqbpzwzh
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    EventCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - event-collection
-          items:
-            title: Events
-            type: array
-            items:
-              $ref: '#/components/schemas/Event'
-      - $ref: '#/components/schemas/List'
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
     Event:
       title: Event
       description: https://help.workspace.vsco.co/en/articles/347132-event-types
@@ -515,16 +585,13 @@ components:
           - string
           - 'null'
           format: uri
-    NullableDate:
-      title: A date that could be null instead
-      description: 'A date string consisting of year, month and day in the timezone of the
-
-        event if specified or the studio.'
-      type:
-      - string
-      - 'null'
-      format: date
-      example: '2020-04-10'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     Error:
       description: An error.
       type: object
@@ -548,27 +615,6 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    NullableDateTime:
-      title: A date time (in UTC) that could be null instead
-      description: 'A date time string consisting of year, month and day along with hour,
-
-        minute and second in UTC.'
-      type:
-      - string
-      - 'null'
-      format: date-time
-      example: '2020-06-17T13:06:22+00:00'
     Links:
       title: Link Relationships
       description: 'Each property defines a hypertext link relationship as indicated by a
@@ -597,53 +643,13 @@ components:
       - 'null'
       format: time
       example: '14:00:00'
-  parameters:
-    jobId:
-      name: jobId
-      in: query
-      description: Include objects attached to a job
-      schema:
-        $ref: '#/components/schemas/NullableId'
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
-    pageSize:
-      name: pageSize
-      in: query
-      description: Number of results per page to return in the collection.
-      schema:
-        type: integer
-        minimum: 10
-        maximum: 100
-        default: 100
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
   responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -652,12 +658,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     deleteSuccess:
       description: The resource was successfully deleted.
   securitySchemes:

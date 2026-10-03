@@ -156,24 +156,172 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
-  responses:
-    validationError:
-      description: 'Validation error response. Check the `info.errors` property in the
-
-        response for more details.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    deleteSuccess:
-      description: The resource was successfully deleted.
+  parameters:
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
   schemas:
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    JobTypeDefaultContact:
+      title: Associates a job role to a job type
+      description: See Job Types
+      type: object
+      properties:
+        jobRoleId:
+          $ref: '#/components/schemas/Id'
+        client:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          example: false
+        quantity:
+          type:
+          - integer
+          - 'null'
+          minimum: 0
+          maximum: 65535
+          default: 1
+        sortPosition:
+          $ref: '#/components/schemas/SortPosition'
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
+    JobTypeDefaultEvent:
+      title: Associates a event type to a job type
+      description: See Job Types
+      type: object
+      properties:
+        eventTypeId:
+          $ref: '#/components/schemas/Id'
+        primarySession:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          example: false
+        quantity:
+          type:
+          - integer
+          - 'null'
+          minimum: 0
+          maximum: 65535
+          default: 1
+        sortPosition:
+          $ref: '#/components/schemas/SortPosition'
     List:
       title: Collection
       description: A collection (or list) of resources.
@@ -222,155 +370,6 @@ components:
             items:
               $ref: '#/components/schemas/JobType'
       - $ref: '#/components/schemas/List'
-    JobTypeDefaultEvent:
-      title: Associates a event type to a job type
-      description: See Job Types
-      type: object
-      properties:
-        eventTypeId:
-          $ref: '#/components/schemas/Id'
-        primarySession:
-          type:
-          - boolean
-          - 'null'
-          default: false
-          example: false
-        quantity:
-          type:
-          - integer
-          - 'null'
-          minimum: 0
-          maximum: 65535
-          default: 1
-        sortPosition:
-          $ref: '#/components/schemas/SortPosition'
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
-      type:
-      - string
-      - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
-    SortPosition:
-      title: Sort Position
-      type:
-      - integer
-      - 'null'
-      minimum: 0
-      maximum: 65535
-      default: 100
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     JobType:
       title: Job Type
       description: https://help.workspace.vsco.co/en/articles/347058-job-types
@@ -424,6 +423,52 @@ components:
           $ref: '#/components/schemas/SortPosition'
         workflowId:
           $ref: '#/components/schemas/NullableId'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type:
+      - string
+      - 'null'
+      format: ulid
+      example: 01fqcr215r79p3h19crqbpzwzh
+    SortPosition:
+      title: Sort Position
+      type:
+      - integer
+      - 'null'
+      minimum: 0
+      maximum: 65535
+      default: 100
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
     Links:
       title: Link Relationships
       description: 'Each property defines a hypertext link relationship as indicated by a
@@ -444,68 +489,23 @@ components:
           - title: Self
             description: The target URL is the current resource's own location.
           - $ref: '#/components/schemas/Link'
-    JobTypeDefaultContact:
-      title: Associates a job role to a job type
-      description: See Job Types
-      type: object
-      properties:
-        jobRoleId:
-          $ref: '#/components/schemas/Id'
-        client:
-          type:
-          - boolean
-          - 'null'
-          default: false
-          example: false
-        quantity:
-          type:
-          - integer
-          - 'null'
-          minimum: 0
-          maximum: 65535
-          default: 1
-        sortPosition:
-          $ref: '#/components/schemas/SortPosition'
-  parameters:
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
-    pageSize:
-      name: pageSize
-      in: query
-      description: Number of results per page to return in the collection.
-      schema:
-        type: integer
-        minimum: 10
-        maximum: 100
-        default: 100
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
+  responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    validationError:
+      description: 'Validation error response. Check the `info.errors` property in the
+
+        response for more details.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorValidation'
+    deleteSuccess:
+      description: The resource was successfully deleted.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

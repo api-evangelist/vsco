@@ -68,183 +68,37 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
-    Address:
-      description: Represents an address.
+    ChatAccount:
       type:
       - object
       - 'null'
-      additionalProperties: false
       properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        name:
+        service:
           type:
           - string
           - 'null'
-          maxLength: 255
-          readOnly: true
-        streetAddress:
-          type:
-          - string
-          - 'null'
-          maxLength: 512
-        village:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        city:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        state:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        postalCode:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        country:
-          type:
-          - string
-          - 'null'
-          maxLength: 2
-        latitude:
-          type:
-          - number
-          - 'null'
-          readOnly: true
-        longitude:
-          type:
-          - number
-          - 'null'
-          readOnly: true
-        googlePlaceId:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-          readOnly: true
-        timezone:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-    Contact:
-      title: Contact common fields
-      description: Contact common fields that all kinds share
-      type: object
-      required:
-      - kind
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        address:
-          $ref: '#/components/schemas/Address'
-        chatAccount1:
-          allOf:
-          - description: Chat Account 1
-          - $ref: '#/components/schemas/ChatAccount'
-        chatAccount2:
-          allOf:
-          - description: Chat Account 2
-          - $ref: '#/components/schemas/ChatAccount'
-        chatAccount3:
-          allOf:
-          - description: Chat Account 3
-          - $ref: '#/components/schemas/ChatAccount'
-        customFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/CustomFieldValue'
-        customNumber:
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-          deprecated: true
-          readOnly: true
-        email:
-          type:
-          - string
-          - 'null'
-          format: email
-          maxLength: 255
-        externalMappings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ExternalMapping'
-        facebookUsername:
-          type:
-          - string
-          - 'null'
-          pattern: ^[a-zA-Z\d\.]{5,50}$
-        kind:
-          type: string
           enum:
-          - company
-          - employee
-          - location
-          - person
-        notes:
-          description: 'A list of notes attached to this contact. This will only be returned
+          - etsy
+          - flickr
+          - google
+          - instagram
+          - linkedin
+          - pinterest
+          - skype
+          - tumbler
+          - aim
+          - mobileme
+          - msn
+          - yahoo
+          default: null
+          description: 'The social service. The following values might appear in responses,
 
-            in a get of a specific contact and not in the list response.'
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Note'
-        pinned:
-          $ref: '#/components/schemas/Pinned'
-        secondaryEmail:
+            but are not able to be created: AIM, MobileMe, MSN, Yahoo'
+        identity:
           type:
           - string
           - 'null'
-          format: email
-          maxLength: 64
-        totalCost:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/MoneyAmount'
-        totalRevenue:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/MoneyAmount'
-        twitterUsername:
-          type:
-          - string
-          - 'null'
-          pattern: ^[a-zA-Z\d.]{5,15}$
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
+          maxLength: 255
     Event:
       title: Event
       description: https://help.workspace.vsco.co/en/articles/347132-event-types
@@ -400,193 +254,36 @@ components:
           - string
           - 'null'
           format: uri
-    JobWorksheetContact:
-      title: Job Worksheet Contact
-      type: object
-      required:
-      - contact
-      properties:
-        links:
-          $ref: '#/components/schemas/Links'
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        externalMappings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ExternalMapping'
-        client:
-          type:
-          - boolean
-          - 'null'
-          default: false
-        attendingAllEvents:
-          type:
-          - boolean
-          - 'null'
-          default: false
-        attendingAllSessions:
-          type:
-          - boolean
-          - 'null'
-          default: true
-        jobRoles:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NullableId'
-        roleKinds:
-          type: array
-          items:
-            type: string
-            enum:
-            - client
-            - customer
-            - team
-            - subject
-            - vendor
-          readOnly: true
-        contact:
-          oneOf:
-          - $ref: '#/components/schemas/Person'
-          - $ref: '#/components/schemas/Company'
-          - $ref: '#/components/schemas/Location'
-          discriminator:
-            propertyName: kind
-            mapping:
-              person: Person.yaml
-              company: Company.yaml
-              location: Location.yaml
-    Company:
-      allOf:
-      - title: Company
-        description: A company entity
-        type: object
-        properties:
-          kind:
-            type: string
-            enum:
-            - company
-          accountBalance:
-            allOf:
-            - readOnly: true
-              description: The account balance of this company.
-            - $ref: '#/components/schemas/MoneyAmount'
-          accountNumber:
-            type:
-            - string
-            - 'null'
-            maxLength: 50
-          brandId:
-            allOf:
-            - description: The default brand the company belongs to.
-            - $ref: '#/components/schemas/NullableId'
-          cellPhone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          creditBalance:
-            allOf:
-            - readOnly: true
-              description: The credit amount associated with this company.
-            - $ref: '#/components/schemas/MoneyAmount'
-          fax:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          mailingAddress:
-            $ref: '#/components/schemas/Address'
-          name:
-            type: string
-            description: Company name.
-            maxLength: 255
-          phone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          primaryContactFirstName:
-            type:
-            - string
-            - 'null'
-            maxLength: 48
-          primaryContactLastName:
-            type:
-            - string
-            - 'null'
-            maxLength: 48
-          startingCost:
-            allOf:
-            - description: The cost of this person in software used prior to VSCO Workspace.
-            - $ref: '#/components/schemas/MoneyAmount'
-          startingRevenue:
-            allOf:
-            - description: The revenue from this person in software used prior to VSCO Workspace.
-            - $ref: '#/components/schemas/MoneyAmount'
-          tollFree:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          vendorRoleId:
-            description: 'This is a vendor and defines the default job role does this
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
 
-              contact have when added to a job.'
-            type:
-            - string
-            - 'null'
-            format: ulid
-      - $ref: '#/components/schemas/Contact'
-    CustomFieldValue:
-      title: Custom Field Value
+        current resource according to the defined semantics of the link
+
+        property name.'
       type: object
       required:
-      - fieldId
+      - href
       properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        fieldId:
-          title: Entity Identifier
-          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+        href:
+          description: The hypertext reference to the API resource at tave.io.
           type: string
-          format: ulid
-          example: 01h35ccwymj5ctckp8px1azhg6
-        value:
-          type:
-          - string
-          - 'null'
-    MoneyAmount:
-      title: Numeric representing an amount in the studio's currency
-      type: integer
-      minimum: -99999999999
-      maximum: 99999999999
-      example: 200
-    JobWorksheet:
-      allOf:
-      - title: Job Worksheet
-        type: object
-        properties:
-          events:
-            title: Events
-            type: array
-            items:
-              $ref: '#/components/schemas/Event'
-          contacts:
-            title: Contacts
-            type: array
-            items:
-              $ref: '#/components/schemas/JobWorksheetContact'
-      - $ref: '#/components/schemas/Job'
-    Pinned:
-      title: Whether or not the entity is favorited.
-      type:
-      - boolean
-      - 'null'
-      default: false
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
     Job:
       title: Job
       description: https://help.workspace.vsco.co/en/articles/639878-leads-jobs-and-job-stages
@@ -801,32 +498,117 @@ components:
           - string
           - 'null'
           readOnly: true
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    Location:
-      allOf:
-      - title: Location
-        description: A Location entity
-        type: object
-        properties:
-          kind:
+    JobWorksheetContact:
+      title: Job Worksheet Contact
+      type: object
+      required:
+      - contact
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        externalMappings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        client:
+          type:
+          - boolean
+          - 'null'
+          default: false
+        attendingAllEvents:
+          type:
+          - boolean
+          - 'null'
+          default: false
+        attendingAllSessions:
+          type:
+          - boolean
+          - 'null'
+          default: true
+        jobRoles:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NullableId'
+        roleKinds:
+          type: array
+          items:
             type: string
             enum:
-            - location
-          name:
-            type: string
-            description: Location name.
-            maxLength: 255
-          phone:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-          tollFree:
-            $ref: '#/components/schemas/Event/properties/phoneNumber'
-      - $ref: '#/components/schemas/Contact'
+            - client
+            - customer
+            - team
+            - subject
+            - vendor
+          readOnly: true
+        contact:
+          oneOf:
+          - $ref: '#/components/schemas/Person'
+          - $ref: '#/components/schemas/Company'
+          - $ref: '#/components/schemas/Location'
+          discriminator:
+            propertyName: kind
+            mapping:
+              person: Person.yaml
+              company: Company.yaml
+              location: Location.yaml
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    NullableDate:
+      title: A date that could be null instead
+      description: 'A date string consisting of year, month and day in the timezone of the
+
+        event if specified or the studio.'
+      type:
+      - string
+      - 'null'
+      format: date
+      example: '2020-04-10'
+    NullableDateTime:
+      title: A date time (in UTC) that could be null instead
+      description: 'A date time string consisting of year, month and day along with hour,
+
+        minute and second in UTC.'
+      type:
+      - string
+      - 'null'
+      format: date-time
+      example: '2020-06-17T13:06:22+00:00'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     Note:
       title: Note
       description: Additional notes about a specific entity.
@@ -858,64 +640,12 @@ components:
           $ref: '#/components/schemas/NullableDate'
         jobId:
           $ref: '#/components/schemas/NullableId'
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
+    Pinned:
+      title: Whether or not the entity is favorited.
       type:
-      - string
+      - boolean
       - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
-      type: object
-      required:
-      - href
-      properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
-          type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
-          type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
+      default: false
     ExternalMapping:
       title: External Mapping
       description: 'This is used to relate a unique entity id in an external system to an
@@ -936,16 +666,335 @@ components:
           format: uri
           minLength: 12
           maxLength: 255
-    NullableDate:
-      title: A date that could be null instead
-      description: 'A date string consisting of year, month and day in the timezone of the
+    Location:
+      allOf:
+      - title: Location
+        description: A Location entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - location
+          name:
+            type: string
+            description: Location name.
+            maxLength: 255
+          phone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          tollFree:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+      - $ref: '#/components/schemas/Contact'
+    Address:
+      description: Represents an address.
+      type:
+      - object
+      - 'null'
+      additionalProperties: false
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+          readOnly: true
+        streetAddress:
+          type:
+          - string
+          - 'null'
+          maxLength: 512
+        village:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        city:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        state:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        postalCode:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        country:
+          type:
+          - string
+          - 'null'
+          maxLength: 2
+        latitude:
+          type:
+          - number
+          - 'null'
+          readOnly: true
+        longitude:
+          type:
+          - number
+          - 'null'
+          readOnly: true
+        googlePlaceId:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+          readOnly: true
+        timezone:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+    Contact:
+      title: Contact common fields
+      description: Contact common fields that all kinds share
+      type: object
+      required:
+      - kind
+      properties:
+        links:
+          $ref: '#/components/schemas/Links'
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        address:
+          $ref: '#/components/schemas/Address'
+        chatAccount1:
+          allOf:
+          - description: Chat Account 1
+          - $ref: '#/components/schemas/ChatAccount'
+        chatAccount2:
+          allOf:
+          - description: Chat Account 2
+          - $ref: '#/components/schemas/ChatAccount'
+        chatAccount3:
+          allOf:
+          - description: Chat Account 3
+          - $ref: '#/components/schemas/ChatAccount'
+        customFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomFieldValue'
+        customNumber:
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+          deprecated: true
+          readOnly: true
+        email:
+          type:
+          - string
+          - 'null'
+          format: email
+          maxLength: 255
+        externalMappings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ExternalMapping'
+        facebookUsername:
+          type:
+          - string
+          - 'null'
+          pattern: ^[a-zA-Z\d\.]{5,50}$
+        kind:
+          type: string
+          enum:
+          - company
+          - employee
+          - location
+          - person
+        notes:
+          description: 'A list of notes attached to this contact. This will only be returned
 
-        event if specified or the studio.'
+            in a get of a specific contact and not in the list response.'
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Note'
+        pinned:
+          $ref: '#/components/schemas/Pinned'
+        secondaryEmail:
+          type:
+          - string
+          - 'null'
+          format: email
+          maxLength: 64
+        totalCost:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        totalRevenue:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+        twitterUsername:
+          type:
+          - string
+          - 'null'
+          pattern: ^[a-zA-Z\d.]{5,15}$
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
+    JobWorksheet:
+      allOf:
+      - title: Job Worksheet
+        type: object
+        properties:
+          events:
+            title: Events
+            type: array
+            items:
+              $ref: '#/components/schemas/Event'
+          contacts:
+            title: Contacts
+            type: array
+            items:
+              $ref: '#/components/schemas/JobWorksheetContact'
+      - $ref: '#/components/schemas/Job'
+    CustomFieldValue:
+      title: Custom Field Value
+      type: object
+      required:
+      - fieldId
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        fieldId:
+          title: Entity Identifier
+          description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+          type: string
+          format: ulid
+          example: 01h35ccwymj5ctckp8px1azhg6
+        value:
+          type:
+          - string
+          - 'null'
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
       type:
       - string
       - 'null'
-      format: date
-      example: '2020-04-10'
+      format: ulid
+      example: 01fqcr215r79p3h19crqbpzwzh
+    Company:
+      allOf:
+      - title: Company
+        description: A company entity
+        type: object
+        properties:
+          kind:
+            type: string
+            enum:
+            - company
+          accountBalance:
+            allOf:
+            - readOnly: true
+              description: The account balance of this company.
+            - $ref: '#/components/schemas/MoneyAmount'
+          accountNumber:
+            type:
+            - string
+            - 'null'
+            maxLength: 50
+          brandId:
+            allOf:
+            - description: The default brand the company belongs to.
+            - $ref: '#/components/schemas/NullableId'
+          cellPhone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          creditBalance:
+            allOf:
+            - readOnly: true
+              description: The credit amount associated with this company.
+            - $ref: '#/components/schemas/MoneyAmount'
+          fax:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          mailingAddress:
+            $ref: '#/components/schemas/Address'
+          name:
+            type: string
+            description: Company name.
+            maxLength: 255
+          phone:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          primaryContactFirstName:
+            type:
+            - string
+            - 'null'
+            maxLength: 48
+          primaryContactLastName:
+            type:
+            - string
+            - 'null'
+            maxLength: 48
+          startingCost:
+            allOf:
+            - description: The cost of this person in software used prior to VSCO Workspace.
+            - $ref: '#/components/schemas/MoneyAmount'
+          startingRevenue:
+            allOf:
+            - description: The revenue from this person in software used prior to VSCO Workspace.
+            - $ref: '#/components/schemas/MoneyAmount'
+          tollFree:
+            $ref: '#/components/schemas/Event/properties/phoneNumber'
+          vendorRoleId:
+            description: 'This is a vendor and defines the default job role does this
+
+              contact have when added to a job.'
+            type:
+            - string
+            - 'null'
+            format: ulid
+      - $ref: '#/components/schemas/Contact'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    NullableTime:
+      title: A time that could be null instead
+      description: A time string using 24-hour format (seconds are ignored)
+      type:
+      - string
+      - 'null'
+      format: time
+      example: '14:00:00'
     Error:
       description: An error.
       type: object
@@ -969,6 +1018,26 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
     Person:
       allOf:
       - title: Person
@@ -1161,82 +1230,19 @@ components:
           workPhone:
             $ref: '#/components/schemas/Event/properties/phoneNumber'
       - $ref: '#/components/schemas/Contact'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    NullableDateTime:
-      title: A date time (in UTC) that could be null instead
-      description: 'A date time string consisting of year, month and day along with hour,
-
-        minute and second in UTC.'
-      type:
-      - string
-      - 'null'
-      format: date-time
-      example: '2020-06-17T13:06:22+00:00'
-    ChatAccount:
-      type:
-      - object
-      - 'null'
-      properties:
-        service:
-          type:
-          - string
-          - 'null'
-          enum:
-          - etsy
-          - flickr
-          - google
-          - instagram
-          - linkedin
-          - pinterest
-          - skype
-          - tumbler
-          - aim
-          - mobileme
-          - msn
-          - yahoo
-          default: null
-          description: 'The social service. The following values might appear in responses,
-
-            but are not able to be created: AIM, MobileMe, MSN, Yahoo'
-        identity:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
-    NullableTime:
-      title: A time that could be null instead
-      description: A time string using 24-hour format (seconds are ignored)
-      type:
-      - string
-      - 'null'
-      format: time
-      example: '14:00:00'
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
   responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -1245,12 +1251,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     jobIdInPath:
       name: jobId

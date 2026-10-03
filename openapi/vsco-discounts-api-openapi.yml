@@ -125,13 +125,23 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
+    PositiveMoneyAmount:
+      title: Positive numeric representing an amount in the studio's currency
+      type: integer
+      minimum: 0
+      maximum: 99999999999
+    DiscountCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - discount-collection
+          items:
+            title: Discount
+            type: array
+            items:
+              $ref: '#/components/schemas/Discount'
+      - $ref: '#/components/schemas/List'
     ErrorValidation:
       description: A validation error.
       type: object
@@ -152,24 +162,90 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     IsHidden:
       title: Hidden attribute
       description: Whether or not the object is hidden.
       type: boolean
       example: false
       readOnly: true
-    DiscountCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - discount-collection
-          items:
-            title: Discount
-            type: array
-            items:
-              $ref: '#/components/schemas/Discount'
-      - $ref: '#/components/schemas/List'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
     Discount:
       title: Discount
       type: object
@@ -214,83 +290,9 @@ components:
           enum:
           - Amount
           - Percent
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    PositiveMoneyAmount:
-      title: Positive numeric representing an amount in the studio's currency
-      type: integer
-      minimum: 0
-      maximum: 99999999999
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
   responses:
+    deleteSuccess:
+      description: The resource was successfully deleted.
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -305,8 +307,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    deleteSuccess:
-      description: The resource was successfully deleted.
   parameters:
     idInPath:
       name: id

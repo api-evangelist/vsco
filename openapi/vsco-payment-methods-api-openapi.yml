@@ -89,14 +89,40 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   schemas:
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
+    PaymentMethod:
+      title: Payment Method
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        name:
+          type: string
+          maxLength: 32
+          readOnly: true
+        kind:
+          type: string
+          enum:
+          - Google
+          - PayPal
+          - CreditCard
+          - Check
+          - Cash
+          - EFT
+          default: Cash
     ErrorValidation:
       description: A validation error.
       type: object
@@ -117,12 +143,6 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     PaymentMethodCollection:
       allOf:
       - properties:
@@ -171,6 +191,11 @@ components:
           type: array
           items:
             type: object
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
     Id:
       title: Entity Identifier
       description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
@@ -178,32 +203,12 @@ components:
       format: ulid
       example: 01h35ccwymj5ctckp8px1azhg6
       readOnly: true
-    PaymentMethod:
-      title: Payment Method
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        name:
-          type: string
-          maxLength: 32
-          readOnly: true
-        kind:
-          type: string
-          enum:
-          - Google
-          - PayPal
-          - CreditCard
-          - Check
-          - Cash
-          - EFT
-          default: Cash
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     Error:
       description: An error.
       type: object
@@ -227,19 +232,20 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
       type: string
-      example: resource-type
-  parameters:
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
   responses:
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -248,12 +254,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
