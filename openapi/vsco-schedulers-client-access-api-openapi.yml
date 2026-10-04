@@ -42,59 +42,14 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
-  parameters:
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
   schemas:
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
       type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
+      format: date-time
       readOnly: true
-    CAAddress:
-      allOf:
-      - type: object
-        properties:
-          countryCode:
-            type: string
-          countryName:
-            type:
-            - string
-            - 'null'
-          determinedCountry:
-            type:
-            - string
-            - 'null'
-          showCountry:
-            type: boolean
-            default: false
-      - $ref: '#/components/schemas/Address'
+      example: '2020-08-01T17:32:32Z'
     Error:
       description: An error.
       type: object
@@ -118,6 +73,36 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
+    Link:
+      title: Hypermedia Link Relationship
+      description: 'The target URL indicated in the `href` property is related to the
+
+        current resource according to the defined semantics of the link
+
+        property name.'
+      type: object
+      required:
+      - href
+      properties:
+        href:
+          description: The hypertext reference to the API resource at tave.io.
+          type: string
+          format: uri
+        managerHref:
+          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          type: string
+          format: uri
+        clientHref:
+          description: The URL to this item in Client Access, if available.
+          type: string
+          format: uri
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     Address:
       description: Represents an address.
       type:
@@ -192,12 +177,6 @@ components:
           - string
           - 'null'
           readOnly: true
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
     Links:
       title: Link Relationships
       description: 'Each property defines a hypertext link relationship as indicated by a
@@ -218,36 +197,57 @@ components:
           - title: Self
             description: The target URL is the current resource's own location.
           - $ref: '#/components/schemas/Link'
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    Link:
-      title: Hypermedia Link Relationship
-      description: 'The target URL indicated in the `href` property is related to the
-
-        current resource according to the defined semantics of the link
-
-        property name.'
+    ErrorValidation:
+      description: A validation error.
       type: object
-      required:
-      - href
       properties:
-        href:
-          description: The hypertext reference to the API resource at tave.io.
+        type:
+          description: A namespace URI uniquely identifying the error type.
           type: string
-          format: uri
-        managerHref:
-          description: The URL to this item inside the Manager application at workspace.vsco.co.
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
           type: string
-          format: uri
-        clientHref:
-          description: The URL to this item in Client Access, if available.
-          type: string
-          format: uri
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    CAAddress:
+      allOf:
+      - type: object
+        properties:
+          countryCode:
+            type: string
+          countryName:
+            type:
+            - string
+            - 'null'
+          determinedCountry:
+            type:
+            - string
+            - 'null'
+          showCountry:
+            type: boolean
+            default: false
+      - $ref: '#/components/schemas/Address'
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   responses:
     tooManyRequestsError:
       description: Exceeded request quota, see Retry-After header

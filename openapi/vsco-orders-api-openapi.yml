@@ -206,11 +206,252 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
+    OrderItem:
+      title: Order Item
+      type: object
+      required:
+      - name
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        orderId:
+          $ref: '#/components/schemas/Id'
+        productId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        descriptionHtml:
+          type:
+          - string
+          - 'null'
+          maxLength: 16777215
+        baseConfiguration:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        configuration:
+          type:
+          - array
+          - 'null'
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/ProductConfiguration'
+        basePricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        pricePerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        baseCostPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        costPerUnit:
+          $ref: '#/components/schemas/MoneyAmount'
+        units:
+          type: number
+          format: float
+        taxable:
+          type: boolean
+        discount:
+          type: boolean
+        discountKind:
+          type: string
+          enum:
+          - amount
+          - percent
+          default: amount
+        selectability:
+          type: string
+          enum:
+          - required
+          - suggested
+          - optional
+          default: required
+        selected:
+          type: boolean
+        children:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    JobOrderCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - joborder-collection
+          items:
+            title: Order
+            type: array
+            items:
+              $ref: '#/components/schemas/Order'
+      - $ref: '#/components/schemas/List'
+    Invoice:
+      title: Invoice
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        status:
+          type: string
+          enum:
+          - draft
+          - open
+          - paid-in-full
+          - voided
+          readOnly: true
+        customNumber:
+          type: string
+          maxLength: 16
+          readOnly: true
+        orderId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/Id'
+        title:
+          type:
+          - string
+          - 'null'
+          description: An auto-generated title of the invoice
+          readOnly: true
+        dueDate:
+          $ref: '#/components/schemas/NullableDate'
+        recipientId:
+          $ref: '#/components/schemas/NullableId'
+        promisedArrival:
+          $ref: '#/components/schemas/NullableDate'
+        response:
+          type:
+          - string
+          - 'null'
+          maxLength: 16777215
+        referenceCode:
+          type: string
+          readOnly: true
+          maxLength: 11
+        total:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+    ProductConfiguration:
+      title: Product Configuration
+      type: object
+      required:
+      - name
+      - affectsPrice
+      - kind
+      - value
+      properties:
+        id:
+          allOf:
+          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
+          - $ref: '#/components/schemas/NullableId'
+        name:
+          type: string
+        affectsPrice:
+          type: boolean
+        kind:
+          type: string
+          enum:
+          - AddOn
+          - Option
+        value:
+          type: string
+        unitCost:
+          allOf:
+          - {}
+          - $ref: '#/components/schemas/MoneyAmount'
+        unitPrice:
+          allOf:
+          - {}
+          - $ref: '#/components/schemas/MoneyAmount'
+    PaymentAllocation:
+      title: Payment Allocation
+      type: object
+      required:
+      - amount
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        paymentId:
+          $ref: '#/components/schemas/Id'
+        orderId:
+          $ref: '#/components/schemas/NullableId'
+        invoiceItemId:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/NullableId'
+        jobId:
+          $ref: '#/components/schemas/NullableId'
+        amount:
+          $ref: '#/components/schemas/MoneyAmount'
+        refundedAmount:
+          allOf:
+          - readOnly: true
+          - $ref: '#/components/schemas/MoneyAmount'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
     PositiveMoneyAmount:
       title: Positive numeric representing an amount in the studio's currency
       type: integer
       minimum: 0
       maximum: 99999999999
+    MoneyAmount:
+      title: Numeric representing an amount in the studio's currency
+      type: integer
+      minimum: -99999999999
+      maximum: 99999999999
+      example: 200
     Order:
       title: Order
       allOf:
@@ -294,138 +535,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Invoice'
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
-    PaymentAllocation:
-      title: Payment Allocation
-      type: object
-      required:
-      - amount
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        paymentId:
-          $ref: '#/components/schemas/Id'
-        orderId:
-          $ref: '#/components/schemas/NullableId'
-        invoiceItemId:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/NullableId'
-        jobId:
-          $ref: '#/components/schemas/NullableId'
-        amount:
-          $ref: '#/components/schemas/MoneyAmount'
-        refundedAmount:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/MoneyAmount'
-    OrderItem:
-      title: Order Item
-      type: object
-      required:
-      - name
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        orderId:
-          $ref: '#/components/schemas/Id'
-        productId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-        name:
-          type: string
-          minLength: 1
-          maxLength: 128
-        descriptionHtml:
-          type:
-          - string
-          - 'null'
-          maxLength: 16777215
-        baseConfiguration:
-          type:
-          - array
-          - 'null'
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/ProductConfiguration'
-        configuration:
-          type:
-          - array
-          - 'null'
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/ProductConfiguration'
-        basePricePerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        pricePerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        baseCostPerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        costPerUnit:
-          $ref: '#/components/schemas/MoneyAmount'
-        units:
-          type: number
-          format: float
-        taxable:
-          type: boolean
-        discount:
-          type: boolean
-        discountKind:
-          type: string
-          enum:
-          - amount
-          - percent
-          default: amount
-        selectability:
-          type: string
-          enum:
-          - required
-          - suggested
-          - optional
-          default: required
-        selected:
-          type: boolean
-        children:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrderItem'
-    JobOrderCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - joborder-collection
-          items:
-            title: Order
-            type: array
-            items:
-              $ref: '#/components/schemas/Order'
-      - $ref: '#/components/schemas/List'
     ErrorValidation:
       description: A validation error.
       type: object
@@ -456,101 +565,6 @@ components:
       - 'null'
       format: date
       example: '2020-04-10'
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    Invoice:
-      title: Invoice
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        status:
-          type: string
-          enum:
-          - draft
-          - open
-          - paid-in-full
-          - voided
-          readOnly: true
-        customNumber:
-          type: string
-          maxLength: 16
-          readOnly: true
-        orderId:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/Id'
-        title:
-          type:
-          - string
-          - 'null'
-          description: An auto-generated title of the invoice
-          readOnly: true
-        dueDate:
-          $ref: '#/components/schemas/NullableDate'
-        recipientId:
-          $ref: '#/components/schemas/NullableId'
-        promisedArrival:
-          $ref: '#/components/schemas/NullableDate'
-        response:
-          type:
-          - string
-          - 'null'
-          maxLength: 16777215
-        referenceCode:
-          type: string
-          readOnly: true
-          maxLength: 11
-        total:
-          allOf:
-          - readOnly: true
-          - $ref: '#/components/schemas/MoneyAmount'
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
     OrderConfiguration:
       title: Order Configuration
       type: object
@@ -651,6 +665,60 @@ components:
           allOf:
           - readOnly: true
           - $ref: '#/components/schemas/PositiveMoneyAmount'
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     NullableId:
       title: Entity Identifier that might be null instead
       description: A ULID entity identifier that is nullable.
@@ -659,79 +727,24 @@ components:
       - 'null'
       format: ulid
       example: 01fqcr215r79p3h19crqbpzwzh
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ProductConfiguration:
-      title: Product Configuration
-      type: object
-      required:
-      - name
-      - affectsPrice
-      - kind
-      - value
-      properties:
-        id:
-          allOf:
-          - description: If this option was created in VSCO Workspace, it will have an ID. If this order was imported, it may not.
-          - $ref: '#/components/schemas/NullableId'
-        name:
-          type: string
-        affectsPrice:
-          type: boolean
-        kind:
-          type: string
-          enum:
-          - AddOn
-          - Option
-        value:
-          type: string
-        unitCost:
-          allOf:
-          - {}
-          - $ref: '#/components/schemas/MoneyAmount'
-        unitPrice:
-          allOf:
-          - {}
-          - $ref: '#/components/schemas/MoneyAmount'
-    MoneyAmount:
-      title: Numeric representing an amount in the studio's currency
-      type: integer
-      minimum: -99999999999
-      maximum: 99999999999
-      example: 200
   parameters:
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
     idInPath:
       name: id
       in: path
       description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    jobIdInPath:
+      name: jobId
+      in: path
       schema:
         $ref: '#/components/schemas/Id'
     pageSize:
@@ -743,19 +756,6 @@ components:
         minimum: 10
         maximum: 100
         default: 100
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    jobIdInPath:
-      name: jobId
-      in: path
-      schema:
-        $ref: '#/components/schemas/Id'
   responses:
     tooManyRequestsError:
       description: Exceeded request quota, see Retry-After header

@@ -156,52 +156,27 @@ paths:
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
 components:
-  parameters:
-    externalMappingId:
-      name: externalMappingId
-      in: query
-      description: Filter objects by an external id for this provider.
-      schema:
-        type: string
-        maxLength: 64
-        default: null
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
-    pageSize:
-      name: pageSize
-      in: query
-      description: Number of results per page to return in the collection.
-      schema:
-        type: integer
-        minimum: 10
-        maximum: 100
-        default: 100
-    includeHidden:
-      name: includeHidden
-      in: query
-      description: Include objects that have been hidden
-      schema:
-        type: boolean
-        default: false
-        example: false
-    page:
-      name: page
-      in: query
-      description: The page of results to return.
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
   schemas:
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
+    ExternalMapping:
+      title: External Mapping
+      description: 'This is used to relate a unique entity id in an external system to an
+
+        entity inside of VSCO Workspace.  These objects can not be updated currently.'
+      type: object
+      required:
+      - id
+      - url
+      properties:
+        id:
+          type: string
+          minLength: 1
+          maxLength: 64
+        url:
+          description: The url to the remote item.
+          type: string
+          format: uri
+          minLength: 12
+          maxLength: 255
     ServerTimestamp:
       title: Server Timestamp
       description: A server timestamp (always in UTC)
@@ -209,6 +184,71 @@ components:
       format: date-time
       readOnly: true
       example: '2020-08-01T17:32:32Z'
+    Links:
+      title: Link Relationships
+      description: 'Each property defines a hypertext link relationship as indicated by a
+
+        link object or array of link objects. The target URL of each hypertext
+
+        link relationship is related to the current resource according to the
+
+        defined semantics of the link relationship property name.'
+      readOnly: true
+      required:
+      - self
+      type: object
+      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
+      properties:
+        self:
+          allOf:
+          - title: Self
+            description: The target URL is the current resource's own location.
+          - $ref: '#/components/schemas/Link'
+    JobTypeDefaultContact:
+      title: Associates a job role to a job type
+      description: See Job Types
+      type: object
+      properties:
+        jobRoleId:
+          $ref: '#/components/schemas/Id'
+        client:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          example: false
+        quantity:
+          type:
+          - integer
+          - 'null'
+          minimum: 0
+          maximum: 65535
+          default: 1
+        sortPosition:
+          $ref: '#/components/schemas/SortPosition'
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
     Link:
       title: Hypermedia Link Relationship
       description: 'The target URL indicated in the `href` property is related to the
@@ -232,28 +272,6 @@ components:
           description: The URL to this item in Client Access, if available.
           type: string
           format: uri
-    JobTypeDefaultContact:
-      title: Associates a job role to a job type
-      description: See Job Types
-      type: object
-      properties:
-        jobRoleId:
-          $ref: '#/components/schemas/Id'
-        client:
-          type:
-          - boolean
-          - 'null'
-          default: false
-          example: false
-        quantity:
-          type:
-          - integer
-          - 'null'
-          minimum: 0
-          maximum: 65535
-          default: 1
-        sortPosition:
-          $ref: '#/components/schemas/SortPosition'
     ErrorValidation:
       description: A validation error.
       type: object
@@ -274,32 +292,31 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-    ExternalMapping:
-      title: External Mapping
-      description: 'This is used to relate a unique entity id in an external system to an
-
-        entity inside of VSCO Workspace.  These objects can not be updated currently.'
-      type: object
-      required:
-      - id
-      - url
-      properties:
-        id:
-          type: string
-          minLength: 1
-          maxLength: 64
-        url:
-          description: The url to the remote item.
-          type: string
-          format: uri
-          minLength: 12
-          maxLength: 255
+    SortPosition:
+      title: Sort Position
+      type:
+      - integer
+      - 'null'
+      minimum: 0
+      maximum: 65535
+      default: 100
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    JobTypeCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - jobtype-collection
+          items:
+            title: Job Type
+            type: array
+            items:
+              $ref: '#/components/schemas/JobType'
+      - $ref: '#/components/schemas/List'
     JobTypeDefaultEvent:
       title: Associates a event type to a job type
       description: See Job Types
@@ -322,6 +339,13 @@ components:
           default: 1
         sortPosition:
           $ref: '#/components/schemas/SortPosition'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     List:
       title: Collection
       description: A collection (or list) of resources.
@@ -358,18 +382,6 @@ components:
           type: array
           items:
             type: object
-    JobTypeCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - jobtype-collection
-          items:
-            title: Job Type
-            type: array
-            items:
-              $ref: '#/components/schemas/JobType'
-      - $ref: '#/components/schemas/List'
     JobType:
       title: Job Type
       description: https://help.workspace.vsco.co/en/articles/347058-job-types
@@ -423,6 +435,12 @@ components:
           $ref: '#/components/schemas/SortPosition'
         workflowId:
           $ref: '#/components/schemas/NullableId'
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
     NullableId:
       title: Entity Identifier that might be null instead
       description: A ULID entity identifier that is nullable.
@@ -431,64 +449,46 @@ components:
       - 'null'
       format: ulid
       example: 01fqcr215r79p3h19crqbpzwzh
-    SortPosition:
-      title: Sort Position
-      type:
-      - integer
-      - 'null'
-      minimum: 0
-      maximum: 65535
-      default: 100
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    Links:
-      title: Link Relationships
-      description: 'Each property defines a hypertext link relationship as indicated by a
-
-        link object or array of link objects. The target URL of each hypertext
-
-        link relationship is related to the current resource according to the
-
-        defined semantics of the link relationship property name.'
-      readOnly: true
-      required:
-      - self
-      type: object
-      example: "\"self\": {\n  \"href\": \"https://example.com/object-endpoint/03c41781-f06f-4402-a5d9-1c30ccb4db29\",\n  \"title\": \"Example Link Relationship\",\n  \"type\": \"application/json\",\n}"
-      properties:
-        self:
-          allOf:
-          - title: Self
-            description: The target URL is the current resource's own location.
-          - $ref: '#/components/schemas/Link'
+  parameters:
+    includeHidden:
+      name: includeHidden
+      in: query
+      description: Include objects that have been hidden
+      schema:
+        type: boolean
+        default: false
+        example: false
+    page:
+      name: page
+      in: query
+      description: The page of results to return.
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of results per page to return in the collection.
+      schema:
+        type: integer
+        minimum: 10
+        maximum: 100
+        default: 100
+    externalMappingId:
+      name: externalMappingId
+      in: query
+      description: Filter objects by an external id for this provider.
+      schema:
+        type: string
+        maxLength: 64
+        default: null
   responses:
     tooManyRequestsError:
       description: Exceeded request quota, see Retry-After header
