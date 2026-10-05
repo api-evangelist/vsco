@@ -1,0 +1,12 @@
+{
+ "url": "https://workspace.vsco.co/api/v2/openapi.json",
+ "requested_url": "https://workspace.vsco.co/api/v2/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=UTF-8",
+ "bytes": 511676,
+ "sha256": "9777bd712826d14966a8b286dc7e85d343b8ca5cea555016c2bcdaccffdc8d7d",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.98), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
