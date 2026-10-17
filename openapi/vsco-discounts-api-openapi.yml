@@ -125,18 +125,6 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
-    PositiveMoneyAmount:
-      title: Positive numeric representing an amount in the studio's currency
-      type: integer
-      minimum: 0
-      maximum: 99999999999
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
     Error:
       description: An error.
       type: object
@@ -160,25 +148,57 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    DiscountCollection:
-      allOf:
-      - properties:
+    Discount:
+      title: Discount
+      type: object
+      required:
+      - name
+      - price
+      - typeId
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        typeId:
+          $ref: '#/components/schemas/Id'
+        name:
+          type: string
+          maxLength: 128
+        price:
+          $ref: '#/components/schemas/PositiveMoneyAmount'
+        manualEntry:
+          type: boolean
+          default: true
+        descriptionHtml:
           type:
-            enum:
-            - discount-collection
-          items:
-            title: Discount
-            type: array
-            items:
-              $ref: '#/components/schemas/Discount'
-      - $ref: '#/components/schemas/List'
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+          - string
+          - 'null'
+          maxLength: 16777215
+        sku:
+          type:
+          - string
+          - 'null'
+          maxLength: 48
+        rebate:
+          type: boolean
+          default: false
+        kind:
+          type: string
+          enum:
+          - Amount
+          - Percent
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
       type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
+      format: date-time
       readOnly: true
+      example: '2020-08-01T17:32:32Z'
     List:
       title: Collection
       description: A collection (or list) of resources.
@@ -235,50 +255,6 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    Discount:
-      title: Discount
-      type: object
-      required:
-      - name
-      - price
-      - typeId
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        typeId:
-          $ref: '#/components/schemas/Id'
-        name:
-          type: string
-          maxLength: 128
-        price:
-          $ref: '#/components/schemas/PositiveMoneyAmount'
-        manualEntry:
-          type: boolean
-          default: true
-        descriptionHtml:
-          type:
-          - string
-          - 'null'
-          maxLength: 16777215
-        sku:
-          type:
-          - string
-          - 'null'
-          maxLength: 48
-        rebate:
-          type: boolean
-          default: false
-        kind:
-          type: string
-          enum:
-          - Amount
-          - Percent
     IsHidden:
       title: Hidden attribute
       description: Whether or not the object is hidden.
@@ -290,22 +266,31 @@ components:
       description: The type of resource represented.
       type: string
       example: resource-type
-  parameters:
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
+    DiscountCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - discount-collection
+          items:
+            title: Discount
+            type: array
+            items:
+              $ref: '#/components/schemas/Discount'
+      - $ref: '#/components/schemas/List'
+    PositiveMoneyAmount:
+      title: Positive numeric representing an amount in the studio's currency
+      type: integer
+      minimum: 0
+      maximum: 99999999999
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
   responses:
-    deleteSuccess:
-      description: The resource was successfully deleted.
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -314,6 +299,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

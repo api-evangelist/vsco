@@ -173,6 +173,110 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    ServerTimestamp:
+      title: Server Timestamp
+      description: A server timestamp (always in UTC)
+      type: string
+      format: date-time
+      readOnly: true
+      example: '2020-08-01T17:32:32Z'
+    List:
+      title: Collection
+      description: A collection (or list) of resources.
+      type: object
+      required:
+      - type
+      - items
+      properties:
+        meta:
+          description: Metadata describing the current result set.
+          type: object
+          readOnly: true
+          properties:
+            currentPage:
+              description: The current page of results returned.
+              type: integer
+            totalPages:
+              description: 'The total number of pages in the result set. This is affected by
+
+                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
+              type: integer
+            totalItems:
+              description: 'The total number of items in the result set. This may be
+
+                affected by active search/filter parameters.'
+              type: integer
+            rows:
+              description: The number of rows returned per page for the current result set.
+              type: integer
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        items:
+          description: A collection of resources returned in the current result set.
+          type: array
+          items:
+            type: object
+    ErrorValidation:
+      description: A validation error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - validation-error
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Validation Error
+        detail:
+          description: Breakdown of what fields valid validation and why
+          type: object
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
+    IsHidden:
+      title: Hidden attribute
+      description: Whether or not the object is hidden.
+      type: boolean
+      example: false
+      readOnly: true
+    ResourceType:
+      title: Resource Type
+      description: The type of resource represented.
+      type: string
+      example: resource-type
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
     CustomFieldCollection:
       allOf:
       - properties:
@@ -185,13 +289,6 @@ components:
             items:
               $ref: '#/components/schemas/CustomField'
       - $ref: '#/components/schemas/List'
-    ServerTimestamp:
-      title: Server Timestamp
-      description: A server timestamp (always in UTC)
-      type: string
-      format: date-time
-      readOnly: true
-      example: '2020-08-01T17:32:32Z'
     CustomField:
       title: Custom Field
       type: object
@@ -251,119 +348,7 @@ components:
           - string
           - 'null'
           maxLength: 128
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
-      format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    List:
-      title: Collection
-      description: A collection (or list) of resources.
-      type: object
-      required:
-      - type
-      - items
-      properties:
-        meta:
-          description: Metadata describing the current result set.
-          type: object
-          readOnly: true
-          properties:
-            currentPage:
-              description: The current page of results returned.
-              type: integer
-            totalPages:
-              description: 'The total number of pages in the result set. This is affected by
-
-                the `pageSize` parameter (`totalItems / pageSize == totalPages`).'
-              type: integer
-            totalItems:
-              description: 'The total number of items in the result set. This may be
-
-                affected by active search/filter parameters.'
-              type: integer
-            rows:
-              description: The number of rows returned per page for the current result set.
-              type: integer
-        type:
-          $ref: '#/components/schemas/ResourceType'
-        items:
-          description: A collection of resources returned in the current result set.
-          type: array
-          items:
-            type: object
-    ErrorValidation:
-      description: A validation error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - validation-error
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Validation Error
-        detail:
-          description: Breakdown of what fields valid validation and why
-          type: object
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    ResourceType:
-      title: Resource Type
-      description: The type of resource represented.
-      type: string
-      example: resource-type
-    IsHidden:
-      title: Hidden attribute
-      description: Whether or not the object is hidden.
-      type: boolean
-      example: false
-      readOnly: true
-  parameters:
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
   responses:
-    deleteSuccess:
-      description: The resource was successfully deleted.
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -372,6 +357,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

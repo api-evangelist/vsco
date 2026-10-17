@@ -125,6 +125,29 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
 components:
   schemas:
+    Error:
+      description: An error.
+      type: object
+      properties:
+        type:
+          description: A namespace URI uniquely identifying the error type.
+          type: string
+          enum:
+          - unknown
+          - quota-limit
+          - not-implemented
+        title:
+          description: A short description of the error encountered.
+          type: string
+          example: Bad Request
+        detail:
+          description: A longer description of of the error encountered.
+          type: string
+          example: There was a problem with your request. Please see `info` for more information.
+        status:
+          description: The HTTP status code associated with this error.
+          type: integer
+          example: 400
     ServerTimestamp:
       title: Server Timestamp
       description: A server timestamp (always in UTC)
@@ -132,25 +155,31 @@ components:
       format: date-time
       readOnly: true
       example: '2020-08-01T17:32:32Z'
-    Id:
-      title: Entity Identifier
-      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
-      type: string
+    NullableId:
+      title: Entity Identifier that might be null instead
+      description: A ULID entity identifier that is nullable.
+      type:
+      - string
+      - 'null'
       format: ulid
-      example: 01h35ccwymj5ctckp8px1azhg6
-      readOnly: true
-    DiscountTypeCollection:
-      allOf:
-      - properties:
-          type:
-            enum:
-            - discounttype-collection
-          items:
-            title: DiscountType
-            type: array
-            items:
-              $ref: '#/components/schemas/DiscountType'
-      - $ref: '#/components/schemas/List'
+      example: 01fqcr215r79p3h19crqbpzwzh
+    DiscountType:
+      title: Discount Type
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        created:
+          $ref: '#/components/schemas/ServerTimestamp'
+        modified:
+          $ref: '#/components/schemas/ServerTimestamp'
+        hidden:
+          $ref: '#/components/schemas/IsHidden'
+        parentId:
+          $ref: '#/components/schemas/NullableId'
+        name:
+          type: string
+          maxLength: 255
     List:
       title: Collection
       description: A collection (or list) of resources.
@@ -187,23 +216,6 @@ components:
           type: array
           items:
             type: object
-    DiscountType:
-      title: Discount Type
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-        created:
-          $ref: '#/components/schemas/ServerTimestamp'
-        modified:
-          $ref: '#/components/schemas/ServerTimestamp'
-        hidden:
-          $ref: '#/components/schemas/IsHidden'
-        parentId:
-          $ref: '#/components/schemas/NullableId'
-        name:
-          type: string
-          maxLength: 255
     ErrorValidation:
       description: A validation error.
       type: object
@@ -224,64 +236,37 @@ components:
           description: The HTTP status code associated with this error.
           type: integer
           example: 400
-    Error:
-      description: An error.
-      type: object
-      properties:
-        type:
-          description: A namespace URI uniquely identifying the error type.
-          type: string
-          enum:
-          - unknown
-          - quota-limit
-          - not-implemented
-        title:
-          description: A short description of the error encountered.
-          type: string
-          example: Bad Request
-        detail:
-          description: A longer description of of the error encountered.
-          type: string
-          example: There was a problem with your request. Please see `info` for more information.
-        status:
-          description: The HTTP status code associated with this error.
-          type: integer
-          example: 400
-    NullableId:
-      title: Entity Identifier that might be null instead
-      description: A ULID entity identifier that is nullable.
-      type:
-      - string
-      - 'null'
-      format: ulid
-      example: 01fqcr215r79p3h19crqbpzwzh
     ResourceType:
       title: Resource Type
       description: The type of resource represented.
       type: string
       example: resource-type
+    DiscountTypeCollection:
+      allOf:
+      - properties:
+          type:
+            enum:
+            - discounttype-collection
+          items:
+            title: DiscountType
+            type: array
+            items:
+              $ref: '#/components/schemas/DiscountType'
+      - $ref: '#/components/schemas/List'
     IsHidden:
       title: Hidden attribute
       description: Whether or not the object is hidden.
       type: boolean
       example: false
       readOnly: true
-  parameters:
-    idInPath:
-      name: id
-      in: path
-      description: ULID to perform an action on.
-      schema:
-        $ref: '#/components/schemas/Id'
+    Id:
+      title: Entity Identifier
+      description: A lowercase [ULID](https://github.com/ulid/spec) entity identifier
+      type: string
+      format: ulid
+      example: 01h35ccwymj5ctckp8px1azhg6
+      readOnly: true
   responses:
-    deleteSuccess:
-      description: The resource was successfully deleted.
-    tooManyRequestsError:
-      description: Exceeded request quota, see Retry-After header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     validationError:
       description: 'Validation error response. Check the `info.errors` property in the
 
@@ -290,6 +275,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorValidation'
+    deleteSuccess:
+      description: The resource was successfully deleted.
+    tooManyRequestsError:
+      description: Exceeded request quota, see Retry-After header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    idInPath:
+      name: id
+      in: path
+      description: ULID to perform an action on.
+      schema:
+        $ref: '#/components/schemas/Id'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
